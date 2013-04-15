@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+ 
+  <head>
+
+    <!-- this key is good for web.mit.edu/snw/www -->
+    <!-- <script src="http://www.google.com/jsapi?key=ABQIAAAA_Xocq18Wh01DYjhDo3vEbxQww4B36n1MWJcqWT3ccjTYRRSVWRQWr3G6zUsMyWbZ8HtxYPIlTK9GSg" type="text/javascript"></script> -->
+    <!-- this key is good for personal.soton.ac.uk -->
+    <!-- <script src="http://www.google.com/jsapi?key=ABQIAAAAclCz4bThIvpXLvyO5UlroxRHLZmsFQiB8ZRO_dTNdmH17ck2WxRrAIXMOO5yx06c5i--1k1fv8p9Cw" type="text/javascript"></script> -->
+    <!-- good for steveblock.co.uk -->
+    <script src="http://www.google.com/jsapi?key=AIzaSyBUBI5vyEr5JMs-AsQqQgmHI2MhYyH3aOs" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      google.load('maps', '2');
+      var map = null;
+
+      function createMap(mapElement) {
+        // This method sets up the Google Maps object
+        // We can't configure the Google Maps object until the map object in the HTML has been created.
+        if (!GBrowserIsCompatible()) {
+          setText(mapElement, 'Browser not compatible with Google Maps!');
+          return;
+        }
+        map = new GMap2(mapElement);
+        map.addControl(new GLargeMapControl());
+        map.addControl(new GMapTypeControl());
+        map.addControl(new GScaleControl());
+        //map.enableScrollWheelZoom();
+        map.setCenter(new GLatLng(53.0, -2.0), 7);
+      }
+
+      // Map from rank to data
+      var data = [];
+      data[1] = {rank: 1, coords: {lat: 53.068864, lng: -4.075589}, name: 'Snowdon (Yr Wyddfa)', height: 1085, area: 'Snowdonia', country: 'Wales',
+                  date: '18/07/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                  thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SmTefhCWZbI/AAAAAAAARvM/dmLi555mXdk/s144/IMGP4723.JPG'};
+      data[2] = {rank: 2, coords: {lat: 53.07518, lng: -4.074399}, name: 'Garnedd Ugain (Crib y Ddysgl)', height: 1066, area: 'Snowdonia', country: 'Wales',
+                  date: '18/07/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                  thumbnail: 'http://lh4.ggpht.com/_5einibZ_20c/SmTeexOQ5mI/AAAAAAAARvE/VJROdZAE_NQ/s144/IMGP4721.JPG'};
+      data[3] = {rank: 3, coords: {lat: 53.160587, lng: -3.969305}, name: 'Carnedd Llewelyn', height: 1064, area: 'Snowdonia', country: 'Wales',
+                 date: '12/04/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking',
+                 thumbnail: 'http://lh6.ggpht.com/_5einibZ_20c/SeTy4-1O4bI/AAAAAAAANoQ/bqn58Bs7LyI/s144/IMGP4563.JPG'};
+      data[4] = {rank: 4, coords: {lat: 53.147486, lng: -4.000113}, name: 'Carnedd Dafydd', height: 1040, area: 'Snowdonia', country: 'Wales',
+                 date: '19/07/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 thumbnail: 'http://lh4.ggpht.com/_5einibZ_20c/SmTg0qfhe9I/AAAAAAAARwA/3n3zu42Va80/s144/IMGP4734.JPG'};
+      data[5] = {rank: 5, coords: {lat: 53.10097, lng: -4.02978}, name: 'Glyder Fawr', height: 999, area: 'Snowdonia', country: 'Wales',
+                 date: '22/02/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaWeekend',
+                 thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SasbDIzdtaI/AAAAAAAANag/e7vP1yOj2dM/s144/P2210433.JPG'};
+      data[6] = {rank: 6, coords: {lat: 53.105108, lng: -4.00711}, name: 'Glyder Fach', height: 990, area: 'Snowdonia', country: 'Wales',
+                 date: '08/08/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking03',
+                 thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SpxFpOvIiRI/AAAAAAAAR9E/VMTbvrJwlnY/s144/IMGP4748.JPG'};
+      data[7] = {rank: 7, coords: {lat: 54.454222, lng: -3.211528}, name: 'Scafell Pike', height: 978, area: 'Lakes', country: 'England',
+                 date: '24/05/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 thumbnail: 'http://lh6.ggpht.com/_5einibZ_20c/Sh3GhBZghBI/AAAAAAAAN-U/owFSGpxk2lU/s144/IMGP4628.JPG'};
+      data[8] = {rank: 8, coords: {lat: 53.137427, lng: -4.010112}, name: 'Pen yr Ole Wen', height: 978, area: 'Snowdonia', country: 'Wales',
+                 date: '19/07/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/SmTg0c8Vf5I/AAAAAAAARv8/mN4yVi9a1iE/s144/IMGP4733.JPG'};
+      data[9] = {rank: 9, coords: {lat: 53.174167, lng: -3.963333}, name: 'Foel Grach', height: 976, area: 'Snowdonia', country: 'Wales',
+                 date: '12/04/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking'};
+      data[10] = {rank: 10, coords: {lat: 54.447105, lng: -3.223832}, name: 'Sca Fell', height: 964, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/Sh3GdcSECmI/AAAAAAAAN90/fVI5_Jw2jUU/s144/IMGP4624.JPG'};
+      data[11] = {rank: 11, coords: {lat: 53.166628, lng: -3.984544}, name: 'Yr Elen', height: 962, area: 'Snowdonia', country: 'Wales',
+                 date: '19/07/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SmTg1EToKTI/AAAAAAAARwE/To7x56psMSo/s144/IMGP4735.JPG'};
+      data[12] = {rank: 12, coords: {lat: 54.527231, lng: -3.016054}, name: 'Helvellyn', height: 950, area: 'Lakes', country: 'England',
+                  date: '29/08/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking03',
+                  thumbnail: ''};
+      data[13] = {rank: 13, coords: {lat: 53.115228, lng: -4.046438}, name: 'Y Garn (Glyders)', height: 947, area: 'Snowdonia', country: 'Wales',
+                  date: '22/02/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaWeekend'};
+      data[14] = {rank: 14, coords: {lat: 53.194151, lng: -3.95138}, name: 'Foel-fras', height: 942, area: 'Snowdonia', country: 'Wales',
+                  date: '12/04/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking'};
+      data[15] = {rank: 15, coords: {lat: 54.455456, lng: -3.197855}, name: 'Ill Crag', height: 935, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/Sh3GiXaQ2YI/AAAAAAAAN-g/0JFw64LZyOE/s144/IMGP4634.JPG'};
+      data[16] = {rank: 16, coords: {lat: 54.457176, lng: -3.205619}, name: 'Broad Crag', height: 934, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh6.ggpht.com/_5einibZ_20c/Sh3GhUa77II/AAAAAAAAN-Y/q4u0qIPikwI/s144/IMGP4631.JPG'};
+      data[17] = {rank: 17, coords: {lat: 54.651006, lng: -3.146247}, name: 'Skiddaw', height: 931, area: 'Lakes', country: 'England',
+                  date: '30/08/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking03',
+                  thumbnail: ''};
+      data[18] = {rank: 18, coords: {lat: 53.183148, lng: -3.964352}, name: 'Garnedd Uchaf', height: 926, area: 'Snowdonia', country: 'Wales',
+                  date: '12/04/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking',
+                  thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SeTy7B-AbhI/AAAAAAAAOCY/riTieo0-vXw/s144/IMGP4568.JPG'};
+      data[19] = {rank: 19, coords: {lat: 53.130934, lng: -4.074095}, name: 'Elidir Fawr', height: 924, area: 'Snowdonia', country: 'Wales',
+                 date: '08/08/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking03',
+                 thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/SpxFpXZVS9I/AAAAAAAAR9I/3C0Q0LkQrek/s144/IMGP4750.JPG'};
+      data[20] = {rank: 20, coords: {lat: 53.075542, lng: -4.053513}, name: 'Crib Goch', height: 923, area: 'Snowdonia', country: 'Wales',
+                  date: '18/07/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                  thumbnail: 'http://lh6.ggpht.com/_5einibZ_20c/SmTeXVds5zI/AAAAAAAARuQ/HQv3mNlU7Xk/s144/IMGP4706.JPG'};
+      data[21] = {rank: 21, coords: {lat: 53.114293, lng: -3.995583}, name: 'Tryfan', height: 915, area: 'Snowdonia', country: 'Wales',
+                 date: '08/08/2009',
+                 photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking03',
+                 thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/SpxFn5gHmQI/AAAAAAAAR88/-EQOVcBFF1s/s144/IMGP4745.JPG'};
+      data[22] = {rank: 22, coords: {lat: 54.465386, lng: -3.193516}, name: 'Great End', height: 910, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/Sh3GkM8j7mI/AAAAAAAAN-s/rh58va-SPjg/s144/IMGP4638.JPG'};
+      data[23] = {rank: 23, coords: {lat: 52.786388, lng: -3.686884}, name: 'Aran Fawddwy', height: 905, area: 'Snowdonia', country: 'Wales',
+                  date: '29/11/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHikingNovember',
+                  thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/SxWYkCAFw_I/AAAAAAAASdc/K5YJeFQULqw/s144/IMGP5097.JPG'};
+      data[24] = {rank: 24, coords: {lat: 54.4477, lng: -3.163696}, name: 'Bow Fell', height: 902, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/Sh3Gks-RVZI/AAAAAAAAN-w/OonHmP113gs/s144/IMGP4639.JPG'};
+      data[25] = {rank: 25, coords: {lat: 54.483127, lng: -3.217189}, name: 'Great Gable', height: 899, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh4.ggpht.com/_5einibZ_20c/Sh3KNFx-8uI/AAAAAAAAN_s/nF-EKY87pqA/s144/IMGP4646.JPG'};
+      data[26] = {rank: 26, coords: {lat: 53.059319, lng: -4.055727}, name: 'Y Lliwedd', height: 898, area: 'Snowdonia', country: 'Wales',
+                  date: '18/07/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                  thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SmTgz6SpxFI/AAAAAAAARv4/xeTykadL1gA/s144/IMGP4732.JPG'};
+      data[27] = {rank: 27, coords: {lat: 52.699429, lng: -3.907033}, name: 'Cadair Idris (Penygadair)', height: 893, area: 'Snowdonia', country: 'Wales',
+                  date: '29/11/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHikingNovember',
+                  thumbnail: 'http://lh6.ggpht.com/_5einibZ_20c/SxWYkvnGBRI/AAAAAAAASdk/d-_X_ZujhrE/s144/IMGP5104.JPG'};
+      data[28] = {rank: 28, coords: {lat: 54.703095, lng: -2.484996}, name: 'Cross Fell', height: 893, area: 'North Pennines', country: 'England',
+                  date: '25/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh3.ggpht.com/_5einibZ_20c/Sh3Gqsy369I/AAAAAAAAN_g/-otRn5k4pvM/s144/IMGP4659.JPG'};
+      data[29] = {rank: 29, coords: {lat: 54.497765, lng: -3.279396}, name: 'Pillar', height: 892, area: 'Lakes', country: 'England',
+                  date: '24/05/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                  thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/Sh3GoIVrdzI/AAAAAAAAN_Q/fx0gjmFAd1o/s144/IMGP4651.JPG'};
+      data[30] = {rank: 30, coords: {lat: 54.533599, lng: -3.006939}, name: 'Catstye Cam', height: 890, area: 'Lakes', country: 'England',
+                  date: '29/08/2009',
+                  photos: 'http://picasaweb.google.com/steve.a.block/LakesHiking03',
+                  thumbnail: ''};
+
+      function setText(node, text) {
+        if (node.innerText) {
+          node.innerText = text;
+        } else {
+          node.textContent = text;
+        }
+      }
+
+      function appendTextDiv(element, text) {
+        var e = document.createElement('div');
+        setText(e, text);
+        element.appendChild(e); 
+        return e;
+      }
+      
+
+      /* Returns an HTML object for the peak */
+      function createPeakObject(peak) {
+        var element = document.createElement('div');
+        element.className = 'peak';
+        appendTextDiv(element, 'rank: ' + peak.rank);
+        appendTextDiv(element, 'name: ' + peak.name);
+        appendTextDiv(element, 'height: ' + peak.height);
+        appendTextDiv(element, 'area: ' + peak.area);
+        appendTextDiv(element, 'country: ' + peak.country);
+        if (peak.date) {
+          appendTextDiv(element, 'date: ' + peak.date);
+        }
+        var anchor = null;
+        if (peak.photos) {
+          anchor = document.createElement('a');
+          anchor.href = peak.photos;
+          anchor.target = '30by30photos';
+        }
+        if (peak.thumbnail) {
+          var image = document.createElement('img');
+          image.src = peak.thumbnail;
+          if (peak.photos) {
+            anchor.appendChild(image);
+            image = anchor;
+          }
+          element.appendChild(image);
+        } else if (peak.photos) {
+          setText(anchor, 'Photos');
+          element.appendChild(anchor);
+        }
+        return element;
+      }
+
+      function addMarker(peak) {
+        if (peak.coords) {
+          var icon = peak.date ? G_START_ICON : G_DEFAULT_ICON;
+          var marker = new GMarker(new GLatLng(peak.coords.lat, peak.coords.lng),
+                                   {icon: icon, title: peak.name});
+          peak.infoWindowObject = createPeakObject(peak);
+          marker.bindInfoWindow(peak.infoWindowObject);
+          map.addOverlay(marker);
+          peak.marker = marker;
+        }
+      }
+
+      function showMarker(index) {
+        var peak = data[index];
+        if (peak.marker) {
+          peak.marker.openInfoWindow(peak.infoWindowObject);
+        }
+      }
+
+      function onLoad() {
+        createMap(document.getElementById('map'));
+        var list = document.getElementById('list');
+        for (var i = 1; i < data.length; i++) {
+          var peak = data[i];
+          addMarker(peak);
+
+          var listItem = document.createElement('li');
+          if (peak.coords) {
+            var anchor = document.createElement('a');
+            anchor.href = '#';
+            // Anonymous function for closure.
+            (function(j) {
+              anchor.onclick = function() {showMarker(j);};
+            })(i);
+            setText(anchor, peak.name);
+            listItem.appendChild(anchor);
+          } else {
+            setText(listItem, peak.name);
+          }
+          if (peak.date) {
+            listItem.className += 'done';
+          }
+          list.appendChild(listItem);
+        }
+      }
+    </script>
+
+    <style type="text/css">
+      .peak {
+        border: 1px solid red;
+      }
+      .peak div {
+        border: 1px solid blue;
+      }
+      #map {
+        width: 800px;
+        height: 800px;
+      }
+      li a {
+        color: black;
+      }
+      li.done {
+        color: green;
+      }
+      li.done a {
+        color: green;
+      }
+    </style>
+
+    <title>30 by 30</title>
+
+  </head>
+
+  <body onload="onLoad();">
+    <div id="map"></div>
+    <div><ol id="list"></ol></div>
+  </body>
+
+</html>

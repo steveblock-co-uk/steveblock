@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+ 
+  <head>
+
+    <meta HTTP-EQUIV="Content-Type" content="text/html;charset=utf-8">
+    <meta name="description" content="Steve Block : photos and adventures">
+    <meta name="keywords" content="Steve, Steve Block, Stephen, Stephen Block, steveblock, sblock, sab63, Cambridge, MIT, knowle, cruftlabs">
+
+    <link type="text/css" rel="stylesheet" href="main.css">
+
+    <script type="text/javascript">
+      function MouseOver( description ) {
+        document.getElementById( 'caption' ).innerHTML = description;
+      }
+      function MouseOut() {
+        document.getElementById( 'caption' ).innerHTML = '';
+      }
+    </script>
+
+    <style type="text/css">
+      img.link {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+      }
+      div.caption {
+        height: 20px; /* to maintain spacing when empty */
+        font-weight: bold;
+        text-align: center;
+      }
+      div.links {
+        margin: 70px auto;
+        text-align: center;
+        width: 500px; /* to give a minimum width */
+      }
+    </style>
+
+    <title>steveblock.co.uk</title>
+
+  </head>
+
+  <body>
+
+    <h1 style="margin-top: 70px"> steveblock.co.uk </h1>
+
+    <div class="links">
+      <a href="projects/index.html"><img class="link" src="gears.gif" alt="Projects" onmouseover="MouseOver('Projects');" onmouseout="MouseOut();" /></a>
+      <!-- Add back in when sorted out
+      <a href="Travels/index.html"><img class="link" src="Travels.gif" alt="Travels" onmouseover="MouseOver('Travels');" onmouseout="MouseOut();" /></a>
+      -->
+      <a href="photojournal/index.html"><img class="link" src="camera.gif" alt="Photo Journal" onmouseover="MouseOver('Photo Journal');" onmouseout="MouseOut();" /></A>
+    </div>
+
+    <div id="caption" class="caption"></div>
+
+  </body>
+
+</html>

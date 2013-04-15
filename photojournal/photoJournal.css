@@ -1,0 +1,23 @@
+div.photoJournal{
+  background-color: white;
+  /* border: 1pt solid red; */
+  padding: 20px 20px 10px 20px;
+  margin: 0px auto 25px auto;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+}
+
+p.photoJournal {
+  /* border: 1pt solid green; */
+  text-align: center;
+}
+
+img.photoJournal {
+  display: block;
+  margin: auto;
+}
+
+a.tag {
+  display: block;
+  height: 25px;
+}

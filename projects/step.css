@@ -1,0 +1,20 @@
+/* The div around each step */
+div.stepDiv {
+  background: white;
+  padding: 20px;
+  margin: 25px 0px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+/* The div around each step's image */
+div.stepImageDiv {
+  float: left; 
+  margin-right: 50px;
+}
+
+/* Each image */
+img.stepImage {
+  display: block;
+  margin: auto;
+}
