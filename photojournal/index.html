@@ -12,15 +12,76 @@
     <link type="text/css" rel="stylesheet" href="photoJournal.css">
 
     <script type="text/javascript" src="../utils.js"></script>
-    <script type="text/javascript" src="../../Scripts/utils.js"></script>
+    <script type="text/javascript" src="../scripts/utils.js"></script>
     <script type="text/javascript">
-      var years = [1990, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011];
+      var years = [1990, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012];
 
       var theData = [
 
+        {year: 2012, month: 'July', day: '1', caption: 'Birmingham to Oxford',
+         photo: 'http://lh4.googleusercontent.com/-vTaNZnnRFNE/T_IOH30KQ7I/AAAAAAAAZsE/mZy-0vrwE5Q/s800/DSCN0453.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/BirminghamToOxford03#slideshow'} ] },
+        {year: 2012, month: 'June', day: '17', caption: 'Squamish Biking',
+         photo: 'http://lh5.googleusercontent.com/-YIfPG5nbKOM/T_IPapS8-kI/AAAAAAAAZs8/AfZikEL3PMA/s800/DSCN0443.JPG'},
+        {year: 2012, month: 'June', day: '1', caption: 'Coast to Coast',
+         photo: 'http://lh5.googleusercontent.com/-Y77A3l_xWtk/T9KWOrXUGbI/AAAAAAAAZM8/9Xz9rxjoo4s/s800/IMGP7239.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/CoastToCoast02#slideshow'} ] },
+        {year: 2012, month: 'May', day: '26', caption: 'Isle of Purbeck',
+         photo: 'http://lh6.googleusercontent.com/-AoyoVMITRiA/T8ITLhm1wmI/AAAAAAAAZEg/ss_vuk54WQc/s800/IMGP7216.JPG', portrait: true,
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/IsleOfPurbeck#slideshow/5747177034063350130'} ] },
+        {year: 2012, month: 'May', day: '19', caption: 'London Revolution', AR: 750/499,
+         photo: '2012/londonRevolution.jpg',
+         link: [ {url: 'http://sportivephoto.thirdlight.com/viewcontainer.tlx?containerid=10744006738'} ] },
+        {year: 2012, month: 'April', day: '21', caption: 'Solden Skiing',
+         photo: 'http://lh3.googleusercontent.com/-QrEh9-gfuJY/T5SKYFBShWI/AAAAAAAAX8A/knGQUDM6PTk/s800/IMGP7199.JPG'},
+        {year: 2012, month: 'April', day: '15', caption: 'Dunkery Beacon',
+         photo: 'http://lh6.googleusercontent.com/--p7V8zrn42g/T4yFMrNHuEI/AAAAAAAAXuc/24CukFSslQo/s800/IMGP7178.JPG'},
+        {year: 2012, month: 'April', day: '14', caption: 'CTS Exmoor',
+         photo: '2012/ctsExmoor.jpg', AR: 316/476},
+        {year: 2012, month: 'April', day: '6', caption: 'South Downs Way',
+         photo: 'http://lh5.googleusercontent.com/-Snum20dy_nc/T4M2b4vKTiI/AAAAAAAAXek/VIFGjGeyNnQ/s800/IMGP7170.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/SouthDownsWay02#slideshow'} ] },
+        {year: 2012, month: 'March', day: '31', caption: 'Four Inns',
+         photo: 'http://lh5.googleusercontent.com/-E4WNpxl3MM4/T3zfpmtu_8I/AAAAAAAAXPM/6_b1X5L1L5Q/s800/DSCN0332.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/FourInns03#slideshow'} ] },
+        {year: 2012, month: 'March', day: '24', caption: 'CTS Sussex',
+         photo: ''},
+        {year: 2012, month: 'March', day: '16', caption: 'Sydney and the Blue Mountains',
+         photo: 'http://lh3.googleusercontent.com/-2HeeG1GjX2M/T29iC48kSBI/AAAAAAAAW1A/pvk1K96esQQ/s800/IMGP7141.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/Sydney#slideshow'} ] },
+        {year: 2012, month: 'March', day: '4', caption: 'Cannock Chase',
+         photo: 'http://lh4.googleusercontent.com/-49RB_-YwQhQ/T29gIl362dI/AAAAAAAAW0U/WFYww7pkMoU/s800/IMGP7134.JPG'},
+        {year: 2012, month: 'February', day: '25', caption: 'BMF North to South Run'},
+        {year: 2012, month: 'February', day: '18', caption: 'CTS South Devon',
+         photo: '2012/ctsSouthDevon.jpg', AR: 476/316},
+         /* photo: 'http://lh4.googleusercontent.com/-U-X-ej2adqc/T0AYHjtZ1RI/AAAAAAAAVhg/SfwCz7tlCQ0/s800/IMGP7131.JPG', portrait: true}, */
+        {year: 2012, month: 'February', day: '12', caption: 'Skiing in Kirchberg',
+         photo: '2012/kirchbergSkiing.jpg',
+         link: [ {url: 'http://www.flickr.com/photos/cmjones/sets/72157629422296127', owner: 'Chris'},
+                 {url: 'http://www.flickr.com/photos/prubach/sets/72157629072742232/with/6777315700', owner: 'Pawel'} ] },
+        {year: 2012, month: 'February', day: '5', caption: 'Llantony Priory Biking',
+         photo: 'http://lh6.googleusercontent.com/-KHd4fliSyKU/Ty8L2NV2HEI/AAAAAAAAVhQ/2t5-dJo0Fd0/s800/IMGP7128.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/LlantonyPrioryBiking#slideshow'} ] },
+        {year: 2012, month: 'January', day: '21', caption: 'CTS Anglesey',
+         photo: '2012/ctsAnglesey.jpg', AR: 476/316,
+         link: [ {owner: 'Endurance Life', url: 'http://www.endurancelife.com/gallery-view.asp?event=135&bib=236&photog=ANY&subgal=ANY&button=Go+%3E%3E'} ] },
+        {year: 2012, month: 'January', day: '15', caption: 'Biking in the White Peak',
+         photo: 'http://lh5.googleusercontent.com/-KAY4Sp1lcfg/TxU_mpZxoqI/AAAAAAAAVgE/dtOcbW_l8qQ/s800/150112_0034.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/WhitePeakBiking#slideshow'} ] },
+        {year: 2012, month: 'January', day: '1', caption: 'New Year Biking',
+         photo: 'http://lh6.googleusercontent.com/-md1ze6TCc0A/TwG5tnty9JI/AAAAAAAAVfc/vsbExe4dux4/s800/IMGP7116.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/NewYear2012#slideshow'} ] },
+
+        {year: 2011, month: 'December', day: '31', caption: 'New Year 2012',
+         photo: 'http://lh4.googleusercontent.com/-sIGXFFJIDz4/TwG5oP6av4I/AAAAAAAAVfM/Eqt7uY0oMjw/s800/DSCN0223.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/NewYear2012#slideshow'} ] },
+        {year: 2011, month: 'December', day: '27', caption: 'Christmas Walk',
+         photo: 'http://lh6.googleusercontent.com/-sdYRP0eHaj0/TwG4Oy-dXbI/AAAAAAAAVeM/GpM9gR4hY68/s800/DSCN0216.JPG',
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/ChristmasWalk02#slideshow'} ] },
         {year: 2011, month: 'December', day: '10', caption: 'Christmas at Ffridd',
          photo: 'http://lh5.googleusercontent.com/-YNI3g5106m4/TufUfIlVPSI/AAAAAAAAVdM/mPHzp_SGA9s/s800/IMGP7103.JPG',
-         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/ChristmasAtFfridd03#slideshow/5685746637595945362'} ] },
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/ChristmasAtFfridd03#slideshow'},
+                 {owner: 'Jon', url: 'http://www.flickr.com/photos/jon_ellis/sets/72157628453270671'} ] },
         {year: 2011, month: 'December', day: '3', caption: 'CTS Dorset',
          photo: 'http://www.endurancelife.com/photos/127/phcw_CTS12Dorset_0416.JPG', AR: 478/318,
          link: [ {url: 'http://www.endurancelife.com/gallery-view.asp?event=127&bib=287', owner: 'Endurance Life'} ] },
@@ -59,8 +120,7 @@
          photo: 'http://lh3.googleusercontent.com/-hCG32JqnhuM/TlQwT8ovhHI/AAAAAAAAVKQ/1DRVY-VapHQ/s800/IMGP7029.JPG',
          link: [ {url: 'http://picasaweb.google.com/114119976513946116088/ParisBiking'} ] },
         {year: 2011, month: 'August', day: '12', caption: 'Jamie and Kate\'s wedding',
-         photo: '',
-         link: [ {url: ''} ] },
+         photo: 'http://lh6.googleusercontent.com/-BD8lG1pisC4/T5wv07rWIDI/AAAAAAAAYK4/NzAijHc9TzU/s800/jamiesWedding.jpg'},
         {year: 2011, month: 'August', day: '6', caption: 'Oggie 8',
          photo: 'http://lh5.googleusercontent.com/-vUJALQl8cYs/TkBXmMhc7QI/AAAAAAAAVHs/9LBmrU_fYXQ/s800/IMGP7017.JPG',
          link: [ {url: 'http://picasaweb.google.com/steve.a.block/Oggie8'} ] },
@@ -179,7 +239,7 @@
         {year: 2010, month: 'August', day: '22', caption: 'Gower loop',
          photo: 'http://lh6.ggpht.com/_5einibZ_20c/THLwwCyjCjI/AAAAAAAATf8/YfHe24y7EpQ/s800/IMGP5685.JPG'},
         {year: 2010, month: 'August', day: '21', caption: 'Ben and Kath\'s Wedding', AR: 1024/564,
-         photo: 'http://lh5.ggpht.com/_5einibZ_20c/TSC0bvhe0oI/AAAAAAAAUGQ/YNIW4B1RDKI/s800/B%2BK_1217.jpg'},
+         photo: 'http://lh5.googleusercontent.com/-CEw0GxzYiZ4/TSC0bvhe0oI/AAAAAAAAUGQ/L4i1iKBYAY0/s800/B%252BK_1217.jpg'},
         {year: 2010, month: 'August', day: '14', caption: 'Pembrokeshire Coast',
          photo: 'http://lh3.ggpht.com/_5einibZ_20c/THLsvOLYhGI/AAAAAAAATfI/Tzw0SRfOZYk/s800/P8141136.JPG',
          link: [ {owner: 'Dave', url: 'http://www.facebook.com/#!/album.php?aid=245824&id=610212782'} ] },
@@ -409,7 +469,7 @@
         {year: 2008, photo: 'http://lh3.ggpht.com/steve.a.block/SBxf9y1r6eI/AAAAAAAAGBE/v8Tox30hnG4/s800/P4121057.JPG', caption: 'Mexican night', day: '12', month: 'April', portrait: true },
         {year: 2008, photo: 'http://lh6.ggpht.com/steve.a.block/SBxfBi1r6bI/AAAAAAAAGAw/Qn0OX4eRc9A/s800/P4061037.JPG', caption: 'A dip in the North Sea', month: ' Sea', day: '5', month: 'April' },
         {year: 2008, photo: 'http://lh4.ggpht.com/steve.a.block/SBxfeC1r6cI/AAAAAAAAGA4/5RGOrAdolbU/s800/P3271013.JPG', caption: 'Skiing in Tignes', day: '29', month: 'March', link: 'http://picasaweb.google.com/steve.a.block/Tignes' },
-        {year: 2008, photo: 'http://lh6.ggpht.com/steve.a.block/SBPM_y1r5-I/AAAAAAAAF8k/g8y9YpABWZc/s800/IMGP3489.JPG', caption: 'Brecons wi', month: ' Claire', day: '15', month: 'March' },
+        {year: 2008, photo: 'http://lh6.ggpht.com/steve.a.block/SBPM_y1r5-I/AAAAAAAAF8k/g8y9YpABWZc/s800/IMGP3489.JPG', caption: 'Brecons with Claire', day: '15', month: 'March' },
         /* {year: 2008, photo: '', caption: 'nothing - home for tandem', day: '8', month: 'March' }, */
         /* {year: 2008, photo: '', caption: 'moving', day: '1', month: 'March' }, */
         {year: 2008, photo: '', caption: 'Swansea surfing with Ben', day: '23', month: 'February' },
@@ -425,7 +485,7 @@
         {year: 2007, photo: 'http://lh4.ggpht.com/steve.a.block/R8FVNBlOc-I/AAAAAAAAFn0/BavXzKcaQJI/s800/pc310841.jpg', caption: 'New Year 08', day: '31', month: 'December' },
         {year: 2007, photo: 'http://lh5.ggpht.com/steve.a.block/R8FTyRlOcWI/AAAAAAAAFi4/4akozdfxmw4/s800/IMGP3453.JPG', caption: 'Kinder Scout', day: '29', month: 'December', link: 'http://picasaweb.google.com/steve.a.block/ChristmasWalk07' },
         /* {year: 2007, photo: '', caption: 'christmas in toronto', day: '22', month: 'December', link: '' }, */
-        {year: 2007, photo: 'http://lh4.ggpht.com/steve.a.block/SBNMMS1r56I/AAAAAAAAF8E/8awrhg2utic/s800/IMGP3446.JPG', caption: 'ffridd', day: '15', month: 'December', link: 'http://bh206.tzo.com/ffridd_december_2007.php' },
+        {year: 2007, photo: 'http://lh4.ggpht.com/steve.a.block/SBNMMS1r56I/AAAAAAAAF8E/8awrhg2utic/s800/IMGP3446.JPG', caption: 'Ffridd', day: '15', month: 'December', link: 'http://bh206.tzo.com/ffridd_december_2007.php' },
         {year: 2007, photo: '2007/woolacombeSurfing.jpg', caption: 'Woolacombe Surfing', day: '8', month: 'December', link: 'http://bh206.tzo.com/surfing_december_2007.php', portrait: true },
         /* {year: 2007, photo: '', caption: 'xmas shopping', day: '1', month: 'December', link: '' }, */
         /* {year: 2007, photo: '', caption: 'bramble bashing and home to see ventures', day: '24', month: 'November', link: '' }, */
@@ -497,7 +557,7 @@
         {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5ZOAvj1B3I/AAAAAAAACR0/6WWtaszanF8/s800/imgp0380.jpg', caption: 'Preparing for greater things', day: '23', month: 'July', link: 'http://picasaweb.google.com/steve.a.block/CamelotBurlingtonMontreal' },
         {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5ZPhvj1B7I/AAAAAAAACSY/8ihn6G-I7CU/s800/imgp0367.jpg', caption: 'Boston to Provincetown with a new toy', day: '16', month: 'July' },
         {year: 2006, photo: '2006/superverse.jpg', caption: 'Superverse', day: '8', month: 'July', link: 'http://mitoc.mit.edu/gallery/album361' },
-        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R5ZSVPj1CLI/AAAAAAAACUY/7aIaDo0dBOM/s800/imgp0329.jpg', caption: 'The Bel Air\'s day of glory', day: '5', month: 'July', link: '../Projects/belAirReturn.html' },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R5ZSVPj1CLI/AAAAAAAACUY/7aIaDo0dBOM/s800/imgp0329.jpg', caption: 'The Bel Air\'s day of glory', day: '5', month: 'July', link: '../projects/belAirReturn.html' },
         {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5ZTevj1CPI/AAAAAAAACU4/S6k6cFT8Sbc/s800/imgp0298.jpg', caption: 'Classic Rock', day: '17', month: 'June', portrait: true },
         {year: 2006, photo: 'http://lh3.ggpht.com/_5einibZ_20c/R5ZUP_j1CWI/AAAAAAAAMyo/Dopretbqipc/s800/SteveSwim.jpg', caption: 'Mooseman', day: '4', month: 'June', link: 'http://picasaweb.google.com/steve.a.block/Mooseman', AR: 253/380 },
         {year: 2006, photo: '2006/lakeview.jpg', caption: 'Lakeview on Cannon', day: '28', month: 'May', link: 'http://mitoc.mit.edu/gallery/album332' },
@@ -505,7 +565,7 @@
         {year: 2006, photo: '2006/easterns.jpg', caption: 'Switching to the dark side', day: '30', month: 'April', link: 'http://web.mit.edu/~cycling-club/www/OutdoorAdventures/2006/Easterns/index.html', AR: 3/2 },
         {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R5ZX-Pj1CaI/AAAAAAAACWY/5IxkkSBAF4k/s800/IMGP0270.JPG', caption: 'Kanc, Franconia and Crawford loop', day: '22', month: 'April', portrait: true },
         {year: 2006, photo: '2006/farewell.jpg', caption: 'A farewell to ice at the Flume', day: '15', month: 'April', link: 'http://mitoc.mit.edu/gallery/album315' },
-        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R1H0Ttt8zWI/AAAAAAAABb4/FZ6TxzfsR80/s800/IMGP0259.JPG', caption: 'Frantic resin pouring', day: '4', month: 'April', link: '../Projects/cruftable.html' },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R1H0Ttt8zWI/AAAAAAAABb4/FZ6TxzfsR80/s800/IMGP0259.JPG', caption: 'Frantic resin pouring', day: '4', month: 'April', link: '../projects/cruftable.html' },
         {year: 2006, photo: '2006/katahdin.jpg', caption: 'Katahdin expedition', day: '31', month: 'March', link: 'http://mitoc.mit.edu/gallery/album302' },
         {year: 2006, photo: '2006/tuckermans.jpg', caption: 'Spring skiing in Tuckerman\'s', day: '19', month: 'March', link: 'http://mitoc.mit.edu/gallery/album294' },
         {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R7NqthlOZdI/AAAAAAAAFH4/-im6OpFiYVM/s800/IMGP0194.JPG', caption: 'Standard Right', day: '18', month: 'March', portrait: true },
@@ -527,7 +587,6 @@
         {year: 2005, caption: 'Christmas walk', day: '28', month: 'December',
           photo: '2005/christmasWalk.jpg',
           link: [ {owner: 'Claire', url: 'http://www.facebook.com/album.php?fbid=6718755691&id=558905691&aid=19806'} ] },
-        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Za0vj1CcI/AAAAAAAACWw/npMS4awR-Hw/s800/IMG_1925.JPG', caption: 'New Year 2006', day: '31', month: 'December', link: 'http://picasaweb.google.com/steve.a.block/NewYear06', portrait: true },
         {year: 2005, photo: '2005/ffridd.jpg', caption: 'Christmas at Ffridd', day: '17', month: 'December', link: 'http://barts-web.com', portrait: true },
         {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5ZcCvj1CiI/AAAAAAAACXg/11KGyMH31nU/s800/IMG_3791.JPG', caption: 'Sven', day: '13', month: 'December', portrait: true },
         {year: 2005, photo: '2005/presidentials.jpg', caption: 'Presidentials', day: '27', month: 'November', link: 'http://mitoc.mit.edu/gallery/album66', AR: 427/640 },
@@ -542,7 +601,7 @@
         {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Zn-Pj1DXI/AAAAAAAACeI/faT-eQY1bVI/s800/IMG_3633.jpg', caption: 'Birchen Edge', day: '29', month: 'August', link: 'http://picasaweb.google.com/steve.a.block/BirchenEdge', portrait: true },
         {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5ZqHPj1DlI/AAAAAAAACf4/j9bYQk8Bk4E/s800/IMG_3588.jpg', caption: 'Colorado', day: '21', month: 'August', link: 'http://picasaweb.google.com/steve.a.block/Colorado' },
         {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R5Z5K_j1FaI/AAAAAAAACvA/DkfDkGgCc8s/s800/IMG_3478.jpg', caption: 'Albany', day: '7', month: 'August', link: 'http://picasaweb.google.com/steve.a.block/Albany' },
-        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5ZyCPj1EkI/AAAAAAAACos/oTQrljKZodY/s800/073105_docking.jpg', caption: 'Bel Air', day: '31', month: 'July', link: '../Projects/belAir.html' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5ZyCPj1EkI/AAAAAAAACos/oTQrljKZodY/s800/073105_docking.jpg', caption: 'Bel Air', day: '31', month: 'July', link: '../projects/belAir.html' },
         {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Zzffj1E2I/AAAAAAAACq8/ugURvvn0Z2k/s800/IMG_3426.jpg', caption: 'Paragliding', day: '30', month: 'July', link: 'http://picasaweb.google.com/steve.a.block/Paragliding' },
         {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Zzwvj1E6I/AAAAAAAACrY/ucZ1xvNM1Yo/s800/IMG_3295.jpg', caption: 'Mt. Washington Road Race', day: 23, month: 'July' },
         {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Zzzfj1E8I/AAAAAAAACrk/ZbDdUNpHGDY/s800/IMG_3287.jpg', caption: 'Greenwich', day: '12', month: 'June' },
@@ -597,7 +656,7 @@
         {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kRCxTie3E/AAAAAAAADfI/dInHqaEQ2RQ/s800/Malverns.jpg", caption: 'Malverns', day: '26', month: 'July' },
         {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kRNhTie5E/AAAAAAAADfU/A7WLMK3v2Qo/s800/BenSLandrover.jpg", caption: 'Ben\'s Landrover', day: '23', month: 'July' },
         {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kSlhTie7E/AAAAAAAADfo/YdcuLBjBLJ8/s800/HarrisFamily.jpg", caption: 'Football at the Harris\'', day: '17', month: 'July' },
-        {year: 2004, photo: 'http://lh5.google.com/steve.a.block/R5fKxxTic6I/AAAAAAAADOQ/YvjhUN-c9VY/s800/IMG_2558.jpg', caption: 'Cruftamaran', day: '4', month: 'July', link: '../Projects/cruftamaran.html' },
+        {year: 2004, photo: 'http://lh5.google.com/steve.a.block/R5fKxxTic6I/AAAAAAAADOQ/YvjhUN-c9VY/s800/IMG_2558.jpg', caption: 'Cruftamaran', day: '4', month: 'July', link: '../projects/cruftamaran.html' },
         {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kS1hTie9E/AAAAAAAAEtc/uHs9QAPMrTg/s800/PresidentiaLTraverse.jpg", caption: 'Presidential Traverse', day: '26', month: 'June', link: "http://picasaweb.google.com/steve.a.block/PresidentiaLTraverse" },
         {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5fJsRTiczE/AAAAAAAADNs/6nc_1URSiRY/s800/CapeCod.jpg", caption: 'Cape Cod', day: '9', month: 'June' },
         {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kTSxTifQE/AAAAAAAADiU/_cx8V9Qs0yE/s800/Marathon04.jpg", caption: 'Marathon', day: '19', month: 'April' },
@@ -711,18 +770,8 @@
         }
       }
 
-      var photosToLoad;
-
-      function photoLoaded(src) {
-        photosToLoad--;
-        //console.log(photosToLoad + ' ' + src);
-        if (photosToLoad == 0 && tag) {
-          JumpToTag(tag);
-        }
-      }
-
+      // Generates HTML for an entry
       function WriteEntry(entry) {
-        
         var AR = 4/3;
         if (entry.AR) {
           AR = entry.AR;
@@ -731,8 +780,8 @@
         }
         var imageSize = FitToBoundingBox(new Size(maxImageDimension, maxImageDimension), AR);
         var date = entry.day + getOrdinalSuffix(parseInt(entry.day)) + ' ' + entry.month;
-        var id = entry.year + entry.month + entry.day;
-        var html = '<a name="' + id + '"></a>';
+        var id = entry.year + entry.month + entry.day + "_";
+        var html = '<a name="' + id + '" class="tag"></a>';
         html += '<div class="photoJournal" style="width: ' + imageSize.width + 'px;">';
         if (entry.photo) {
           // Link should be an array of objects.
@@ -742,13 +791,17 @@
           }
           var hasLink = typeof entry.link == 'object' && entry.link.length > 0;
           if (hasLink) {
-            if (typeof entry.link[0] != 'object') { console.log('Error in entry "' + entry.caption + '"'); return; }
+            if (typeof entry.link[0] != 'object') {
+              console.log('Error in entry "' + entry.caption + '"');
+              return;
+            }
             html += '<a href="' + entry.link[0].url + '" target="_new">';
           }
+          // TODO: Fix me!
           // This page has a document base set to www.steveblock.co.uk. This won't work for images as the response is an iframe!
           if (entry.photo.indexOf('http://') != 0 && document.location.protocol != 'file:')
             entry.photo = 'http://www.personal.soton.ac.uk/sw5f08/SteveBlock/PhotoJournal/' + entry.photo;
-          html += '<img class="photoJournal" src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;" onLoad="photoLoaded(\'' + entry.photo + '\')">';
+          html += '<img class="photoJournal" src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;")">';
           if (hasLink) {
             html += '</a>';
           }
@@ -777,6 +830,7 @@
         return html;
       }
 
+      // Shows the relevent photos for a year
       function ShowYear(year) {
         var yearsDiv = document.getElementById('years');
         yearsDiv.innerHTML = '';
@@ -784,8 +838,7 @@
           if (years[i] == year) {
             yearsDiv.innerHTML += '<span class="activeLink">' + years[i] + '</span>';
           } else {
-            // Can't use a href to set location to a fragment, as this doesn't cause a page reload. Have to use JS.
-            yearsDiv.innerHTML += '<a href="#" onclick="SwitchYear(' + years[i] + '); return false;">' + years[i] + '</a>';
+            yearsDiv.innerHTML += '<a href="#' + years[i] + '">' + years[i] + '</a>';
           }
           if (i < years.length-1) {
             yearsDiv.innerHTML += ' | ';
@@ -803,53 +856,64 @@
         entriesDiv.innerHTML = html;
       }
       
-      var tag;
-      function UpdateView() {
-        updateLinks('PhotoJournal/');
+      // Processes the URL for the year, shows the relevent photos, and scrolls to a tag if present.
+      function updateView() {
+        //console.log("updateView");
+        // If there's a query param, nut no hash convert to a hash. Query param is passed
+        // by iframe, hash is not.
+        var query = window.location.search.slice(1);
         var hash = window.location.hash.slice(1);
-        var year = parseInt(hash);
+        if (query != "" && hash == "") {
+          location = location.origin + location.pathname + "#" + query;
+        }
+
+        var year = parseInt(hash);  // Ignore trailing non-numeric
         if (isNaN(year)) {
           // Use latest year by default
           year = years[years.length-1];
         }
-        // Must set tag before showing the year, in case all images are cached
-        tag = hash;
         ShowYear(year);
-      }
-      function JumpToTag(tag) {
-        window.location = '#' + tag;
-      }
-      function findPos(obj) {
-        var curleft = curtop = 0;
-        if (obj.offsetParent) {
-          do {
-            curleft += obj.offsetLeft;
-            curtop += obj.offsetTop;
-          } while (obj = obj.offsetParent);
-        }
-        return [curleft, curtop];
+
+        // Now we have the content, scroll to the tag if set
+        // Async to allow layout
+        if (hash != "" && hash != ("#" + year))
+          window.setTimeout(scrollToTag, 0);
       }
 
-      function SwitchYear(year) {
-        // Update the URL bar to make it look good. Doesn't work if we're in an Iframe as it causes the main page to reload
-        // and doesn't pass the fragment to the iframe.
-        if (window.parent == window) {
-          window.location.hash = year;
-        }
-        ShowYear(year);
+      function scrollToTag() {
+	// Modify the hash to force a scroll. Use location.replace to prevent
+	// history item being added.
+        window.removeEventListener("hashchange", updateView);
+        var hash = location.hash;
+        location.replace(location.origin + location.pathname + hash + "_");
+        location.replace(location.origin + location.pathname + hash);
+        // async to not pick up this hash change
+        window.setTimeout(function() { window.addEventListener("hashchange", updateView); }, 1000);
       }
+
+      function OnLoad() {
+        // There's no point pushing the hash change up to the iframe (if present) as
+        // it won't cause a reload, so won't be passed to us. And forcing a
+        // reload would defeat the purpose. But it would be good to be able to
+        // set a hashtag from a stevevlock.co.uk URL. Maybe use a query param?
+        // TODO: Messes up setting hash!
+        //updateLinks('PhotoJournal/');
+        window.addEventListener("hashchange", updateView);
+        updateView();
+      }
+
     </script>
 
   </head>
 
-  <body onload="UpdateView();">
+  <body onload="OnLoad();">
 
     <div class="main">
 
       <div class="header">
         <div class="floatRight steveblock"><a href="../index.html">steveblock.co.uk</a></div>
         <img class="header" src="../camera.gif">
-        <a href="../Projects/index.html">Projects</a> |
+        <a href="../projects/index.html">Projects</a> |
         <span class="activeLink">Photo Journal</span>
       </div>
 
