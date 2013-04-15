@@ -1,3 +1,25 @@
+/*
+ * Fonts to try ...
+ * - Haynes Manual - Alte Haas Grotesk
+ * - NYC subway
+ * - motorway
+ * - tron
+ */
+
+@font-face {
+  font-family: AlteHaasGrotesk;
+  font-wieght: bold;
+  src: url('AlteHaasGroteskBold.ttf');
+}
+
+@font-face {
+  font-family: AlteHaasGrotesk;
+  src: url('AlteHaasGroteskRegular.ttf');
+  font-wieght: normal;
+}
+
+body, div.header { font-family: AlteHaasGrotesk, serif; }
+
 div.photoJournal{
   background-color: white;
   /* border: 1pt solid red; */
