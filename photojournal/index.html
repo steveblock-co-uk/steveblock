@@ -11,13 +11,28 @@
     <link type="text/css" rel="stylesheet" href="../main.css">
     <link type="text/css" rel="stylesheet" href="photoJournal.css">
 
-    <script type="text/javascript" src="../utils.js"></script>
     <script type="text/javascript" src="../scripts/utils.js"></script>
     <script type="text/javascript">
       var years = [1990, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012];
 
       var theData = [
 
+        {year: 2012, month: 'August', day: '20', caption: 'London to Sydney',
+         photo: '2012/nykGalaxy.jpg',
+         link: [ {url: 'http://www.adventuresbytandem.com/china'} ] },
+        {year: 2012, month: 'August', day: '20', caption: 'London to Sydney',
+         photo: '2012/china.jpg',
+         link: [ {url: 'http://www.adventuresbytandem.com/china'} ] },
+        {year: 2012, month: 'August', day: '20', caption: 'London to Sydney',
+         photo: '2012/transSiberian.jpg',
+         link: [ {url: 'http://www.adventuresbytandem.com/china'} ] },
+        {year: 2012, month: 'August', day: '12', caption: 'Cottage Weekend',
+         photo: 'http://lh4.googleusercontent.com/-AHNOpRL7Ro0/UEtkiteWrpI/AAAAAAAAaHM/UTFmNZpL-qQ/s800/P1110764.JPG', AR: 534/800},
+        {year: 2012, month: 'July', day: '19', caption: 'Real Relay',
+         photo: 'http://lh3.googleusercontent.com/-sKccJVfUDxA/UAh2YKaKwCI/AAAAAAAAZwU/z-I_qtHRu3k/s800/IMGP7304.JPG', portrait: true,
+         link: [
+           {url: 'http://picasaweb.google.com/114119976513946116088/RealRelay#slideshow'},
+           {owner: 'Endurance Life', url: 'http://www.endurancelife.com/realrelay' } ] },
         {year: 2012, month: 'July', day: '1', caption: 'Birmingham to Oxford',
          photo: 'http://lh4.googleusercontent.com/-vTaNZnnRFNE/T_IOH30KQ7I/AAAAAAAAZsE/mZy-0vrwE5Q/s800/DSCN0453.JPG',
          link: [ {url: 'http://picasaweb.google.com/114119976513946116088/BirminghamToOxford03#slideshow'} ] },
@@ -28,7 +43,7 @@
          link: [ {url: 'http://picasaweb.google.com/114119976513946116088/CoastToCoast02#slideshow'} ] },
         {year: 2012, month: 'May', day: '26', caption: 'Isle of Purbeck',
          photo: 'http://lh6.googleusercontent.com/-AoyoVMITRiA/T8ITLhm1wmI/AAAAAAAAZEg/ss_vuk54WQc/s800/IMGP7216.JPG', portrait: true,
-         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/IsleOfPurbeck#slideshow/5747177034063350130'} ] },
+         link: [ {url: 'http://picasaweb.google.com/114119976513946116088/IsleOfPurbeck#slideshow'} ] },
         {year: 2012, month: 'May', day: '19', caption: 'London Revolution', AR: 750/499,
          photo: '2012/londonRevolution.jpg',
          link: [ {url: 'http://sportivephoto.thirdlight.com/viewcontainer.tlx?containerid=10744006738'} ] },
@@ -797,10 +812,6 @@
             }
             html += '<a href="' + entry.link[0].url + '" target="_new">';
           }
-          // TODO: Fix me!
-          // This page has a document base set to www.steveblock.co.uk. This won't work for images as the response is an iframe!
-          if (entry.photo.indexOf('http://') != 0 && document.location.protocol != 'file:')
-            entry.photo = 'http://www.personal.soton.ac.uk/sw5f08/SteveBlock/PhotoJournal/' + entry.photo;
           html += '<img class="photoJournal" src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;")">';
           if (hasLink) {
             html += '</a>';
@@ -859,14 +870,7 @@
       // Processes the URL for the year, shows the relevent photos, and scrolls to a tag if present.
       function updateView() {
         //console.log("updateView");
-        // If there's a query param, nut no hash convert to a hash. Query param is passed
-        // by iframe, hash is not.
-        var query = window.location.search.slice(1);
         var hash = window.location.hash.slice(1);
-        if (query != "" && hash == "") {
-          location = location.origin + location.pathname + "#" + query;
-        }
-
         var year = parseInt(hash);  // Ignore trailing non-numeric
         if (isNaN(year)) {
           // Use latest year by default
@@ -881,6 +885,7 @@
       }
 
       function scrollToTag() {
+        // Syntax is '#2001December24'.
 	// Modify the hash to force a scroll. Use location.replace to prevent
 	// history item being added.
         window.removeEventListener("hashchange", updateView);
@@ -892,12 +897,6 @@
       }
 
       function OnLoad() {
-        // There's no point pushing the hash change up to the iframe (if present) as
-        // it won't cause a reload, so won't be passed to us. And forcing a
-        // reload would defeat the purpose. But it would be good to be able to
-        // set a hashtag from a stevevlock.co.uk URL. Maybe use a query param?
-        // TODO: Messes up setting hash!
-        //updateLinks('PhotoJournal/');
         window.addEventListener("hashchange", updateView);
         updateView();
       }
