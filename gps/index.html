@@ -78,7 +78,47 @@
         navigator.geolocation.watchPosition(onNewPosition, null, {enableHighAccuracy: true});
         //onNewPosition({coords: {latitude: 54.2, longitude: -1.4, altitude: 0, accuracy: 100}});
         window.setInterval(updateAge, 1000);
+
+        registerForAppcacheEvents();
       }
+
+      function registerForAppcacheEvents() {
+        if (!window.applicationCache) {
+          return;
+        }
+        window.applicationCache.onchecking = function(event) { log('checking'); }
+        window.applicationCache.onerror = function(event) { log('error'); failed(); }
+        window.applicationCache.onnoupdate = function(event) { log('noupdate'); failed(); }
+        window.applicationCache.ondownloading = function(event) { log('downloading'); }
+        window.applicationCache.onprogress = function(event) { log('progress ' + event.loaded + ' of ' + event.total); }
+        window.applicationCache.onupdateready = function(event) { log('updateready'); succeeded(); }
+        window.applicationCache.oncached = function(event) { log('cached'); cached(); }
+        window.applicationCache.onobsolete = function(event) { log('obsolete'); }
+      }
+      function cached() {
+        document.getElementById('status').innerHTML = 'Status : cached';
+      }
+      function succeeded() {
+        document.getElementById('status').innerHTML = 'Status : update available';
+        document.getElementById('updateAvailable').style.display = 'block';
+        document.getElementById('checkForUpdate').style.display = 'none';
+      }
+      function failed() {
+        document.getElementById('status').innerHTML = 'Status : no update available ...';
+        window.setTimeout(function() { document.getElementById('status').innerHTML = 'Status : cached'; }, 3000);
+      }
+      function checkForUpdate() {
+        document.getElementById('status').innerHTML='Status : Checking ...';
+        window.applicationCache.update();
+      }
+      function updateNow() {
+        location.href = location.href;
+      }
+
+      function log(message) {
+        document.getElementById('log').innerHTML += message + '<br>';
+      }
+
       function onNewPosition(position) {
         var coords = gpsLatLngToOSGrid(position.coords.latitude, position.coords.longitude, position.coords.altitude);
         document.getElementById('latLng').innerHTML =
@@ -86,6 +126,8 @@
             ', ' + addSignSuffix(decimalToDegMinSec(position.coords.longitude, 1), ' E', ' W');
         document.getElementById('coords').innerHTML = 'OS grid ref : ' + coords.toGridRefString(10, true);
         document.getElementById('accuracy').innerHTML = 'Accuracy : ' + position.coords.accuracy + ' m';
+        document.getElementById('altitude').innerHTML = 'Altitude : ' + 
+            (position.coords.altitude ? position.coords.altitude + ' m' : 'unknown');
         timestamp = position.timestamp;
         updateAge();
       }
@@ -102,7 +144,14 @@
     <div id="latLng">Waiting ...</div>
     <div id="coords">Waiting ...</div>
     <div id="accuracy">Waiting ...</div>
+    <div id="altitude">Waiting ...</div>
     <div id="age">Waiting ...</div>
-    <canvas style="border:1px solid red" width="200px" height="200px" id="map">
+    <canvas style="border:1px solid red" width="200px" height="200px" id="map"></canvas>
+    <div>
+      <div id="status">Status : waiting ...</div>
+      <div id="updateAvailable" style="display: none;"><a href="#" onclick="updateNow(); return false;">Update now</a></div>
+      <div id="checkForUpdate"><a href="#" onclick="checkForUpdate(); return false;">Check for update</a></div>
+    </div>
+    <div id="log" style="margin-top: 30px; color: grey;"></div>
   </body>
 </html>
