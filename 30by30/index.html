@@ -4,30 +4,23 @@
  
   <head>
 
-    <!-- this key is good for web.mit.edu/snw/www -->
-    <!-- <script src="http://www.google.com/jsapi?key=ABQIAAAA_Xocq18Wh01DYjhDo3vEbxQww4B36n1MWJcqWT3ccjTYRRSVWRQWr3G6zUsMyWbZ8HtxYPIlTK9GSg" type="text/javascript"></script> -->
-    <!-- this key is good for personal.soton.ac.uk -->
-    <!-- <script src="http://www.google.com/jsapi?key=ABQIAAAAclCz4bThIvpXLvyO5UlroxRHLZmsFQiB8ZRO_dTNdmH17ck2WxRrAIXMOO5yx06c5i--1k1fv8p9Cw" type="text/javascript"></script> -->
-    <!-- good for steveblock.co.uk -->
-    <script src="http://www.google.com/jsapi?key=AIzaSyBUBI5vyEr5JMs-AsQqQgmHI2MhYyH3aOs" type="text/javascript"></script>
+    <script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC2m1ZuGuWZswlxQdGB2BQXNoGo4aTNKNs&sensor=false">
+    </script>
 
     <script type="text/javascript">
-      google.load('maps', '2');
       var map = null;
 
       function createMap(mapElement) {
-        // This method sets up the Google Maps object
-        // We can't configure the Google Maps object until the map object in the HTML has been created.
-        if (!GBrowserIsCompatible()) {
-          setText(mapElement, 'Browser not compatible with Google Maps!');
-          return;
-        }
-        map = new GMap2(mapElement);
-        map.addControl(new GLargeMapControl());
-        map.addControl(new GMapTypeControl());
-        map.addControl(new GScaleControl());
-        //map.enableScrollWheelZoom();
-        map.setCenter(new GLatLng(53.0, -2.0), 7);
+        map = new google.maps.Map(mapElement, {
+          zoomControl: true,
+          panControl: true,
+          mapTypeControl: true,
+          scaleControl: true,
+        });
+        map.setCenter(new google.maps.LatLng(53.0, -2.0));
+        map.setZoom(7);
+        map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
       }
 
       // Map from rank to data
@@ -195,22 +188,15 @@
       }
 
       function addMarker(peak) {
-        if (peak.coords) {
-          var icon = peak.date ? G_START_ICON : G_DEFAULT_ICON;
-          var marker = new GMarker(new GLatLng(peak.coords.lat, peak.coords.lng),
-                                   {icon: icon, title: peak.name});
-          peak.infoWindowObject = createPeakDomElement(peak);
-          marker.bindInfoWindow(peak.infoWindowObject);
-          map.addOverlay(marker);
-          peak.marker = marker;
-        }
-      }
-
-      function showMarker(index) {
-        var peak = data[index];
-        if (peak.marker) {
-          peak.marker.openInfoWindow(peak.infoWindowObject);
-        }
+        var marker =  new google.maps.Marker({
+          title: peak.name,
+          position: new google.maps.LatLng(peak.coords.lat, peak.coords.lng),
+          map: map,
+        });
+        peak.marker = marker;
+        marker.addListener('click', (function(p) { return function() {
+          p.infoWindow.open(map, p.marker);
+        }; })(peak));
       }
 
       function onLoad() {
@@ -218,15 +204,17 @@
         var list = document.getElementById('list');
         for (var i = 1; i < data.length; i++) {
           var peak = data[i];
+          peak.infoWindow = new google.maps.InfoWindow({
+            content: createPeakDomElement(peak),
+          });
           addMarker(peak);
 
           var listItem = document.createElement('li');
           var anchor = document.createElement('a');
           anchor.href = '#';
-          // Anonymous function for closure.
-          (function(j) {
-            anchor.onclick = function() {showMarker(j);};
-          })(i);
+          anchor.onclick = (function(p) { return function() {
+            p.infoWindow.open(map, p.marker);
+          }; })(peak);
           setText(anchor, peak.name);
           listItem.appendChild(anchor);
           list.appendChild(listItem);
