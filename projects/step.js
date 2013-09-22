@@ -1,9 +1,10 @@
 var maxWidth  = 400;
 var maxHeight = 400;
 
-function InsertStep(filename, text, AR) {
-  var AR = AR ? AR : 4/3;
-  var imageSize = FitToBoundingBox(new Size(maxWidth, maxHeight), AR);
+function InsertStep(filename, text, size) {
+  if (typeof size === 'undefined')
+    size = new Size(800, 600);
+  var imageSize = FitToBoundingBox(new Size(maxWidth, maxHeight), size);
   var html = '';
   html += '<div class="stepDiv">';
   html += '  <div class="stepImageDiv" style="width: ' + maxWidth + 'px;">';

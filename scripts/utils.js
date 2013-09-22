@@ -1,6 +1,6 @@
-function Size( width, height ) {
-  this.width=width;
-  this.height=height;
+function Size(width, height) {
+  this.width = width;
+  this.height = height;
 }
 
 Size.prototype.AspectRatio = function() {
@@ -8,13 +8,11 @@ Size.prototype.AspectRatio = function() {
 }
 
 // Function to fit an object to a given box
-function FitToBoundingBox(box, objectAR) {
-  var boxAR    = box.AspectRatio();
-  var resized = null;
-  if( objectAR > boxAR ) { // width limits
-    resized = new Size( box.width, box.width / objectAR );
-  } else { // height limits
-    resized = new Size( box.height * objectAR, box.height );
-  }
-  return resized;
+function FitToBoundingBox(boxSize, objectSize) {
+  if (objectSize.width <= boxSize.width && objectSize.height <= boxSize.height)
+    return objectSize;
+  var objectAR = objectSize.AspectRatio();
+  if (objectAR > boxSize.AspectRatio()) // width limits
+    return new Size(boxSize.width, boxSize.width / objectAR);
+  return new Size(boxSize.height * objectAR, boxSize.height);
 }
