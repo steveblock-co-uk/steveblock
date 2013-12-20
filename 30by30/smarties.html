@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <style type="text/css">
+      div#grid {
+        position: relative;
+        width: 1000px;
+        height: 569px;
+        background-image: url('grid.jpg');
+        background-size: 1000px 569px;
+        margin: 100px auto;
+      }
+      div#grid div.peak {
+        position: absolute;
+        cursor: pointer;
+      }
+      div.background {
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        min-height: 600px;
+        position: absolute;
+        background-color: grey;
+        opacity: 0.8;
+      }
+      div.photo {
+        cursor: pointer;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        min-height: 600px;
+        position: absolute;
+      }
+      div.photo div {
+        height: 100%;
+        width: 300px;
+        margin: 110px auto;
+      }
+      div.photo div img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+    <script type="text/javascript">
+      function Peak(xIndex, yIndex, rank, location, name, height, region, country, date, album, photo) {
+        this.photo_ = photo;
+        this.caption_ = name + ' ' + date;
+        this.createElement(xIndex, yIndex);
+      }
+      Peak.prototype.createElement = function(xIndex, yIndex) {
+        var element = document.createElement('div');
+        element.className = 'peak';
+        element.style.left = ((xIndex + 0.1) * width) + 'px';
+        element.style.top = ((yIndex + 0.2) * height) + 'px';
+        element.style.width = (0.8 * width) + 'px';
+        element.style.height = (0.6 * height) + 'px';
+        (function(me) {
+          element.addEventListener('click', function(e) { me.showPhoto.apply(me, [e]); }, false);
+        })(this);
+        grid.appendChild(element);
+      }
+      Peak.prototype.showPhoto = function() {
+        console.log('show photo ' + this.photo_);
+        var background = document.createElement('div');
+        background.className = 'background';
+        this.background_ = background;
+        document.body.appendChild(background);
+
+        var photo = document.createElement('div');
+        photo.className = 'photo';
+        (function(me) {
+          photo.addEventListener('click', function(e) { me.hidePhoto.apply(me, [e]); }, false);
+        })(this);
+        var wrapper = document.createElement('div');
+        photo.appendChild(wrapper);
+        var image = document.createElement('img');
+        image.src = this.photo_;
+        wrapper.appendChild(image);
+        var caption = document.createElement('p');
+        caption.innerText = this.caption_;
+        wrapper.appendChild(caption);
+        this.photo_ = photo;
+        document.body.appendChild(photo);
+      }
+      Peak.prototype.hidePhoto = function() {
+        document.body.removeChild(this.photo_);
+        this.photo_ = null;
+        document.body.removeChild(this.background_);
+        this.background_ = null;
+      }
+
+      function AddPeaks() {
+        grid = document.getElementById('grid');
+        var style = getComputedStyle(grid);
+        width = parseInt(style.width) / 5;
+        height = parseInt(style.height) / 6;
+
+        new Peak(0, 0, 1, 
+                 {lat: 53.068864, lng: -4.075589},
+                 'Snowdon (Yr Wyddfa)',
+                 1085,
+                 'Snowdonia',
+                 'Wales',
+                 '18/07/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 'http://lh5.ggpht.com/_5einibZ_20c/SmTefhCWZbI/AAAAAAAARvM/dmLi555mXdk/s144/IMGP4723.JPG');
+        new Peak(1, 0, 2, 
+                 {lat: 53.07518, lng: -4.074399},
+                 'Garnedd Ugain (Crib y Ddysgl)',
+                 1066,
+                 'Snowdonia',
+                 'Wales',
+                 '18/07/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 'http://lh4.ggpht.com/_5einibZ_20c/SmTeexOQ5mI/AAAAAAAARvE/VJROdZAE_NQ/s144/IMGP4721.JPG');
+        new Peak(2, 0, 3, 
+                 {lat: 53.160587, lng: -3.969305},
+                 'Carnedd Llewelyn',
+                 1064,
+                 'Snowdonia',
+                 'Wales',
+                '12/04/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking',
+                'http://lh6.ggpht.com/_5einibZ_20c/SeTy4-1O4bI/AAAAAAAANoQ/bqn58Bs7LyI/s144/IMGP4563.JPG');
+        new Peak(3, 0, 4, 
+                 {lat: 53.147486, lng: -4.000113},
+                 'Carnedd Dafydd',
+                 1040,
+                 'Snowdonia',
+                 'Wales',
+                '19/07/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                'http://lh4.ggpht.com/_5einibZ_20c/SmTg0qfhe9I/AAAAAAAARwA/3n3zu42Va80/s144/IMGP4734.JPG');
+        new Peak(4, 0, 5, 
+                 {lat: 53.10097, lng: -4.02978},
+                 'Glyder Fawr',
+                 999,
+                 'Snowdonia',
+                 'Wales',
+                '22/02/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaWeekend',
+                'http://lh5.ggpht.com/_5einibZ_20c/SasbDIzdtaI/AAAAAAAANag/e7vP1yOj2dM/s144/P2210433.JPG');
+        new Peak(0, 1, 6, 
+                 {lat: 53.105108, lng: -4.00711},
+                 'Glyder Fach',
+                 990,
+                 'Snowdonia',
+                 'Wales',
+                '08/08/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking03',
+                'http://lh5.ggpht.com/_5einibZ_20c/SpxFpOvIiRI/AAAAAAAAR9E/VMTbvrJwlnY/s144/IMGP4748.JPG');
+        new Peak(1, 1, 7, 
+                 {lat: 54.454222, lng: -3.211528},
+                 'Scafell Pike',
+                 978,
+                 'Lakes',
+                 'England',
+                '24/05/2009',
+                'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                'http://lh6.ggpht.com/_5einibZ_20c/Sh3GhBZghBI/AAAAAAAAN-U/owFSGpxk2lU/s144/IMGP4628.JPG');
+        new Peak(2, 1, 8, 
+                 {lat: 53.137427, lng: -4.010112},
+                 'Pen yr Ole Wen',
+                 978,
+                 'Snowdonia',
+                 'Wales',
+                '19/07/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                'http://lh3.ggpht.com/_5einibZ_20c/SmTg0c8Vf5I/AAAAAAAARv8/mN4yVi9a1iE/s144/IMGP4733.JPG');
+        new Peak(3, 1, 9, 
+                 {lat: 53.174167, lng: -3.963333},
+                 'Foel Grach',
+                 976,
+                 'Snowdonia',
+                 'Wales',
+                '12/04/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking');
+        new Peak(4, 1, 10, 
+                 {lat: 54.447105, lng: -3.223832},
+                 'Sca Fell',
+                 964,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh3.ggpht.com/_5einibZ_20c/Sh3GdcSECmI/AAAAAAAAN90/fVI5_Jw2jUU/s144/IMGP4624.JPG');
+        new Peak(0, 2, 11, 
+                 {lat: 53.166628, lng: -3.984544},
+                 'Yr Elen',
+                 962,
+                 'Snowdonia',
+                 'Wales',
+                '19/07/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                'http://lh5.ggpht.com/_5einibZ_20c/SmTg1EToKTI/AAAAAAAARwE/To7x56psMSo/s144/IMGP4735.JPG');
+        new Peak(1, 2, 12, 
+                 {lat: 54.527231, lng: -3.016054},
+                 'Helvellyn',
+                 950,
+                 'Lakes',
+                 'England',
+                 '29/08/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking03',
+                 '');
+        new Peak(2, 2, 13, 
+                 {lat: 53.115228, lng: -4.046438},
+                 'Y Garn (Glyders)',
+                 947,
+                 'Snowdonia',
+                 'Wales',
+                 '22/02/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaWeekend');
+        new Peak(3, 2, 14, 
+                 {lat: 53.194151, lng: -3.95138},
+                 'Foel-fras',
+                 942,
+                 'Snowdonia',
+                 'Wales',
+                 '12/04/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking');
+        new Peak(4, 2, 15, 
+                 {lat: 54.455456, lng: -3.197855},
+                 'Ill Crag',
+                 935,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh3.ggpht.com/_5einibZ_20c/Sh3GiXaQ2YI/AAAAAAAAN-g/0JFw64LZyOE/s144/IMGP4634.JPG');
+        new Peak(0, 3, 16, 
+                 {lat: 54.457176, lng: -3.205619},
+                 'Broad Crag',
+                 934,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh6.ggpht.com/_5einibZ_20c/Sh3GhUa77II/AAAAAAAAN-Y/q4u0qIPikwI/s144/IMGP4631.JPG');
+        new Peak(1, 3, 17, 
+                 {lat: 54.651006, lng: -3.146247},
+                 'Skiddaw',
+                 931,
+                 'Lakes',
+                 'England',
+                 '30/08/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking03',
+                 '');
+        new Peak(2, 3, 18, 
+                 {lat: 53.183148, lng: -3.964352},
+                 'Garnedd Uchaf',
+                 926,
+                 'Snowdonia',
+                 'Wales',
+                 '12/04/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking',
+                 'http://lh5.ggpht.com/_5einibZ_20c/SeTy7B-AbhI/AAAAAAAAOCY/riTieo0-vXw/s144/IMGP4568.JPG');
+        new Peak(3, 3, 19, 
+                 {lat: 53.130934, lng: -4.074095},
+                 'Elidir Fawr',
+                 924,
+                 'Snowdonia',
+                 'Wales',
+                '08/08/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking03',
+                'http://lh3.ggpht.com/_5einibZ_20c/SpxFpXZVS9I/AAAAAAAAR9I/3C0Q0LkQrek/s144/IMGP4750.JPG');
+        new Peak(4, 3, 20, 
+                 {lat: 53.075542, lng: -4.053513},
+                 'Crib Goch',
+                 923,
+                 'Snowdonia',
+                 'Wales',
+                 '18/07/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 'http://lh6.ggpht.com/_5einibZ_20c/SmTeXVds5zI/AAAAAAAARuQ/HQv3mNlU7Xk/s144/IMGP4706.JPG');
+        new Peak(0, 4, 21, 
+                 {lat: 53.114293, lng: -3.995583},
+                 'Tryfan',
+                 915,
+                 'Snowdonia',
+                 'Wales',
+                '08/08/2009',
+                'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking03',
+                'http://lh3.ggpht.com/_5einibZ_20c/SpxFn5gHmQI/AAAAAAAAR88/-EQOVcBFF1s/s144/IMGP4745.JPG');
+        new Peak(1, 4, 22, 
+                 {lat: 54.465386, lng: -3.193516},
+                 'Great End',
+                 910,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh5.ggpht.com/_5einibZ_20c/Sh3GkM8j7mI/AAAAAAAAN-s/rh58va-SPjg/s144/IMGP4638.JPG');
+        new Peak(2, 4, 23, 
+                 {lat: 52.786388, lng: -3.686884},
+                 'Aran Fawddwy',
+                 905,
+                 'Snowdonia',
+                 'Wales',
+                 '29/11/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHikingNovember',
+                 'http://lh3.ggpht.com/_5einibZ_20c/SxWYkCAFw_I/AAAAAAAASdc/K5YJeFQULqw/s144/IMGP5097.JPG');
+        new Peak(3, 4, 24, 
+                 {lat: 54.4477, lng: -3.163696},
+                 'Bow Fell',
+                 902,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh5.ggpht.com/_5einibZ_20c/Sh3Gks-RVZI/AAAAAAAAN-w/OonHmP113gs/s144/IMGP4639.JPG');
+        new Peak(4, 4, 25, 
+                 {lat: 54.483127, lng: -3.217189},
+                 'Great Gable',
+                 899,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh4.ggpht.com/_5einibZ_20c/Sh3KNFx-8uI/AAAAAAAAN_s/nF-EKY87pqA/s144/IMGP4646.JPG');
+        new Peak(0, 5, 26, 
+                 {lat: 53.059319, lng: -4.055727},
+                 'Y Lliwedd',
+                 898,
+                 'Snowdonia',
+                 'Wales',
+                 '18/07/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking02',
+                 'http://lh5.ggpht.com/_5einibZ_20c/SmTgz6SpxFI/AAAAAAAARv4/xeTykadL1gA/s144/IMGP4732.JPG');
+        new Peak(1, 5, 27, 
+                 {lat: 52.699429, lng: -3.907033},
+                 'Cadair Idris (Penygadair)',
+                 893,
+                 'Snowdonia',
+                 'Wales',
+                 '29/11/2009',
+                 'http://picasaweb.google.com/steve.a.block/SnowdoniaHikingNovember',
+                 'http://lh6.ggpht.com/_5einibZ_20c/SxWYkvnGBRI/AAAAAAAASdk/d-_X_ZujhrE/s144/IMGP5104.JPG');
+        new Peak(2, 5, 28, 
+                 {lat: 54.703095, lng: -2.484996},
+                 'Cross Fell',
+                 893,
+                 'North Pennines',
+                 'England',
+                 '25/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh3.ggpht.com/_5einibZ_20c/Sh3Gqsy369I/AAAAAAAAN_g/-otRn5k4pvM/s144/IMGP4659.JPG');
+        new Peak(3, 5, 29, 
+                 {lat: 54.497765, lng: -3.279396},
+                 'Pillar',
+                 892,
+                 'Lakes',
+                 'England',
+                 '24/05/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking',
+                 'http://lh5.ggpht.com/_5einibZ_20c/Sh3GoIVrdzI/AAAAAAAAN_Q/fx0gjmFAd1o/s144/IMGP4651.JPG');
+        new Peak(4, 5, 30, 
+                 {lat: 54.533599, lng: -3.006939},
+                 'Catstye Cam',
+                 890,
+                 'Lakes',
+                 'England',
+                 '29/08/2009',
+                 'http://picasaweb.google.com/steve.a.block/LakesHiking03',
+                 '');
+      }
+    </script>
+  </head>
+  <body onload="AddPeaks()">
+    <div id="grid">
+    </div>
+  </body>
+</html>

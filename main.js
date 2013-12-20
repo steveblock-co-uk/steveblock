@@ -98,7 +98,7 @@ engineering.AddChild( new Node( 'CV' ) );
 
 var travels = new Node( 'Travels' );
 
-var photoJournal = new Node( 'PhotoJournal' );
+var photoJournal = new Node( 'photojournal' );
 
 var root = new Node( 'steveblock.co.uk' );
 root.AddChild( engineering );

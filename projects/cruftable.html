@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+  <head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=utf-8">
+
+    <TITLE> Steve Block : Projects : Cruftable </TITLE>
+
+    <script type="text/javascript" src="../scripts/utils.js"> </script>  <!-- For Size -->
+    <script type="text/javascript" src="step.js"> </script>
+
+    <link type="text/css" rel="stylesheet" href="../main.css" />
+    <link type="text/css" rel="stylesheet" href="step.css" />
+
+    <script type="text/javascript">
+      function PopulateSteps() {
+        var html = '';
+        html += InsertStep('http://lh4.google.com/steve.a.block/R1H0Ttt8zWI/AAAAAAAABb4/FZ6TxzfsR80/s800/IMGP0259.JPG',
+                           '<p> For high-volume resin pours such as this, polycarbonate is the material of choice, but this was way beyond our budget.' +
+                           '    We settled on polyester resin and bought two gallons for about $100 from our local art store.' +
+                           '    It was noxious stuff.');
+        html += InsertStep('http://lh3.google.com/steve.a.block/R1H0Udt8zYI/AAAAAAAABcI/ASqAHR90dzU/s800/IMGP0262.JPG',
+                           '<p> The resin came in two parts; the bulk and a hardener.' +
+                           '    Once mixed, the resin remained liquid for approximately three minutes, but then rapidly became a viscous gell.' +
+                           '    The trick was to make sure that the resin was evenly distributed over the table before it became too viscous to level itself out.', 
+                           3/4);
+        html += InsertStep('http://lh4.google.com/steve.a.block/R1H0Utt8zZI/AAAAAAAABcQ/0Vstp4ShkjQ/s800/IMGP0264.JPG',
+                           '<p> It was impractical to mix all two gallons of resin in one batch, and too diffciult to pour the entire volume in one go, so we mixed it in two separate batches.' +
+                           '    To avoid a visible interface between the two layers, we had twenty minutes in total to complete the two pours.' +
+                           '    It was frantic work.');
+        html += InsertStep('http://lh6.google.com/steve.a.block/R1H0UNt8zXI/AAAAAAAABcA/yq1ZpzEtMrU/s800/IMGP0260.JPG',
+                           '<p> The other challenge we faced was resin leaks.' +
+                           '    We\'d formed a cardboard wall around the edge of the table and had tried to plug the gaps between the boards of the tabletop, but the resin would always find a new route through.' +
+                           '    Plugging leaks under the table was a sticky job.');
+        html += InsertStep('http://lh5.google.com/steve.a.block/R1H0U9t8zaI/AAAAAAAABcY/xCfskHtnYAo/s800/IMGP0267.JPG',
+                           '<p> The finished product.');
+        document.getElementById('steps').innerHTML = html;
+      }
+    </script>
+  </head>
+
+  <body onload="PopulateSteps()">
+
+    <div class="main">
+
+      <div class="header">
+        <div class="floatRight steveblock"><a href="../index.html">steveblock.co.uk</a></div>
+        <img class="header" src="../gears.gif">
+        <a class="activeLink" href="index.html">Projects</a> |
+        <a href="../photojournal/index.html">Photo Journal</a>
+      </div>
+
+      <h2> The Cruftable </h2>
+
+      <p> Cruftlabs was in need of a dining table, and to keep with the industrial feel of the place, what better to use as a table-top than the side-piece from an old four-foot cable spool that had been gathering dust behind the couch.
+      <p> Our vision was to cover the top of the table with a thick layer of transparent resin, to provide a surface that retained the visual appearance of rough wooden boardss, yet was smooth enough to keep clean for use as a dining table.
+          In order to fit with company branding, we needed a suitable logo and the obvious choice was the 'cruft' rubber stamp that had been bought for a previous party and had left its mark throught the space.
+          We liked the jagged, incomplete print made by a stamp, particularly on a surface as rough as the spool.
+      <p> First up, we fixed some cracks and holes in the spool, screwed it to an aluminum pedastool from an old bar table, and painted it orange.
+          To scale up the stamp from four inches to four feet, we scanned a stamped print, vectorised it, enlarged it and used it to laser-cut the letters from a sheet of cardboard.
+          We then used the cardboard letters to print 'cruft' onto the table in black paint.
+          The final, and most difficult step, was applying the resin.
+
+      <div id="steps"></div>
+
+    </div>
+
+  </body>
+
+</html>
