@@ -1,0 +1,234 @@
+/* -------------- GENERAL -------------- */
+body{background-color:#FFFFFF;border:0px;margin:0px;font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";font-size:13px;font-weight:normal;color:#000000;}
+table{font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";font-size:13px;}
+tr{font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";font-size:13px;}
+td{font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";font-size:13px;}
+b{font-weight:bold;}
+p{font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";}
+div{font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";}
+a{font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";text-decoration:none;}
+.o{}
+form{margin:0px;padding:0px;}
+/* ---------- GENERAL LINKS ----------- */
+a:link   {font-family:Verdana,Arial,Helvetica,sans-serif,"MS sans serif";text-decoration:none;font-size:11px;color:#000099;}
+a:visited{font-family:Verdana,Arial,Helvetica,sans-serif,"MS sans serif";text-decoration:none;font-size:11px;color:#6666CC;}
+a:active {font-family:Verdana,Arial,Helvetica,sans-serif,"MS sans serif";text-decoration:none;font-size:11px;color:#000099;}
+a:hover  {font-family:Verdana,Arial,Helvetica,sans-serif,"MS sans serif";font-size:11px;color:#000099;text-decoration:underline;}
+
+a.lp:link{color:#990000;font-size:10px;font-weight:bold;}
+a.lp:active{color:#990000;font-size:10px;font-weight:bold;}
+a.lp:visited{color:#CC6666;font-size:10px;font-weight:bold;}
+a.lp:hover{color:#990000;font-size:10px;font-weight:bold;}
+
+a.tsh:link{font-size:16px;font-weight:bold;color:#000099;}	
+a.tsh:visited{font-size:16px;font-weight:bold;color:#6666CC;}
+a.tsh:hover{font-size:16px;font-weight:bold;color:#000099;}
+a.tsh:active{font-size:16px;font-weight:bold;color:#000099;}
+
+a.tsl:link{color:#000099;padding-bottom:3px;}
+a.tsl:visited{color:#6666CC;padding-bottom:3px;}
+a.tsl:hover{color:#000099;padding-bottom:3px;}
+a.tsl:active{color:#000099;padding-bottom:3px;}
+
+a.shl:link{color:#000099;font-weight:bold;font-size:12px;text-decoration:none;}
+a.shl:visited{color:#6666CC;font-weight:bold;font-size:12px;text-decoration:none;}
+a.shl:hover{color:#000099;font-weight:bold;font-size:12px;text-decoration:underline;}
+a.shl:active{color:#000099;font-weight:bold;font-size:12px;text-decoration:none;}
+
+a.sshl:link{color:#000099;font-weight:bold;font-size:11px;text-decoration:none;}
+a.sshl:visited{color:#6666CC;font-weight:bold;font-size:11px;text-decoration:none;}
+a.sshl:hover{color:#000099;font-weight:bold;font-size:11px;text-decoration:underline;}
+a.sshl:active{color:#000099;font-weight:bold;font-size:11px;text-decoration:none;}
+
+a.epl:link{font-size:10px;}		
+a.epl:active{font-size:10px;}
+a.epl:visited{font-size:10px;}
+a.epl:hover{font-size:10px;}
+
+/* ---------- PDF LINKS ------------ */
+.acrol {margin-bottom:7px; margin-top : 1px;padding-left : 20px;background : url("/nol/shared/img/pdf.gif") no-repeat;color: #000000;font-size: 11px;}
+.acrod{margin-bottom:7px;margin-top : 1px;padding-left : 20px;background : url("/nol/shared/img/acrobat.gif") no-repeat;font-size: 11px;}
+.pdft {font-size: 10px;color : #000000;margin-bottom:5px;}
+/* ---------- GENERAL TEXT ----------- */
+.sh{font-size:18px;font-weight:bold;color:#000000;}
+.ish{font-size:16px;font-weight:bold;color:#666633;margin-top:5px;}
+.rhst{font-size:11px;}
+.nlp{font-size:10px;font-weight:bold;color:#666666;}
+.nlpa{font-size:10px;font-weight:bold;color:#000000;}
+/*.nlta{font-size:11px;color:#000000;}
+.nltb{font-size:11px;color:#666666;}*/
+.nlpuff{font-size:11px;font-weight:bold;}
+.ds{font-size:11px;color:#000000;} 
+.di{font-size:11px;color:#666666;}
+.lu{font-size:11px;color:#666666;} 
+
+/* ---------- GENERAL ICONS----------- */
+.bull{background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/v3/bullet_fawn.gif");background-repeat:no-repeat;padding-left:10px;font-size:11px;}
+.arr {background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/v3/arrow.gif");background-repeat:no-repeat;padding-left:7px;padding-bottom:3px;}
+.arry{background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/v3/arrow.gif");background-repeat:no-repeat;padding-left:7px;padding-bottom:3px;}
+.arrup {background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/v3/arrow_up.gif");background-repeat:no-repeat;padding-left:7px;padding-bottom:3px;}
+.arrdo {background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/v3/arrow_down.gif");background-repeat:no-repeat;padding-left:7px;padding-bottom:3px;}
+.sabull {background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/v3/seealso_bullet.gif");background-repeat:no-repeat;padding-left:7px;padding-bottom:3px;}
+/* ---------- LHS NAV ----------- */
+.lhs{text-align:right;font-size:11px;background-color:#EEEEEE;border:1px;width:121px;padding-top:5px;}
+.lhsad{text-align:right;font-size:11px;background-color:#EEEEEE;border:1px;width:121px;padding-top:5px;}
+.lhsb{padding-bottom:2px;padding-top:2px;padding-right:6px;font-weight:bold;}
+.lhssq{background-repeat:repeat-y;background-color:#999999;padding-bottom:2px; padding-top:2px; padding-right:6px; font-weight:bold;}
+.lhssqs{background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_990033_square.gif");background-repeat:repeat-y;background-color:#999999;padding-bottom:2px;padding-top:2px;padding-right:6px;font-weight:bold;}
+.lhslt{padding-bottom:2px;padding-top:2px;padding-right:6px;background-color:#cccccc;}
+.lhsdl{font-size:11px;color:#999999;padding-right:6px;}
+.lhsnlp{font-size:10px;color:#999999;font-weight:bold;padding-bottom:2px;padding-top:2px;padding-right:6px;}
+.lhsmi{background-color:#cccccc;}
+.lhsl{padding-bottom:2px;padding-top:2px;padding-right:6px;}
+.lhsbsn{background-image:url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_990033_square.gif");background-color:#cccccc;padding-bottom:2px;padding-top:2px;padding-right:6px;font-weight:bold;}
+.lhs a:visited{color:#000099;}
+/* ---------- FOOTER NAV ----------- */
+a.sel:link{color:#CCCC99;}
+a.sel:active{color:#CCCC99;}
+a.sel:visited{color:#999966;}
+a.sel:hover{color:#FFFFCC;}
+
+a.fl:link{font-size:11px;color:#000099;}
+a.fl:visited{font-size:11px;color:#6666CC;}
+a.fl:hover{font-size:11px;color:#000099;}
+a.fl:active{font-size:11px;color:#000099;}
+
+a.flb:link{font-size:11px;color:#000099;font-weight:bold;}
+a.flb:visited{font-size:11px;color:#6666CC;font-weight:bold;}
+a.flb:hover{font-size:11px;color:#000099;font-weight:bold;}
+a.flb:active{font-size:11px;color:#000099;font-weight:bold;}
+
+table.fs{margin-top:20px;}
+td.fo {background-color:#990000;color:#CCCC99;font-size:12px;}
+.f{margin-left:131px;width:629px;margin-bottom:10px;font-size:13px;}
+/* ---------- BANNER ----------- */
+a.bl:link{color:#CCCC99;}
+a.bl:active{color:#CCCC99;}
+a.bl:visited{color:#999966;}
+a.bl:hover{color:#FFFFCC;}
+
+td.ba{background-color:#990000;color:#CCCC99;font-size:11px;padding-bottom:2px;padding-top:2px;}
+/* ---------- BBCi TOOLBAR ----------- */
+.tbsrc{font-size:10;color:#CCCCCC;} 
+.sha{background:#666666 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/bg.gif");font-size:11px;}/*bbcpageShadow*/
+.bar{background:#999999 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/v.gif") repeat-y;font-size:11px;}/*bbcpageBar*/
+.bar2{background:#999999 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/v.gif") repeat-y;font-size:11px;}/*bbcpageBar2*/
+.sea{background:#990000 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/st.gif") repeat-x; color:#ffffff;text-decoration:none;font-family:tahoma,arial,helvetica,sans-serif;font-weight:bold;font-size:10px;}/*bbcpageSearch*/
+.sea2{background:#990000 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/st.gif") repeat-x;font-size:11px;font-family:tahoma,arial,helvetica,sans-serif;}/*bbcpageSearch2*/
+.sear{background:#999999 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/sr.gif") no-repeat;font-size:11px;}/*bbcpageSearchR*/
+.seal{background:#000000 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/sl.gif") no-repeat;font-size:11px;}/*bbcpageSearchL*/
+.g{background:#999999;}/*bbcpageGrey*/
+.gt{background:#999999 url("http://newsimg.bbc.co.uk/nol/shared/img/nav/v3_bbci/t.gif");font-size:11px;}/*bbcpageGreyT*/
+
+a.wt:link{color:#ffffff;text-decoration:none;font-family:tahoma,arial,helvetica,sans-serif;font-weight:bold;font-size:10px;}
+a.wt:active{color:#ffffff;text-decoration:none;font-family:tahoma,arial,helvetica,sans-serif;font-weight:bold;font-size:10px;}
+a.wt:visited{color:#ffffff;text-decoration:none;font-family:tahoma,arial,helvetica,sans-serif;font-weight:bold;font-size:10px;}
+a.wt:hover{color:#ffffff;text-decoration:none;font-family:tahoma,arial,helvetica,sans-serif;font-weight:bold;font-size:10px;}
+/* -------------- PADDING & MARGINS -------------- */
+.mva{margin:5px;} 
+.mvt{margin-top:5px;}
+.mvtl{margin-top:5px;margin-left:5px;}  
+.mvl{margin-left:5px;}
+.mxl{margin-left:10px;}
+.mvr{margin-right:5px;}
+.mvtb{margin-top:5px;margin-bottom:5px;}
+.mvb{margin-bottom:5px;}
+.mxb{margin-bottom:10px;}
+.mxvb{margin-bottom:15px;}
+.mvbl{margin-bottom:5px;margin-left:5px;}
+.miiibl{margin-bottom:3px;margin-left:3px;}
+.miiia{margin:3px;}
+.miiil{margin-left:3px;}
+.miiir{margin-right:3px;}
+.miiitb{margin-top:3px;margin-bottom:3px;}
+.miiib{margin-bottom:3px;}
+.miiit{margin-top:3px;}
+.miiilr{margin-left:3px;margin-right:3px;}
+.miitb{margin-top:2px;margin-bottom:2px;}
+.imvr{margin-right:5px;}
+.pva{padding:5px;}
+.pvl{padding-left:5px;}
+.pvr{padding-right:5px;}
+.pvt{padding-top:5px;}
+.pvtb{padding-top:5px;padding-bottom:5px;}
+.pvtbl{padding-top:5px;padding-bottom:5px;padding-left:5px;}
+.pvlb{padding-left:5px;padding-bottom:5px;}
+.pvb{padding-bottom:5px;}
+.piiia{padding:3px;}
+.piiil{padding-left:3px;}
+.piiir{padding-right:3px;}
+.piiitb{padding-top:3px;padding-bottom:3px;}
+.piiibl{padding-bottom:3px;padding-left:3px;}
+.piiit{padding-top:3px;}
+.piiib{padding-bottom:3px;}
+.pxl{padding-left:10px;}
+/* -------------- GUTTERS -------------- */
+.gffffff{background-color:#FFFFFF;}
+.gddddbb{background-color:#DDDDBB;}
+.gcccccc{background-color:#CCCCCC;}
+.g000000{background-color:#000000;}
+.gefefef{background-color:#EFEFEF;}
+/* ---------- VOTE MODULES ----------- */
+.vb{background-color:#FFFFCC;color:#000000;font-size:11px;border:1px;width:203px;padding-bottom:5px;margin-bottom:10px;}
+.vh{padding-left:5px;background-color:#999966;font-size:10px;font-weight:bold;color:#FFFFFF;padding-top:2px;padding-bottom:2px;text-transform: uppercase;}
+.vdi{font-size:10px;color:#000000;}
+/* ---------- PROMO STRIP ----------- */
+.pb{background-color:#ddddbb;color:#000000;width:203px;border:1px;}
+/* ---------- STRAP ----------- */
+.stpb{color:#ffffff;width:416px;height:22px;background-color:#669999;font-size:11px;border:1px;}
+.stpt{font-size:11px;color:#ffffff;font-weight:bold;padding-left:10px;padding-top:5px;}
+/* ---------- AV ----------- */
+.avh{background-color:#666699;color:#FFFFFF;font-size:10px;font-weight:bold;padding-left:5px;padding-top:2px;padding-bottom:2px;}
+.avsh{background-color:#9999CC;color:#FFFFFF;font-size:10px;font-weight:bold;padding-top:2px;padding-bottom:2px;padding-left:5px;}
+.avlh{background-color:#990000;color:#FFFFFF;font-size:10px;font-weight:bold;padding-top:2px;padding-bottom:2px;padding-left:5px;}
+.avt{font-size:11px;}
+/* ---------- FILLERS ----------- */
+.spb{background-color:#FFFFCC;border:1px;width:203px;}
+.spbe{background-color:#FFFF33;border-top:1px dashed;border-bottom:1px dashed;padding-top:3px;padding-bottom:3px;width:100%;}
+.gnb{background-color:#669933;color:#FFFFFF;border:1px;padding-top:5px;padding-bottom:5px;padding-left:5px;width:100%;}
+.tqub{background-color:#99CCCC;color:#000000;border:1px;padding-top:5px;padding-bottom:5px;padding-left:5px;width:100%;}
+.fefefef{background-color:#efefef;border:1px;padding-top:5px;padding-bottom:5px;padding-left:5px;width:100%;}
+/* ---------- HYPER PUFFS ----------- */
+.mph{background-color:#999966;color:#FFFFFF;font-size:10px;font-weight:bold;padding-left:5px;padding-top:2px;padding-bottom:2px;}	
+.s003366{background-color:#003366;color:#ffffff;font-size:11px;font-weight:bold;border:1px;padding-top:2px;padding-bottom:2px;padding-left:5px;}
+/* ---------- DROP DOWN MODULES ----------- */
+.formatStyle{width:160px;}
+.ddb{background-color:#ffffff;border:1px;font-size:11px;padding-bottom:5px;padding-top:2px;padding-left:5px;color:#000000;}	
+.ddh{font-size:10px;font-weight:bold;color:#000000;}	
+.ddt{margin-bottom:5px;font-size:11px;}
+.dd160{width:160px;}
+.dd250{width:250px;}
+/* ---------- STORY INLINE MODULES ----------- */
+td.sibt{font-size:11px;}
+td.sibtbg{font-size:11px;background-color:#FFFFCC;}
+.sih{font-weight:bold;font-size:10px;background-color:#CCCC99;color:#666633;padding-left:5px;padding-top:2px;padding-bottom:2px;}
+
+.sibf{background-color:#FFFFCC;margin-left:5px;}
+
+.sibmg{background-color:#FFDE9C;margin-left:5px;}
+.cap{font-size:10px;color:#666666;font-weight:normal;}
+.bys{font-size:11px;font-weight:bold;color:#000000}
+.byl{font-size:11px;font-weight:bold;color:#666666}
+.byd{font-size:11px;color:#000000}
+.msd{font-size:11px;font-weight:bold;color:#666666}
+/* ---------- STORY RHS MODULES ----------- */
+.sah{background-color:#999966;color:#ffffff;font-size:10px;font-weight:bold;padding-left:5px;padding-top:2px;padding-bottom:2px;}
+.sad{font-size:11px;color:#666666;}
+.snh{font-size:10px;font-weight:bold;background-color:#999999;color:#ffffff;padding-left:5px;padding-top:2px;padding-bottom:2px;}
+.sng{background-color:#cccccc;}
+/* ---------- BRANDED PUFFS ----------- */
+.sph{background-color:#336699;font-weight:bold;color:#ffffff;font-size:10px;padding-top:2px;padding-bottom:2px;padding-left:5px;}
+/*------------ TICKER ------------*/
+a.tickl{font-family:Verdana,Arial,Helvetica,sans-serif; font-size:11px; line-height:12px; text-decoration:none; color:#000099;font-weight:bold;}
+a.tickl:hover{color:#6666CC; text-decoration:none;}
+.ticki{width:629px;height:13px;overflow:hidden;}
+.ticko{width:629px;border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;padding:4px 0 4px 0; margin:4px 0 2px 0;display:block;}
+.tickls{color:#666666;}
+.tickh{display:none;}
+/*------------ inline programme search ------------*/
+.psrhb {padding-bottom:2px;}
+.psrht {margin-bottom:3px;margin-top:3px;font-size:10px;font-weight:bold;color:#666666;}
+.pinp{width:160px;font-family: Verdana, Arial, Helvetica;font-size:11px;}/*not to go in net4 css*/
+/*------------ interstitial  ------------*/
+.changeHead {font-size:14px;font-weight:bold;color:#990000;}
+.changeSummary {font-size:10px;color:#000000;}
