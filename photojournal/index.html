@@ -933,8 +933,9 @@
 	// history item being added.
         window.removeEventListener("hashchange", updateView);
         var hash = location.hash;
-        location.replace(location.origin + location.pathname + hash + "_");
-        location.replace(location.origin + location.pathname + hash);
+        var origin = location.origin ? location.origin : 'file://';
+        location.replace(origin + location.pathname + hash + "_");
+        location.replace(origin + location.pathname + hash);
         // async to not pick up this hash change
         window.setTimeout(function() { window.addEventListener("hashchange", updateView); }, 1000);
       }
