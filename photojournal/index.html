@@ -5101,7 +5101,7 @@
       }
 
       // Generates HTML for an entry
-function WriteEntry(entry) {
+      function WriteEntry(entry) {
         var size = typeof entry.size === 'undefined' ? new Size(800, 600) : new Size(entry.size.x, entry.size.y);
         var imageSize = FitToBoundingBox(new Size(maxImageDimension, maxImageDimension), size);
         var date = entry.day + getOrdinalSuffix(entry.day) + ' ' + entry.month;
@@ -5122,11 +5122,11 @@ function WriteEntry(entry) {
             }
             html += '<a href="' + entry.link[0].url + '" target="_new">';
           }
-          html += '<img class="photoJournal" src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;")">';
+          html += '<img src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;")">';
           if (hasLink) {
             html += '</a>';
           }
-          html += '<p class="photoJournal">' + entry.caption + ', ' + date + '.';
+          html += '<p>' + entry.caption + ', ' + date + '.';
           if (hasLink) {
             for (var i = 0; i < entry.link.length; i++) {
               if (!entry.link[i].owner && entry.link.length > 1) {
@@ -5145,7 +5145,7 @@ function WriteEntry(entry) {
           html += '</p>';
           photosToLoad++;
         } else {
-          html += '<p class="photoJournal">' + entry.caption + ', ' + date + '. &nbsp Coming soon...</p>';
+          html += '<p>' + entry.caption + ', ' + date + '. &nbsp Coming soon...</p>';
         }
         html += '</div>';
         return html;
