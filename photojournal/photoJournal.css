@@ -1,18 +1,16 @@
 div.photoJournal{
   background-color: white;
-  /* border: 1pt solid red; */
   padding: 20px 20px 10px 20px;
   margin: 0px auto 25px auto;
   border-radius: 10px;
   -moz-border-radius: 10px;
 }
 
-p.photoJournal {
-  /* border: 1pt solid green; */
+div.photoJournal p {
   text-align: center;
 }
 
-img.photoJournal {
+div.photoJournal img {
   display: block;
   margin: auto;
 }
