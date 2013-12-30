@@ -5099,13 +5099,17 @@
       }
 
       // Generates HTML for an entry
-      function WriteEntry(entry) {
+      function writeEntry(entry) {
         var size = typeof entry.size === 'undefined' ? new Size(800, 600) : new Size(entry.size.x, entry.size.y);
         var imageSize = FitToBoundingBox(new Size(maxImageDimension, maxImageDimension), size);
         var date = entry.day + getOrdinalSuffix(entry.day) + ' ' + entry.month;
-        var id = entry.year + entry.month + entry.day + "_";
-        var html = '<a name="' + id + '" class="tag"></a>';
-        html += '<div class="photoJournal" style="width: ' + imageSize.width + 'px;">';
+
+        var wrapper = document.createElement('div');
+        wrapper.className = 'photoJournal';
+        wrapper.style.width = imageSize.width + 'px';
+
+        var caption = document.createElement('p');
+        caption.appendChild(document.createTextNode(entry.caption + ', ' + date + '.'));
         if (entry.photo) {
           // Link should be an array of objects.
           // For backwards compatibility - link used to be a string, the URL.
@@ -5113,66 +5117,82 @@
             entry.link = [ { url: entry.link } ];
           }
           var hasLink = entry.link !== undefined;
+          var photo = document.createElement('img');
+          photo.src = entry.photo;
+          photo.alt = entry.caption;
+          photo.style.height = imageSize.height + 'px';
           if (hasLink) {
             console.assert(typeof entry.link === 'object');
             console.assert(entry.link.length > 0);
             console.assert(typeof entry.link[0] === 'object');
-            html += '<a href="' + entry.link[0].url + '" target="_new">';
+            var photoLink = document.createElement('a');
+            photoLink.href = entry.link[0].url;
+            photoLink.target = '_new';
+            photoLink.appendChild(photo);
+            photo = photoLink;
           }
-          html += '<img src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;")">';
-          if (hasLink) {
-            html += '</a>';
-          }
-          html += '<p>' + entry.caption + ', ' + date + '.';
+          wrapper.appendChild(photo);
+
           if (hasLink) {
             for (var i = 0; i < entry.link.length; i++) {
               console.assert(typeof entry.link[i] === 'object');
               if (!entry.link[i].owner && entry.link.length > 1) {
                 entry.link[i].owner = 'Steve';
               }
-              html += ' <a href="' + entry.link[i].url + '" target="_new">More';
+              var link = document.createElement('a');
+              link.href = entry.link[i].url;
+              link.target = '_new';
+              link.textContent = 'More';
               if (entry.link[i].owner) {
-                html += ' by ' + entry.link[i].owner;
+                link.textContent += ' by ' + entry.link[i].owner;
               }
-              html += '</a>';
-              if (i < entry.link.length - 1) {
-                html += ',';
-              }
+              caption.appendChild(document.createTextNode(i === 0 ? ' ' : ', '));
+              caption.appendChild(link);
             }
           }
-          html += '</p>';
           photosToLoad++;
         } else {
-          html += '<p>' + entry.caption + ', ' + date + '. &nbsp Coming soon...</p>';
+          caption.appendChild(document.createTextNode(' Coming soon...'));
         }
-        html += '</div>';
-        return html;
+        wrapper.appendChild(caption);
+        return wrapper;
+      }
+
+      function writeId(entry) {
+        var id = document.createElement('a');
+        id.name = entry.year + entry.month + entry.day + "_";
+        id.className = 'tag';
+        return id;
       }
 
       // Shows the relevent photos for a year
-      function ShowYear(year) {
+      function showYear(year) {
         var yearsDiv = document.getElementById('years');
         yearsDiv.innerHTML = '';
         for (i = 0; i < years.length; ++i) {
+          var yearElement;
           if (years[i] === year) {
-            yearsDiv.innerHTML += '<span class="activeLink">' + years[i] + '</span>';
+            yearElement = document.createElement('span');
+            yearElement.className = 'activeLink';
           } else {
-            yearsDiv.innerHTML += '<a href="#' + years[i] + '">' + years[i] + '</a>';
+            yearElement = document.createElement('a');
+            yearElement.href = '#' + years[i];
           }
-          if (i < years.length - 1) {
-            yearsDiv.innerHTML += ' | ';
+          yearElement.textContent = years[i];
+          if (i !== 0) {
+            yearsDiv.appendChild(document.createTextNode(' | '));
           }
+          yearsDiv.appendChild(yearElement);
         }
         var entriesDiv = document.getElementById('theEntries');
         entriesDiv.innerHTML = '';
         photosToLoad = 0;
-        var html = '';
-        for (i=0; i<theData.length; ++i) {
+        for (i = 0; i < theData.length; ++i) {
           if (theData[i].year == year && !theData[i].hidden) {
-            html += WriteEntry(theData[i]);
+            entriesDiv.appendChild(writeId(theData[i]));
+            entriesDiv.appendChild(writeEntry(theData[i]));
           }
         }
-        entriesDiv.innerHTML = html;
       }
       
       years = [];
@@ -5197,7 +5217,7 @@
           // Use latest year by default
           year = years[years.length - 1];
         }
-        ShowYear(year);
+        showYear(year);
 
         // Now we have the content, scroll to the tag if set
         // Async to allow layout
