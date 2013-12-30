@@ -5111,15 +5111,14 @@
         if (entry.photo) {
           // Link should be an array of objects.
           // For backwards compatibility - link used to be a string, the URL.
-          if (typeof entry.link == 'string') {
-            entry.link = [{url: entry.link}];
+          if (typeof entry.link === 'string') {
+            entry.link = [ { url: entry.link } ];
           }
-          var hasLink = typeof entry.link == 'object' && entry.link.length > 0;
+          var hasLink = entry.link !== undefined;
           if (hasLink) {
-            if (typeof entry.link[0] != 'object') {
-              console.log('Error in entry "' + entry.caption + '"');
-              return;
-            }
+            console.assert(typeof entry.link === 'object');
+            console.assert(entry.link.length > 0);
+            console.assert(typeof entry.link[0] === 'object');
             html += '<a href="' + entry.link[0].url + '" target="_new">';
           }
           html += '<img src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;")">';
@@ -5129,6 +5128,7 @@
           html += '<p>' + entry.caption + ', ' + date + '.';
           if (hasLink) {
             for (var i = 0; i < entry.link.length; i++) {
+              console.assert(typeof entry.link[i] === 'object');
               if (!entry.link[i].owner && entry.link.length > 1) {
                 entry.link[i].owner = 'Steve';
               }
