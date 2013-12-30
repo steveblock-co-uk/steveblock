@@ -4248,9 +4248,10 @@
     "year": 2004
   },
   {
-    "caption": "Starting work at CSAIL in the Stata Center",
+    "caption": "Starting work",
     "day": 2,
     "month": "June",
+    "more": "Today I started work at CSAIL (Computer Science and Artificial Intelligence Laboratory) in Prof. Williams' group. The group is based in the Stata Center. Like it or not, you have to admit that the building is pretty unique.",
     "photo": "2004/stata.jpg",
     "size": {
       "x": 600,
@@ -5161,6 +5162,14 @@
           caption.appendChild(document.createTextNode(' Coming soon...'));
         }
         wrapper.appendChild(caption);
+
+        if (entry.more) {
+          console.assert(typeof entry.more === 'string');
+          var more = document.createElement('p');
+          more.innerHTML = entry.more;
+          wrapper.appendChild(more);
+        }
+
         return wrapper;
       }
 
