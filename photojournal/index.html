@@ -12,8 +12,6 @@
 
     <script type="text/javascript" src="../scripts/utils.js"></script>
     <script type="text/javascript">
-      var years = [1990, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013];
-
       var theData =
 [
   {
@@ -5155,13 +5153,13 @@
       function ShowYear(year) {
         var yearsDiv = document.getElementById('years');
         yearsDiv.innerHTML = '';
-        for (i=0; i<years.length; ++i) {
-          if (years[i] == year) {
+        for (i = 0; i < years.length; ++i) {
+          if (years[i] === year) {
             yearsDiv.innerHTML += '<span class="activeLink">' + years[i] + '</span>';
           } else {
             yearsDiv.innerHTML += '<a href="#' + years[i] + '">' + years[i] + '</a>';
           }
-          if (i < years.length-1) {
+          if (i < years.length - 1) {
             yearsDiv.innerHTML += ' | ';
           }
         }
@@ -5177,14 +5175,27 @@
         entriesDiv.innerHTML = html;
       }
       
+      years = [];
+      function findYears() {
+        var x = {};
+        for (var i = 0; i < theData.length; ++i) {
+          if (!theData[i].hidden) {
+            x[theData[i].year] = theData[i].year;
+          }
+        }
+        for (var j in x) {
+          years.push(x[j]);
+        }
+        years = years.sort();
+      }
+
       // Processes the URL for the year, shows the relevent photos, and scrolls to a tag if present.
       function updateView() {
-        //console.log("updateView");
         var hash = window.location.hash.slice(1);
         var year = parseInt(hash);  // Ignore trailing non-numeric
         if (isNaN(year)) {
           // Use latest year by default
-          year = years[years.length-1];
+          year = years[years.length - 1];
         }
         ShowYear(year);
 
@@ -5209,6 +5220,7 @@
 
       function OnLoad() {
         window.addEventListener("hashchange", updateView);
+        findYears();
         updateView();
       }
 
