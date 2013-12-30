@@ -5142,13 +5142,19 @@
               var link = document.createElement('a');
               link.href = entry.link[i].url;
               link.target = '_new';
-              link.textContent = 'More';
-              if (entry.link[i].owner) {
-                link.textContent += ' by ' + entry.link[i].owner;
+              if (i === 0) {
+                link.textContent = 'More';
+                if (entry.link[i].owner) {
+                  link.textContent += ' by ' + entry.link[i].owner;
+                }
+              } else {
+                console.assert(entry.link[i].owner);
+                link.textContent += 'by ' + entry.link[i].owner;
               }
-              caption.appendChild(document.createTextNode(i === 0 ? ' ' : ', '));
+              caption.appendChild(document.createTextNode(i === 0 ? ' ' : (i === entry.link.length - 1 ? ' and ' : ', ')));
               caption.appendChild(link);
             }
+            caption.appendChild(document.createTextNode('.'));
           }
           photosToLoad++;
         } else {
