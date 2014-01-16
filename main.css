@@ -1,61 +1,94 @@
-BODY {
+body {
   color: gray;
   background: #DDDDDD;
   font-family: Verdana, sans-serif;
   font-size: x-small;  /* an absolute (but variable by the browser) size*/
 }
 
-H1 {
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid gray;
+  padding: 3px 8px;
+}
+
+h1 {
   font-size: x-large;
   margin-top: 30px;
   text-align: center;
+  font-weight: bold;
 }
 
-IMG.preload {
+img.preload {
   display: none;
 }
 
-A {
-  color: #FF8822;
-  text-decoration: none;
-}
-
-A:hover {
-  text-decoration: underline;
-}
-
-A img{ border: 0px solid #DDDDDD}
+a img{ border: 0px solid #DDDDDD}
 
 /* For a hidden form input */
-INPUT.hidden {
+input.hidden {
   border: none;
   background: #DDDDDD;
   color: gray;
 }
 
 /* for the header */
-DIV.header {
-  width: 80%;
-  margin: 20px auto;
+
+div.header {
+  margin: 20px 0px 40px 0px; /* top right bottom left */
   background-color: white;
-  height: 50px;
-  padding: 10px;
-  position: relative;
+  height: 70px;
+  padding: 5px 25px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  /* border: 1pt solid black; */
+  /* repeat font stuff from body tag, for use in gallery */
+  font-family: Verdana, sans-serif;
+  font-size: x-small;  /* an absolute (but variable by the browser) size */
 }
 
-IMG.header {
+div.floatLeft {
+  float: left;
+  margin-right: 20px;
+}
+div.floatRight {
+  float: right;
+  margin-left: 20px;
+}
+
+img.header {
   height: 50px;
   width: 50px;
   vertical-align: middle;
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
-DIV.homeLink {
-  position: absolute;
-  top: 30px;
-  right: 10px;
-}
-
-SPAN.activeLink {
+.activeLink {
   color: #FF8822;
   font-weight: bold;
 }
+
+.steveblock {
+  font-size: 200%;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+a {
+  color: #FF8822;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  min-width: 720px;
+  margin: 0px 20px;
+  padding: 0px;
+}
+

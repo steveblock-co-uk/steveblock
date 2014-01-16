@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+ 
+  <head>
+
+    <!-- this key is good for web.mit.edu/snw/www -->
+    <script src="http://www.google.com/jsapi?key=ABQIAAAA_Xocq18Wh01DYjhDo3vEbxQww4B36n1MWJcqWT3ccjTYRRSVWRQWr3G6zUsMyWbZ8HtxYPIlTK9GSg" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      google.load('maps', '2');
+      var map = null;
+
+      function createMap(mapElement) {
+        // This method sets up the Google Maps object
+        // We can't configure the Google Maps object until the map object in the HTML has been created.
+        if (!GBrowserIsCompatible()) {
+          setText(mapElement, 'Browser not compatible with Google Maps!');
+          return;
+        }
+        map = new GMap2(mapElement);
+        map.addControl(new GLargeMapControl());
+        map.addControl(new GMapTypeControl());
+        map.addControl(new GScaleControl());
+        //map.enableScrollWheelZoom();
+        map.setCenter(new GLatLng(53.0, -2.0), 7);
+      }
+
+      var data = [
+        {rank: 1, coords: {lat: 53.068864, lng: -4.075589}, name: 'Snowdon (Yr Wyddfa)', height: 1085, area: 'Snowdonia', country: 'Wales'},
+        {rank: 2, coords: {lat: 53.07518, lng: -4.074399}, name: 'Garnedd Ugain (Crib y Ddysgl)', height: 1066, area: 'Snowdonia', country: 'Wales'},
+        {rank: 3, coords: {lat: 53.160587, lng: -3.969305}, name: 'Carnedd Llewelyn', height: 1064, area: 'Snowdonia', country: 'Wales',
+         date: '12/04/2009',
+         photos: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking',
+         thumbnail: 'http://lh5.ggpht.com/_5einibZ_20c/SeTy7B-AbhI/AAAAAAAANow/H00aYqKIl3g/s144/IMGP4568.JPG'},
+        {rank: 4, xcoords: {lat: 1}, name: 'Carnedd Dafydd', height: 1040, area: 'Snowdonia', country: 'Wales'},
+        {rank: 5, coords: {lat: 53.10097, lng: -4.02978}, name: 'Glyder Fawr', height: 999, area: 'Snowdonia', country: 'Wales',
+         date: '22/02/2009'},
+        {rank: 6, xcoords: {lat: 1}, name: 'Glyder Fach', height: 990, area: 'Snowdonia', country: 'Wales'},
+        {rank: 7, xcoords: {lat: 1}, name: 'Scafell Pike', height: 978, area: 'Lakes', country: 'England'},
+        {rank: 8, xcoords: {lat: 1}, name: 'Pen yr Ole Wen', height: 978, area: 'Snowdonia', country: 'Wales'},
+        {rank: 9, coords: {lat: 53.174167, lng: -3.963333}, name: 'Foel Grach', height: 976, area: 'Snowdonia', country: 'Wales',
+         date: '12/04/2009'},
+        {rank: 10, xcoords: {lat: 1}, name: 'Sca Fell', height: 964, area: 'Lakes', country: 'England'},
+        {rank: 11, xcoords: {lat: 1}, name: 'Yr Elen', height: 962, area: 'Snowdonia', country: 'Wales'},
+        {rank: 12, xcoords: {lat: 1}, name: 'Helvellyn', height: 950, area: 'Lakes', country: 'Wales'},
+        {rank: 13, coords: {lat: 53.115228, lng: -4.046438}, name: 'Y Garn (Glyders)', height: 947, area: 'Snowdonia', country: 'Wales',
+         date: '22/02/2009'},
+        {rank: 14, coords: {lat: 53.194151, lng: -3.95138}, name: 'Foel-fras', height: 942, area: 'Snowdonia', country: 'Wales',
+         date: '12/04/2009'},
+        {rank: 15, xcoords: {lat: 1}, name: 'Ill Crag', height: 935, area: 'Lakes', country: 'England'},
+        {rank: 16, xcoords: {lat: 1}, name: 'Broad Crag', height: 934, area: 'Lakes', country: 'England'},
+        {rank: 17, xcoords: {lat: 1}, name: 'Skiddaw', height: 931, area: 'Lakes', country: 'England'},
+        {rank: 18, coords: {lat: 53.183148, lng: -3.964352}, name: 'Garnedd Uchaf', height: 926, area: 'Snowdonia', country: 'Wales',
+         date: '12/04/2009'},
+        {rank: 19, xcoords: {lat: 1}, name: 'Elidir Fawr', height: 924, area: 'Snowdonia', country: 'Wales'},
+        {rank: 20, xcoords: {lat: 1}, name: 'Crib Goch', height: 923, area: 'Snowdonia', country: 'Wales'},
+        {rank: 21, xcoords: {lat: 1}, name: 'Tryfan', height: 915, area: 'Snowdonia', country: 'Wales'},
+        {rank: 22, xcoords: {lat: 1}, name: 'Great End', height: 910, area: 'Lakes', country: 'England'},
+        {rank: 23, xcoords: {lat: 1}, name: 'Aran Fawddwy', height: 905, area: 'Snowdonia', country: 'Wales'},
+        {rank: 24, xcoords: {lat: 1}, name: 'Bow Fell', height: 902, area: 'Lakes', country: 'England'},
+        {rank: 25, xcoords: {lat: 1}, name: 'Great Gable', height: 899, area: 'Lakes', country: 'England'},
+        {rank: 26, xcoords: {lat: 1}, name: 'Y Lliwedd', height: 898, area: 'Snowdonia', country: 'Wales'},
+        {rank: 27, xcoords: {lat: 1}, name: 'Cadair Idris (Penygadair)', height: 893, area: 'Snowdonia', country: 'Wales'},
+        {rank: 28, xcoords: {lat: 1}, name: 'Cross Fell', height: 893, area: 'North Pennines', country: 'England'},
+        {rank: 29, xcoords: {lat: 1}, name: 'Pillar', height: 892, area: 'Lakes', country: 'England'},
+        {rank: 30, xcoords: {lat: 1}, name: 'Catstye Cam', height: 890, area: 'Lakes', country: 'England'},
+      ];
+
+      function setText(node, text) {
+        if (node.innerText) {
+          node.innerText = text;
+        } else {
+          node.textContent = text;
+        }
+      }
+
+      function appendTextDiv(element, text) {
+        var e = document.createElement('div');
+        setText(e, text);
+        element.appendChild(e); 
+        return e;
+      }
+      
+
+      /* Returns an HTML object for the peak */
+      function createPeakObject(peak) {
+        var element = document.createElement('div');
+        element.className = 'peak';
+        appendTextDiv(element, 'rank: ' + peak.rank);
+        appendTextDiv(element, 'name: ' + peak.name);
+        appendTextDiv(element, 'height: ' + peak.height);
+        appendTextDiv(element, 'area: ' + peak.area);
+        appendTextDiv(element, 'country: ' + peak.country);
+        if (peak.date) {
+          appendTextDiv(element, 'date: ' + peak.date);
+        }
+        if (peak.thumbnail) {
+          var image = document.createElement('img');
+          image.src = peak.thumbnail;
+          if (peak.photos) {
+            var anchor = document.createElement('a');
+            anchor.href = peak.photos;
+            anchor.target = '30by30photos';
+            anchor.appendChild(image);
+            image = anchor;
+          }
+          element.appendChild(image);
+        }
+        return element;
+      }
+
+      function addMarker(peak) {
+        if (peak.coords) {
+          var icon = peak.date ? G_START_ICON : G_DEFAULT_ICON;
+          peak.marker = new GMarker(new GLatLng(peak.coords.lat, peak.coords.lng), icon);
+          peak.infoWindowObject = createPeakObject(peak);
+          peak.marker.bindInfoWindow(peak.infoWindowObject);
+          map.addOverlay(peak.marker);
+        }
+      }
+
+      function showMarker(index) {
+        var peak = data[index];
+        if (peak.marker) {
+          peak.marker.openInfoWindow(peak.infoWindowObject);
+        }
+      }
+
+      function onLoad() {
+        createMap(document.getElementById('map'));
+        var content = document.getElementById('content');
+        for (var i = 0; i < data.length; i++) {
+          content.innerHTML += '<br>' + data[i].rank + ' : <a href="#" onclick="showMarker(' + i + ');">' + data[i].name + '</a>';
+          //content.appendChild(createPeakObject(data[i]));
+          addMarker(data[i]);
+        }
+      }
+    </script>
+
+    <style type="text/css">
+      .peak {
+        border: 1px solid red;
+      }
+      .peak div {
+        border: 1px solid blue;
+      }
+      #map {
+        width: 800px;
+        height: 800px;
+      }
+    </style>
+
+    <title>30 by 30</title>
+
+  </head>
+
+  <body onload="onLoad();">
+    <div id="map"></div>
+    <div id="content"></div>
+  </body>
+
+</html>

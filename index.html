@@ -12,20 +12,28 @@
 
     <SCRIPT TYPE="text/javascript">
       function MouseOver( description ) {
-        document.theForm.info.value = description;
+        document.getElementById( 'caption' ).innerHTML = description;
       }
       function MouseOut() {
-        document.theForm.info.value = "";
+        document.getElementById( 'caption' ).innerHTML = '';
       }
     </SCRIPT>
 
     <STYLE TYPE="text/css">
-      IMG.mainPage {
+      img.link {
         width: 100px;
         height: 100px;
+        margin: 10px;
       }
-      SPAN.mainPage {
-        margin: 0px 10px;
+      div.caption {
+        height: 20px; /* to maintain spacing when empty */
+        font-weight: bold;
+        text-align: center;
+      }
+      div.links {
+        margin: 70px auto;
+        text-align: center;
+        width: 500px; /* to give a minimum width */
       }
     </STYLE>
 
@@ -35,28 +43,17 @@
 
   <BODY>
 
-    <H1> steveblock.co.uk </H1>
+    <h1 style="margin-top: 70px"> steveblock.co.uk </h1>
 
-    <DIV STYLE="margin-top: 70px; margin-bottom: 70px; text-align: center;">
-      <SPAN CLASS="mainPage">
-        <A HREF="Engineering/Masters.html"><IMG CLASS="mainPage" SRC="Engineering.gif" ALT="Engineering" onmouseover="MouseOver('Engineering');" onmouseout="MouseOut();"></A>
-      </SPAN>
-      <SPAN CLASS="mainPage">
-        <A HREF="gallery2embedded.php"><IMG CLASS="mainPage" SRC="Mountains.gif" ALT="Mountains" onmouseover="MouseOver('Mountains');" onmouseout="MouseOut();"></A>
-      </SPAN>
-      <SPAN CLASS="mainPage">
-        <A HREF="Photos/Albums/Trips/"><IMG CLASS="mainPage" SRC="Travels.gif" ALT="Travels" onmouseover="MouseOver('Travels');" onmouseout="MouseOut();"></A>
-      </SPAN>
-      <SPAN CLASS="mainPage">
-        <A HREF="Photos/Albums/PhotoJournal"><IMG CLASS="mainPage" SRC="PhotoJournal.gif" ALT="Photo Journal" onmouseover="MouseOver('Photo Journal');" onmouseout="MouseOut();"></A>
-      </SPAN>
+    <DIV class="links">
+      <A HREF="Projects/index.html"><img class="link" src="gears.gif" alt="Projects" onmouseover="MouseOver('Projects');" onmouseout="MouseOut();" /></A>
+      <!-- Add back in when sorted out
+      <A HREF="Travels/index.html"><img class="link" src="Travels.gif" alt="Travels" onmouseover="MouseOver('Travels');" onmouseout="MouseOut();" /></A>
+      -->
+      <A HREF="PhotoJournal/index.html"><img class="link" src="camera.gif" alt="Photo Journal" onmouseover="MouseOver('Photo Journal');" onmouseout="MouseOut();" /></A>
     </DIV>
 
-    <FORM NAME="theForm" ACTION="">
-      <DIV STYLE="text-align: center;">
-        <INPUT CLASS="hidden" TYPE="text" NAME="info" READONLY VALUE="" STYLE="text-align: center;">
-      </DIV>
-    </FORM>
+    <div id="caption" class="caption"></div>
 
   </BODY>
 
