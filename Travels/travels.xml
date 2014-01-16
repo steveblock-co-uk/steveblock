@@ -1,0 +1,78 @@
+<lines> 
+
+  <line width="0" name="Travels" defaultMarkerImage="standardMarkerOrange.png">
+    <point location="Crested Butte" description="Hiking and biking in Colorado" lat="38.87018" lng="-106.98578" clickHandler="ShowPopUp('Colorado','Images/263');" />
+    <point location="Mt. St. Helens" description="North-Western volcanoes" lat="46.25964487666548" lng="-122.1734619140625" clickHandler="ShowPopUp('NorthWesternVolcanoes','Images/1302');" />
+    <point location="Las Vegas" description="Gambling and scooters in the desert" lat="36.17188" lng="-115.13974" clickHandler="ShowPopUp('LasVegas','Images/1274');" />
+    <point location="Boston Harbour Islands" description="Island camping" lat="42.331456" lng="-70.970029" clickHandler="ShowPopUp('IslandCamping','Images/308');" />
+    <point location="Road Trip II" lat="35.14962" lng="-90.04894" clickHandler="ShowPopUp('RoadTrip2','Images/1103');" />
+    <point location="Jess Does the UK II" lat="52.202544" lng="0.131236" clickHandler="ShowPopUp('JessDoesTheUKII','Images/428',true);" />
+    <!-- TODO --> <point location="Jess Does the UK" lat="52.483003" lng="-1.89356" />
+    <!-- TODO --> <point location="Steven's Pass" description="Skiing in Washington State" lat="47.14905" lng="-119.29937" />
+  </line>
+
+  <line width="0" name="Outdoor Adventures" defaultMarkerImage="standardMarkerRed.png">
+    <point location="Marin County" description="Biking roots" lat="37.873456" lng="-122.532087" clickHandler="ShowPopUp('OutdoorAdventures/Biking/MarinCounty','../OutdoorAdventures/Images/5823',true);" />
+    <point location="Europe" description="MTB touring" lat="46.226699" lng="2.209119" clickHandler="ShowPopUp('OutdoorAdventures/Biking/Europe','../OutdoorAdventures/Images/1108');" />
+  </line>
+
+  <line width="0" name="External" defaultMarkerImage="standardMarkerGray.png">
+    <point location="Hawaii" description="Hiking volcanoes and coastline" lat="20.57209" lng="-157.52685" clickHandler="ShowPopUp('OutdoorAdventures/Hiking/linkitem_020.html','../PhotoJournal/2006/hawaii.jpg');" />
+    <point location="Cascades" description="MITOC mountaineering" lat="46.85426306032291" lng="-121.75795555114746" clickHandler="ShowPopUp('OutdoorAdventures/Climbing/linkitem_001.html','../PhotoJournal/2006/cascades.jpg',true);" />
+    <point location="Katahdin" description="MITOC mountaineering" lat="45.666671" lng="-68.711909" clickHandler="ShowPopUp('OutdoorAdventuresClimbing/linkitem_016.html','../PhotoJournal/2006/katahdin.jpg');" />
+  </line>
+
+  <line colour="#0000FF" width="3" name="Canada By Tandem">
+    <point location="Seymour St. Hostel, 515 Seymour St., Vancouver, BC" lat="49.283866" lng="-123.114061" />
+    <point location="Campground, Harrison mills, BC" lat="49.25127" lng=" -121.95481" /> 
+    <point location="Campground, Merritt, BC" lat="50.11156" lng=" -120.78735" /> 
+    <point location="Campground, Chase, BC" lat="50.820955" lng=" -119.68458" /> 
+    <point location="Campground, Revelstoke, BC" lat="51.0101" lng=" -118.21444" /> 
+    <point location="Campground, Golden, BC" lat="51.29473" lng=" -116.96297" /> 
+    <point location="Campground, Lake Louise, AB" lat="51.42624" lng=" -116.17797" /> 
+    <point location="Motel, Highway 1, Exit 161, AB" lat="51.07916666666667" lng=" -114.46666666666667" /> 
+    <point location="HI Calgary, 520 1st Avenue SE, Calgary, AB" lat="51.04507" lng="-114.0632" /> 
+    <point location="Campground, Brooks, AB" description="Canada By Tandem" lat="50.56585" lng=" -111.89849" clickHandler="ShowPopUp('OutdoorAdventures/Biking/linkitem.html','../PhotoJournal/2006/cbt.jpg');" markerImage="standardMarkerBlue.png"/>
+    <point location="Campground, Medicine Hat, AB" lat="50.041" lng=" -110.6781" /> 
+    <point location="Campground, Gull Lake, SK" lat="50.09797" lng=" -108.48393" /> 
+    <point location="Campground, Swift Current, SK" lat="50.29268" lng=" -107.80057" /> 
+    <point location="Campground, Moose jaw, SK" lat="50.39688" lng=" -105.53608" /> 
+    <point location="Campground, Weyburn, SK" lat="49.66803" lng=" -103.85819" /> 
+    <point location="Ditch, SK/MB border" lat="49.577000000000005" lng=" -101.41900000000001" /> 
+    <point location="Campground, Holland, MB" lat="49.5975" lng=" -98.87897" /> 
+    <point location="HI Winnipeg, Winnipeg, MB" lat="49.89942" lng=" -97.14073" /> 
+    <point location="Campground, West Hawk Lake, MB" lat="49.74" lng=" -95.21000000000001" /> 
+    <point location="Campground, Dryden, ON" lat="49.78205" lng=" -92.83759" /> 
+    <point location="Campground, Ignace, ON" lat="49.41752" lng=" -91.67041" /> 
+    <point location="Front Yard, Sistonens Corners, ON" lat="48.535" lng=" -89.64833333333334" /> 
+    <point location="Campground, Nipigon, ON" lat="49.01375" lng=" -88.26249" /> 
+    <point location="Campground, Neys Provincial Park, ON" lat="48.781666666666666" lng=" -86.58999999999999" /> 
+    <point location="Campground, Obatanga Provincial Park, ON" lat="48.28333333333333" lng=" -84.9" /> 
+    <point location="Campground, Montreal River, ON" lat="47.24305555555556" lng=" -84.64305555555556" /> 
+    <point location="HI Sault Ste. Marie, 864 Queen St. East, Sault Ste. Marie, ON" lat="46.506207" lng=" -84.32313" /> 
+    <point location="Campground, Thessalon, ON" lat="46.26541" lng=" -83.54646" /> 
+    <point location="Campground, Lively, ON" lat="46.43823" lng=" -81.14647" /> 
+    <point location="Campground, Samuel de Champlain Provincial Park, ON" lat="46.28611111111111" lng=" -78.9" /> 
+    <point location="Campground, Petawawa, ON" lat="45.89923" lng=" -77.2832" /> 
+    <point location="HI Ottawa, 75 Nicholas St., Ottawa, ON" lat="45.424901" lng=" -75.688933" /> 
+    <point location="Campground, Montebello, QC" lat="45.65013" lng=" -74.93907" /> 
+    <point location="Campground, Berthierville, QC" lat="46.0809" lng=" -73.17846" /> 
+    <point location="Campground, Ste. Croix, QC" lat="46.63313" lng=" -71.64652" /> 
+    <point location="Campground, St. Jean Port Joli, QC" lat="47.2121" lng=" -70.26677" /> 
+    <point location="Campground, Cabano, QC" lat="47.68378" lng=" -68.88048" /> 
+    <point location="Campground, Perth-Andover, NB" lat="46.73985" lng=" -67.70357" /> 
+    <point location="Campground, Mactaquac, NB" lat="45.95427" lng=" -66.88889" /> 
+    <point location="Campground, Lake Drive South, Saint John, NB" lat="45.290974" lng=" -66.0539" /> 
+    <point location="B+B, Kempt, NS" lat="44.43" lng=" -65.11999999999999" /> 
+    <point location="HI Halifax, 1253 Barrington St., Halifax, NS" lat="44.640906" lng=" -63.570905" />
+  </line>
+
+  <!-- TODO -->
+  <line colour="#00FF00" width="3" name="Road Trip">
+    <point location="Boston, MA" lat="42.35864" lng="-71.05665" />
+    <point location="Half Moon Bay, CA" lat="37.4631" lng="-122.42929" />
+    <point location="Wichita, KS" description="Road Trip" lat="37.68697" lng="-97.33558" clickHandler="ShowPopUp('RoadTrip','Images/770');" markerImage="standardMarkerGreen.png" />
+    <point location="Boston, MA" lat="42.35864" lng="-71.05665" />
+  </line>
+
+</lines> 

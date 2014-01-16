@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+  <head>
+
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=utf-8">
+
+    <title> Steve Block : Photo Journal </title>
+
+    <link type="text/css" rel="stylesheet" href="../main.css">
+    <link type="text/css" rel="stylesheet" href="photoJournal.css">
+
+    <script type="text/javascript" src="../../Scripts/utils.js"></script>
+    <script type="text/javascript">
+      var years = [1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009];
+
+      var theData = [
+
+        {year: 2009, photo: 'http://lh3.ggpht.com/_5einibZ_20c/Sh3GiXaQ2YI/AAAAAAAAN-g/0JFw64LZyOE/s800/IMGP4634.JPG', caption: 'Lakes Hiking', date: '25th May', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/LakesHiking', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: 'http://lh4.ggpht.com/_5einibZ_20c/Sh3Fe6C3jhI/AAAAAAAAN9o/Gk9rRA7_i20/s800/IMGP4619.JPG', caption: 'Downs Sportive', date: '17th May' },
+        {year: 2009, caption: 'Fun Run', date: '10th May' },
+        /* {year: 2009, caption: 'DIY', date: '26th April' }, */
+        {year: 2009, photo: '2009/afan.jpg', caption: 'Afan Biking', date: '26th April' },
+        {year: 2009, photo: '2009/sandSurfing.jpg', caption: 'Sand Surfing', date: '18th April', AR: 532/800, link: [
+          {url: 'http://bh206.tzo.com/woolacombe_april_2009.php', owner: 'Bart'}
+        ] },
+        {year: 2009, photo: 'http://lh5.ggpht.com/_5einibZ_20c/SeTy7B-AbhI/AAAAAAAANow/H00aYqKIl3g/s800/IMGP4568.JPG', caption: 'Snowdonia Hiking', date: '13th April', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/SnowdoniaHiking', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: 'http://lh5.ggpht.com/_5einibZ_20c/SdxSRvXK1NI/AAAAAAAANkA/q1m-wRq7rnU/s800/IMGP4542.JPG', caption: 'Four Inns', date: '4th April', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/FourInns', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: 'http://lh6.ggpht.com/_5einibZ_20c/SdxSHOddsiI/AAAAAAAANhk/kDP-6tcldTk/s800/IMGP4515.JPG', caption: 'Skiing in Tignes', date: '27th March', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/Tignes2009', owner: 'Steve'}
+        ] },
+        /* 14th Mar - Worfield Street set-up */
+        /* 7th Mar - Furniture from Knowle */
+        {year: 2009, photo: 'http://lh3.ggpht.com/_5einibZ_20c/SasT-ZluKzI/AAAAAAAANXU/6bABGORorDI/s800/IMGP4447.JPG', caption: 'Worfield Street', date: '28th February', portrait: true, link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/WorfieldStreet', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: 'http://lh6.ggpht.com/_5einibZ_20c/SasbAJ5yJQI/AAAAAAAANaQ/ncnlwZan5Ts/s800/P2210431.JPG', caption: 'Hiking and Biking in Snowdonia', date: '22nd February', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/SnowdoniaWeekend', owner: 'Steve'}
+        ] },
+        /* 14th Feb - House hunting */
+        {year: 2009, photo: 'http://lh5.ggpht.com/_5einibZ_20c/SZSq2JBMKgI/AAAAAAAANKQ/iSJh7UBu3yU/s800/IMGP4189.JPG', caption: 'Person\'s Arrete', date: '7th February', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/SnowdoniaClimbing', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: 'http://lh4.ggpht.com/_5einibZ_20c/SXy05yWMSzI/AAAAAAAANDU/a21uk7LxeQ4/s800/IMGP4170.JPG', caption: 'Snowdon Horseshoe', date: '24th January', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/SnowdonHorseshoe', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: 'http://lh4.ggpht.com/_5einibZ_20c/SW0pUQZpfGI/AAAAAAAAM2M/Ar8Kv85KhXA/s800/IMGP4136.JPG', caption: 'Mt. Lafeyette', date: '10th January', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/Lafeyette02', owner: 'Steve'}
+        ] },
+        {year: 2009, photo: '', caption: 'Skiing in Collingwood', date: '1st January' },
+
+        {year: 2008, photo: 'http://lh5.ggpht.com/_5einibZ_20c/SW0oH9Gw68I/AAAAAAAAM1Y/oi3B580b-0M/s800/IMGP4122.JPG', caption: 'Christmas Walk', date: '27th December' },
+        {year: 2008, photo: '', caption: 'Carols at the Railway', date: '24th December' },
+        {year: 2008, photo: 'http://lh4.ggpht.com/_5einibZ_20c/SUmZYbJh7aI/AAAAAAAALnU/8UNjO63cQ3k/s800/IMGP4107.JPG', caption: 'Christmas at Ffridd', date: '13th December', link: [
+          {url: 'http://picasaweb.google.co.uk/steve.a.block/ChristmasAtFfridd02', owner: 'Steve' },
+          {url: 'http://bh206.tzo.com/ffridd_december_2008.php', owner: 'Bart' }
+        ] },
+        /* {year: 2008, photo: '', caption: 'Zaskar', date: '6th December' }, */
+        /* {year: 2008, photo: '', caption: 'Porthcawl Surfing', date: '29th November' }, */
+        {year: 2008, photo: 'http://lh4.ggpht.com/_5einibZ_20c/ST2sGIZC70I/AAAAAAAALlI/G9PFzp_7uZA/s800/IMGP4078.JPG', caption: 'Brecons Walking', date: '22nd November', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/BreconsWalking', owner: 'Steve'},
+          {url: 'http://www.facebook.com/album.php?aid=83507&id=624246076', owner: 'Lucy'}
+        ] },
+        {year: 2008, photo: '', caption: 'Woolacombe Surfing', date: '15th November' },
+        {year: 2008, photo: '2008/ffridd.jpg', caption: 'Ffridd Reunion', date: '8th November', link: 'http://www.smithandjon.es/album/album/44248' },
+        {year: 2008, photo: '2008/autumnClassic.jpg', caption: 'Gorrick Autumn Classic', date: '2nd November', link: 'http://www.gorrick.com/racing/news_item.php?id=287', AR: 400/602 },
+        {year: 2008, photo: 'http://lh5.ggpht.com/_5einibZ_20c/STMmWArlh4I/AAAAAAAAJ4I/OFKm559Zc9c/s800/IMGP4069.JPG', caption: 'Hawes Biking', date: '25th October', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/HawesBiking', owner: 'Steve'},
+          {url: 'http://bh206.tzo.com/hawes_october_2008.php', owner: 'Bart'},
+          {url: 'http://www.smithandjon.es/album/album/42444', owner: 'Chris'}
+        ] },
+        /* {year: 2008, photo: '', caption: 'Canal Biking Home', date: '11th October' }, */
+        /* {year: 2008, photo: '', caption: 'Magic Carpet Repairs', date: '11th October' }, */
+        {year: 2008, photo: '2008/polaris.jpg', caption: 'Polaris', date: '4th October', link: 'http://www.smithandjon.es/album/album/39830' },
+        {year: 2008, photo: '', caption: 'New Forest', date: '27th September' },
+        {year: 2008, photo: 'http://lh3.ggpht.com/_5einibZ_20c/STMknV02VnI/AAAAAAAAJ3M/4Woh3UbN37c/s800/IMGP4058.JPG', caption: 'Gower Biking', date: '20th September' },
+        /* {year: 2008, photo: '', caption: 'Bike Hunting', date: '6th August' }, */
+        /* {year: 2008, photo: '', caption: 'Bike Hunting', date: '13th August' }, */
+        {year: 2008, photo: 'http://lh3.ggpht.com/_5einibZ_20c/SLiMTB6apNI/AAAAAAAAHTk/nmkF07FtBOU/s800/IMGP3837.JPG', caption: 'Iceland By Tandem', date: '14th August', link: 'http://www.icelandbytandem.com' },
+        /* {year: 2008, photo: '', caption: 'Tandem TLC', date: '2nd August' }, */
+        {year: 2008, photo: '', caption: 'Stratford Canal Boating', date: '26th July' },
+        /* {year: 2008, photo: '', caption: 'Tandem TLC', date: '19th July' }, */
+        /* {year: 2008, photo: '', caption: 'Vicky and Wayne Wedding', date: '12th July' }, */
+        {year: 2008, photo: 'http://lh6.ggpht.com/_5einibZ_20c/STMfmOKiy5I/AAAAAAAAJ1c/9f-K_1o8qmo/s800/P7090007.JPG', caption: 'Chris and Helen\'s Wedding', date: '9th July', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/ChrisAndHelenSWedding', owner: 'Steve'},
+          {url: 'http://bh206.tzo.com/stump_helen_wedding.php', owner: 'Bart'},
+          {url: 'http://www.smithandjon.es/album', owner: 'Chris and Helen'}
+        ] },
+        {year: 2008, photo: '2008/marriageCarriage.jpg', caption: 'Marriage Carriage', date: '5th July', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/MarriageCarriage', owner: 'Steve'},
+          {url: 'http://bh206.tzo.com/marriage_carriage.php', owner: 'Bart'}
+        ], AR: 3/2 },
+        /* {year: 2008, photo: '', caption: 'Home Steph', date: '28th June' }, */
+        /* {year: 2008, photo: '', caption: 'Home', date: '21st June' }, */
+        {year: 2008, photo: '2008/dawn.jpg', caption: 'Skegness Surfing', date: '14th June', link: 'http://bh206.tzo.com/skeggy_june_2008.php', AR: 3/2 },
+        {year: 2008, photo: '2008/race.jpg', caption: 'Bristol Bike Fest', date: '8th June', link: 'http://www.photo-it.com/bbf/bristolbikefest08-jun-08.htm', AR: 263/394 },
+        {year: 2008, photo: 'http://lh5.ggpht.com/_5einibZ_20c/STMW9i4DdKI/AAAAAAAAJ1E/OKZSycAI_g8/s800/IMGP3613.JPG', caption: 'Iron Teams', date: '1st June', portrait: true },
+        {year: 2008, photo: 'http://lh6.ggpht.com/_5einibZ_20c/SDqTxN87bqI/AAAAAAAAGOc/8wTygWcBV2w/s800/IMGP3607.JPG', caption: 'Marriage Carriage', date: '24th May', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/MarriageCarriage', owner: 'Steve'},
+          {url: 'http://bh206.tzo.com/marriage_carriage.php', owner: 'Bart'}
+        ] },
+        {year: 2008, photo: 'http://lh3.ggpht.com/_5einibZ_20c/SDNDe6EQV_I/AAAAAAAAGFQ/Bx8pNbWX6Ck/s800/IMGP3555.JPG', caption: 'Marriage Carriage', date: '17th May', link: [
+          {url: 'http://picasaweb.google.com/steve.a.block/MarriageCarriage', owner: 'Steve'},
+          {url: 'http://bh206.tzo.com/marriage_carriage.php', owner: 'Bart'}
+        ] },
+        {year: 2008, photo: '2008/start-4.jpg', caption: 'Fun Run', date: '11th May', link: 'http://www.knowlefunrun.org.uk/photos/gallery/', AR: 3/2 },
+        /* {year: 2008, photo: '', caption: 'Swansea surfing', date: '3rd May' }, */
+        /* {year: 2008, photo: '', caption: 'Drawers', date: '26th April' }, */
+        {year: 2008, photo: 'http://lh6.ggpht.com/steve.a.block/SBPNhy1r6UI/AAAAAAAAF_Q/9JzRCAt7NU8/s800/IMGP3517.JPG', caption: 'Skiing in Soelden', date: '19th April', link: 'http://picasaweb.google.com/steve.a.block/Soelden' },
+        {year: 2008, photo: 'http://lh3.ggpht.com/steve.a.block/SBxf9y1r6eI/AAAAAAAAGBE/v8Tox30hnG4/s800/P4121057.JPG', caption: 'Mexican night', date: '12th April', portrait: true },
+        {year: 2008, photo: 'http://lh6.ggpht.com/steve.a.block/SBxfBi1r6bI/AAAAAAAAGAw/Qn0OX4eRc9A/s800/P4061037.JPG', caption: 'A dip in the North Sea', date: '5th April' },
+        {year: 2008, photo: 'http://lh4.ggpht.com/steve.a.block/SBxfeC1r6cI/AAAAAAAAGA4/5RGOrAdolbU/s800/P3271013.JPG', caption: 'Skiing in Tignes', date: '29th March', link: 'http://picasaweb.google.com/steve.a.block/Tignes' },
+        {year: 2008, photo: 'http://lh6.ggpht.com/steve.a.block/SBPM_y1r5-I/AAAAAAAAF8k/g8y9YpABWZc/s800/IMGP3489.JPG', caption: 'Brecons with Claire', date: '15th March' },
+        /* {year: 2008, photo: '', caption: 'nothing - home for tandem', date: '8th March' }, */
+        /* {year: 2008, photo: '', caption: 'moving', date: '1st March' }, */
+        {year: 2008, photo: '', caption: 'Swansea surfing with Ben', date: '23rd February' },
+        {year: 2008, photo: '', caption: 'East coast surfing with Bart', date: '16th February' },
+        {year: 2008, photo: '', caption: 'Oxford', date: '9th February' },
+        /* {year: 2008, photo: '', caption: 'nothing', date: '2nd February' }, */
+        {year: 2008, photo: '', caption: 'Woolacombe Surfing', date: '26th January' },
+        /* {year: 2008, photo: '', caption: 'nothing', date: '19th January' }, */
+        {year: 2008, photo: 'http://lh6.google.com/steve.a.block/R8FW1hlOdYI/AAAAAAAAFrI/2NJzLSoAhWg/s800/IMGP3479.JPG', caption: 'Biking at Coed-y-Brenin', date: '13th January', portrait: true },
+        {year: 2008, photo: 'http://lh3.google.com/steve.a.block/R8FWBxlOdDI/AAAAAAAAFoc/ixGfikFHxCo/s800/p1060867.jpg', caption: 'Woolacombe Surfing', date: '6th January' },
+        {year: 2008, photo: 'http://lh3.google.com/steve.a.block/R8FU8xlOcvI/AAAAAAAAFl8/r5oDP2MeF_E/s800/p1010844.jpg', caption: 'Welsh Winter Hiking', date: '1st January', link: 'http://picasaweb.google.com/steve.a.block/NorthWalesHiking' },
+
+        {year: 2007, photo: 'http://lh4.ggpht.com/steve.a.block/R8FVNBlOc-I/AAAAAAAAFn0/BavXzKcaQJI/s800/pc310841.jpg', caption: 'New Year 08', date: '31st December' },
+        {year: 2007, photo: 'http://lh5.ggpht.com/steve.a.block/R8FTyRlOcWI/AAAAAAAAFi4/4akozdfxmw4/s800/IMGP3453.JPG', caption: 'Christmas Walk', date: '29th December', link: 'http://picasaweb.google.com/steve.a.block/ChristmasWalk07' },
+        /* {year: 2007, photo: '', caption: 'christmas in toronto', date: '22nd December', link: '' }, */
+        {year: 2007, photo: 'http://lh4.ggpht.com/steve.a.block/SBNMMS1r56I/AAAAAAAAF8E/8awrhg2utic/s800/IMGP3446.JPG', caption: 'ffridd', date: '15th December', link: 'http://bh206.tzo.com/ffridd_december_2007.php' },
+        {year: 2007, photo: '2007/woolacombeSurfing.jpg', caption: 'Woolacombe Surfing', date: '8th December', link: 'http://bh206.tzo.com/surfing_december_2007.php', portrait: true },
+        /* {year: 2007, photo: '', caption: 'xmas shopping', date: '1st December', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'bramble bashing and home to see ventures', date: '24th November', link: '' }, */
+        {year: 2007, photo: 'http://lh6.ggpht.com/steve.a.block/SBEEES1r54I/AAAAAAAAF7s/jSyUZYJG2uQ/s800/IMGP3408.JPG', caption: 'Brecons Biking', date: '17th November' },
+        /* {year: 2007, photo: '', caption: 'surfing with rhys & steve', date: '10th November', link: '' }, */
+        {year: 2007, photo: '', caption: 'Lakes Hiking', date: '3rd November' },
+        {year: 2007, photo: 'http://lh4.ggpht.com/steve.a.block/SBEDjy1r52I/AAAAAAAAF7c/pzMofl9scgI/s800/IMGP3270.JPG', caption: 'Afan Biking', date: '27th October' },
+        /* {year: 2007, photo: '', caption: 'nothing', date: '20th October', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'Day at Hannah\'s', date: '13th October', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'move to london', date: '6th October', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'nothing', date: '29th September', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'Weekend at Dave\'s', date: '22nd September', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'nothing - gardening', date: '15th September', link: '' }, */
+        {year: 2007, photo: 'http://lh5.ggpht.com/steve.a.block/RullyrNNSAI/AAAAAAAAAQA/5K03yLUk26U/s800/IMGP2913.JPG', caption: 'LEJOG', date: '25th August', link: 'http://picasaweb.google.com/steve.a.block/LEJOG' },
+        {year: 2007, photo: 'http://lh6.ggpht.com/steve.a.block/SBD-Zi1r50I/AAAAAAAAF7M/dMKYWXlcTbM/s800/IMGP2836.JPG', caption: 'Tandem Tandems', date: '24th August' },
+        /* {year: 2007, photo: '', caption: 'Lejog packing', date: '18th August', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'Travel from MTV', date: '11th August', link: '' }, */
+        {year: 2007, photo: 'http://lh3.ggpht.com/steve.a.block/SBOvhC1r58I/AAAAAAAAF8U/YIYbGZQBcC8/s800/P1060164.jpg', caption: 'Cottage Country', date: '5th August' },
+        /* {year: 2007, photo: '', caption: 'SFO, biking', date: '28th July', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'Travel to MTV', date: '21st July', link: '' }, */
+        {year: 2007, photo: 'http://lh3.ggpht.com/steve.a.block/SBD7_y1r5yI/AAAAAAAAF7A/C7sM6jgPx2s/s800/IMGP2807.JPG', caption: 'North Wales Biking', date: '12th July' },
+        {year: 2007, photo: 'http://lh6.ggpht.com/steve.a.block/SBD7-i1r5xI/AAAAAAAAF64/Ik60-tokxEk/s800/IMGP2800.JPG', caption: 'Crib Goch', date: '11th July' },
+        {year: 2007, photo: 'http://lh6.ggpht.com/steve.a.block/SBD78i1r5wI/AAAAAAAAF6w/G1Y8IpUgmUQ/s800/IMGP2776.JPG', caption: 'North Wales Hiking', date: '10th July' },
+        {year: 2007, photo: 'http://lh5.ggpht.com/steve.a.block/SBD75S1r5vI/AAAAAAAAF6o/pjdUUH2stpw/s800/IMGP2755.JPG', caption: 'Castles', date: '9th July', portrait: true },
+        {year: 2007, photo: 'http://lh5.google.com/steve.a.block/R98EpfjktGI/AAAAAAAAF3M/m3wKUEx0Nyo/s800/IMGP2697.JPG', caption: 'Claire\'s Wedding', date: '7th July' },
+        {year: 2007, photo: 'http://lh6.google.com/steve.a.block/R98DxvjktEI/AAAAAAAAF3A/11Vm29THpd8/s800/IMGP2655.JPG', caption: 'Oxford Ride', date: '1st July' },
+        {year: 2007, photo: 'http://lh4.ggpht.com/_5einibZ_20c/SV-fM_G5bnI/AAAAAAAAMtg/xIPb51i3u3c/s800/IMGP2460.JPG', caption: 'Tandem Box', date: '23rd June' },
+        {year: 2007, photo: 'http://lh4.ggpht.com/_5einibZ_20c/SWE8FwTrtqI/AAAAAAAAMxw/QpfyW7_LNgI/s800/IMGP2387.JPG', caption: 'Hannah\'s Wedding', date: '16th June'},
+        {year: 2007, photo: '', caption: 'Graduation', date: '9th June', link: '' },
+        {year: 2007, photo: 'http://lh3.google.com/steve.a.block/R7okUhlOZ-I/AAAAAAAAFNM/lHsv4WzhcNE/s800/90510020.JPG', caption: 'Gorge Scrambling', date: '2nd June', link: 'http://picasaweb.google.com/steve.a.block/GorgeScrambling', AR: 2/3 },
+        /* {year: 2007, photo: '', caption: 'job applications', date: '26th May', link: '' }, */
+        {year: 2007, photo: '2007/dalesBiking.jpg', caption: 'Dales Biking', date: '20th May', link: 'http://bh206.tzo.com/lightbluecc/photos/dales_may_2007.php' },
+        {year: 2007, photo: '2007/funRun.jpg', caption: 'Fun Run', date: '13th May', AR: 800/566 },
+        /* {year: 2007, photo: '', caption: 'Walking the dog', date: '5th May', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'ackers', date: '29th April', link: '' }, */
+        {year: 2007, photo: 'http://lh3.google.com/steve.a.block/R974zPjksLI/AAAAAAAAFvw/8odlpHz6XPY/s800/IMGP1894.JPG', caption: 'Hannah\'s Hen Night', date: '21st April', portrait: true },
+        /* {year: 2007, photo: '', caption: 'More gardening', date: '15th April', link: '' }, */
+        /* {year: 2007, photo: '', caption: 'Gardening at the LilleyBells\'', date: '8th April', link: '' }, */
+        {year: 2007, photo: 'http://lh5.google.com/steve.a.block/R5UnOvj1BUI/AAAAAAAACNA/o9JHlKcJpdI/s800/IMGP1825.JPG', caption: 'Closed Roads', date: '30th March', link: 'http://picasaweb.google.com/steve.a.block/ClosedRoads' },
+        {year: 2007, photo: '2007/imgp1813.sized.jpg', caption: 'Huntington\'s Ravine', date: '25th March', link: 'http://mitoc.mit.edu/gallery/album721' },
+        {year: 2007, photo: '2007/imgp1784.sized.jpg', caption: 'Southern Presidentials', date: '21st March', link: 'http://mitoc.mit.edu/gallery/album418' },
+        {year: 2007, photo: '2007/DSCN1418.sized.jpg', caption: 'Dracula', date: '17th March', link: 'http://mitoc.mit.edu/gallery/2007-03-17-CrawfordIce', portrait: true },
+        {year: 2007, photo: '2007/DSCN1397.sized.jpg', caption: 'Smuggler\'s Notch', date: '10th March', link: 'http://mitoc.mit.edu/gallery/2007-03-10-SmugglersNotchIce' },
+        {year: 2007, photo: 'http://lh4.google.com/steve.a.block/R5Uw8fj1BaI/AAAAAAAACN0/Wcy5rzAJTgM/s800/P2230131.JPG', caption: 'Skiing in Washington State', date: '25th February', link: 'http://picasaweb.google.com/steve.a.block/SkiingInWashington' },
+        {year: 2007, photo: '2007/imgp1669.sized.jpg', caption: 'Mt. Washington via Glen Boulder and Boott Spur', date: '18th February', link: 'http://mitoc.mit.edu/gallery/album679' },
+        {year: 2007, photo: '2007/IMGP1631.sized.jpg', caption: 'Ice Fest', date: '11th February', link: 'http://mitoc.mit.edu/gallery/album604', portrait: true },
+        {year: 2007, photo: '2007/p2040115.sized.jpg', caption: 'Mt. Washington', date: '4th February', link: 'http://mitoc.mit.edu/gallery/album618' },
+        {year: 2007, photo: '2007/P1280035.sized.jpg', caption: 'Flume Gorge', date: '28th January', link: 'http://mitoc.mit.edu/gallery/album605', portrait: true },
+        {year: 2007, photo: '2007/P1270003.sized.jpg', caption: 'Mt. Pierce', date: '27th January', link: 'http://mitoc.mit.edu/gallery/album603' },
+        {year: 2007, photo: '2007/P1210546.sized.jpg', caption: 'Flume Gorge', date: '21st January', link: 'http://mitoc.mit.edu/gallery/album562', portrait: true },
+        {year: 2007, photo: '2007/IMG_0202.sized.jpg', caption: 'Crawford Trio', date: '20th January', link: 'http://mitoc.mit.edu/gallery/album543' },
+        {year: 2007, photo: '2007/imgp1592.sized.jpg', caption: 'Kinsman Notch', date: '15th January', link: 'http://mitoc.mit.edu/gallery/album534' },
+        {year: 2007, photo: '2007/imgp1588.sized.jpg', caption: 'Lonesome Lake', date: '14th January', link: 'http://mitoc.mit.edu/gallery/album530', portrait: true },
+        {year: 2007, photo: '2007/imgp1583.sized.jpg', caption: 'Mt. Monadnock', date: '13th January', link: 'http://mitoc.mit.edu/gallery/Saturday%3A-Monadnock' },
+        {year: 2007, photo: '2007/P1030171.sized.jpg', caption: 'Pinnacle Gully', date: '7th January', link: 'http://mitoc.mit.edu/gallery/album517' },
+        {year: 2007, photo: 'http://lh5.google.com/steve.a.block/R7NhMxlOZTI/AAAAAAAAFG0/iaC1i9OehsI/s800/imgp1548.jpg', caption: 'Biking on Cape Ann', date: '6th January' },
+
+        {year: 2006, photo: 'http://lh5.google.com/steve.a.block/R5U3Evj1BgI/AAAAAAAACOk/kPY3qjGe41w/s800/group.jpg', caption: 'Pen Yr Ole Wen', date: '30th December', link: 'http://picasaweb.google.com/steve.a.block/PenYrOleWen' },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R7NvohlOZjI/AAAAAAAAFIo/3JpS3xfPGD0/s800/imgp1532.jpg', caption: 'Railway Carols', date: '24th December' },
+        {year: 2006, photo: '2006/ffridd.jpg', caption: 'Christmas at Ffridd', date: '17th December', link: 'http://86.130.79.174/ffridd_christmas_2006.php' },
+        {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5U6Z_j1BzI/AAAAAAAACRA/yqoMPLNerxM/s800/sprocket.jpg', caption: 'Kinetic sculpture', date: '18th November', link: 'http://picasaweb.google.com/steve.a.block/CruftlabsNaturalDisastersParty', AR: 3/2 },
+        {year: 2006, photo: '2006/cbt.jpg', caption: 'Cruising across the praries', date: '17th September', link: 'http://www.canadabytandem.com' },
+        {year: 2006, photo: '2006/cascades.jpg', caption: 'Climbing in the Cascades', date: '23rd August', link: 'http://mitoc.mit.edu/gallery/album393', portrait: true },
+        {year: 2006, photo: '2006/midnightMadness.jpg', caption: 'Midnight Madness in NYC', date: '6th August', link: [
+          /* {url: 'TODO', owner: 'Steve' }, */
+          {url: 'http://www.shanwu.com/webalbums/MM9/', owner: 'Shan' },
+          {url: 'http://web.mit.edu/hongma/www/MM9/', owner: 'Hong' }
+        ] },
+        {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5ZOAvj1B3I/AAAAAAAACR0/6WWtaszanF8/s800/imgp0380.jpg', caption: 'Preparing for greater things', date: '23rd July', link: 'http://picasaweb.google.com/steve.a.block/CamelotBurlingtonMontreal' },
+        {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5ZPhvj1B7I/AAAAAAAACSY/8ihn6G-I7CU/s800/imgp0367.jpg', caption: 'Boston to Provincetown with a new toy', date: '16th July' },
+        {year: 2006, photo: '2006/superverse.jpg', caption: 'Superverse', date: '8th July', link: 'http://mitoc.mit.edu/gallery/album361' },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R5ZSVPj1CLI/AAAAAAAACUY/7aIaDo0dBOM/s800/imgp0329.jpg', caption: 'The Bel Air\'s day of glory', date: '5th July', link: '../Projects/belAirReturn.html' },
+        {year: 2006, photo: 'http://lh6.google.com/steve.a.block/R5ZTevj1CPI/AAAAAAAACU4/S6k6cFT8Sbc/s800/imgp0298.jpg', caption: 'Classic Rock', date: '17th June', portrait: true },
+        {year: 2006, photo: 'http://lh3.ggpht.com/_5einibZ_20c/R5ZUP_j1CWI/AAAAAAAAMyo/Dopretbqipc/s800/SteveSwim.jpg', caption: 'Mooseman', date: '4th June', link: 'http://picasaweb.google.com/steve.a.block/Mooseman', AR: 253/380 },
+        {year: 2006, photo: '2006/lakeview.jpg', caption: 'Lakeview on Cannon', date: '28th May', link: 'http://mitoc.mit.edu/gallery/album332' },
+        {year: 2006, photo: 'http://lh5.google.com/steve.a.block/R5ZXCfj1CYI/AAAAAAAACWE/JYryjmoR6WU/s800/imgp0276.jpg', caption: 'Crossing the border', date: '7th May', portrait: true },
+        {year: 2006, photo: '2006/easterns.jpg', caption: 'Switching to the dark side', date: '30th April', link: 'http://web.mit.edu/~cycling-club/www/OutdoorAdventures/2006/Easterns/index.html', AR: 3/2 },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R5ZX-Pj1CaI/AAAAAAAACWY/5IxkkSBAF4k/s800/IMGP0270.JPG', caption: 'Kanc, Franconia and Crawford loop', date: '22nd April', portrait: true },
+        {year: 2006, photo: '2006/farewell.jpg', caption: 'A farewell to ice at the Flume', date: '15th April', link: 'http://mitoc.mit.edu/gallery/album315' },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R1H0Ttt8zWI/AAAAAAAABb4/FZ6TxzfsR80/s800/IMGP0259.JPG', caption: 'Frantic resin pouring', date: '4th April', link: '../Projects/cruftable.html' },
+        {year: 2006, photo: '2006/katahdin.jpg', caption: 'Katahdin expedition', date: '31st March', link: 'http://mitoc.mit.edu/gallery/album302' },
+        {year: 2006, photo: '2006/tuckermans.jpg', caption: 'Spring skiing in Tuckerman\'s', date: '19th March', link: 'http://mitoc.mit.edu/gallery/album294' },
+        {year: 2006, photo: 'http://lh4.google.com/steve.a.block/R7NqthlOZdI/AAAAAAAAFH4/-im6OpFiYVM/s800/IMGP0194.JPG', caption: 'Standard Right', date: '18th March', portrait: true },
+        {year: 2006, photo: '2006/katahdinTraining.jpg', caption: 'Katahdin sled training', date: '12th March', link: 'http://mitoc.mit.edu/gallery/album288', portrait: true },
+        {year: 2006, photo: '2006/pegasus.jpg', caption: 'Pegasus at Frankenstein', date: '11th March', link: 'http://mitoc.mit.edu/gallery/album293', portrait: true },
+        {year: 2006, photo: '2006/hawaii.jpg', caption: 'Hawai\'i', date: '1st March', link: 'http://mitoc.mit.edu/gallery/album281' },
+        {year: 2006, photo: '2006/frankenstein.jpg', caption: 'Frankenstein ice', date: '19th February', link: 'http://mitoc.mit.edu/gallery/album268' },
+        {year: 2006, photo: '2006/iceFest.jpg', caption: 'Mt. Washington Valley Ice Festival', date: '10th February', link: 'http://mitoc.mit.edu/gallery/album286' },
+        {year: 2006, photo: '2006/washington.jpg', caption: 'Mt. Washington', date: '5th February', link: 'http://mitoc.mit.edu/gallery/album250', portrait: true },
+        {year: 2006, photo: '2006/kinsman.jpg', caption: 'Kinsman Notch', date: '4th February', link: 'http://mitoc.mit.edu/gallery/album258', AR: 500/752 },
+        {year: 2006, photo: '2006/boottSpur.jpg', caption: 'Boott Spur and Mt. Washington', date: '28th January', link: 'http://mitoc.mit.edu/gallery/album217' },
+        {year: 2006, photo: '2006/monadnock.jpg', caption: 'Mt. Monadnock', date: '22nd January', link: 'http://mitoc.mit.edu/gallery/album201' },
+        {year: 2006, photo: '2006/flumeSlide.jpg', caption: 'Flume Slide', date: '21st January', link: 'http://mitoc.mit.edu/gallery/album178', portrait: true },
+        {year: 2006, photo: '2006/flumeGorge.jpg', caption: 'Flume Gorge', date: '16th January', link: 'http://mitoc.mit.edu/gallery/06_w1_flumegorge', portrait: true },
+        {year: 2006, photo: '2006/rumney.jpg', caption: 'Rumney', date: '15th January', link: 'http://mitoc.mit.edu/gallery/album150', portrait: true },
+
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Za0vj1CcI/AAAAAAAACWw/npMS4awR-Hw/s800/IMG_1925.JPG', caption: 'New Year 2006', date: '31st December', link: 'http://picasaweb.google.com/steve.a.block/NewYear06', portrait: true },
+        {year: 2005, photo: '2005/ffridd.jpg', caption: 'Christmas at Ffridd', date: '17th December', link: 'http://barts-web.com', portrait: true },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5ZcCvj1CiI/AAAAAAAACXg/11KGyMH31nU/s800/IMG_3791.JPG', caption: 'Sven', date: '13th December', portrait: true },
+        {year: 2005, photo: '2005/presidentials.jpg', caption: 'Presidentials', date: '27th November', link: 'http://mitoc.mit.edu/gallery/album66', AR: 427/640 },
+        {year: 2005, photo: '2005/franconiaRidge.jpg', caption: 'Franconia Ridge by Night', date: '19th November', link: 'http://mitoc.mit.edu/gallery/album136' },
+        {year: 2005, photo: '2005/adams.jpg', caption: 'Mt. Adams and Mt. Jefferson', date: '12th November', link: 'http://mitoc.mit.edu/gallery/album134', portrait: true },
+        {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R5ZkU_j1CkI/AAAAAAAACX8/GZaNPd4QBng/s800/IMG_3727.jpg', caption: 'Quincy Quarries', date: '30th October', portrait: true },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Zlkfj1CmI/AAAAAAAACYI/mvaqYFGlmuA/s800/IMG_3720.jpg', caption: 'Nationals', date: '29th October', portrait: true },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5ZmMvj1CwI/AAAAAAAACZY/vChKma4Jiok/s800/IMG_9843.jpg', caption: 'Easterns', date: '23rd October', link: 'http://picasaweb.google.com/steve.a.block/ECCCEasterns', AR: 571/800 },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R7N1KBlOZnI/AAAAAAAAFJI/kra67erxN4E/s800/IMG_3703.jpg', caption: 'Kinsman Ridge', date: '2nd October' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5ZmSfj1C1I/AAAAAAAACZ8/iyeR-I1mMjM/s800/rtb.jpg', caption: 'Reach The Beach', date: '16th September' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5ZnQPj1DFI/AAAAAAAACb4/Bli4-VAvBUE/s800/IMG_3672.jpg', caption: 'Welsh 3000s', date: '2nd September', link: 'http://picasaweb.google.com/steve.a.block/Welsh3000s' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Zn-Pj1DXI/AAAAAAAACeI/faT-eQY1bVI/s800/IMG_3633.jpg', caption: 'Birchen Edge', date: '29th August', link: 'http://picasaweb.google.com/steve.a.block/BirchenEdge', portrait: true },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5ZqHPj1DlI/AAAAAAAACf4/j9bYQk8Bk4E/s800/IMG_3588.jpg', caption: 'Colorado', date: '21st August', link: 'http://picasaweb.google.com/steve.a.block/Colorado' },
+        {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R5Z5K_j1FaI/AAAAAAAACvA/DkfDkGgCc8s/s800/IMG_3478.jpg', caption: 'Albany', date: '7th August', link: 'http://picasaweb.google.com/steve.a.block/Albany' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5ZyCPj1EkI/AAAAAAAACos/oTQrljKZodY/s800/073105_docking.jpg', caption: 'Bel Air', date: '31st July', link: '../Projects/belAir.html' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Zzffj1E2I/AAAAAAAACq8/ugURvvn0Z2k/s800/IMG_3426.jpg', caption: 'Paragliding', date: '30th July', link: 'http://picasaweb.google.com/steve.a.block/Paragliding' },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Zzwvj1E6I/AAAAAAAACrY/ucZ1xvNM1Yo/s800/IMG_3295.jpg', caption: 'Mt. Washington Road Race' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Zzzfj1E8I/AAAAAAAACrk/ZbDdUNpHGDY/s800/IMG_3287.jpg', caption: 'Greenwich', date: '12th June' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z2cfj1FMI/AAAAAAAACtg/nCcxl6xCuuc/s800/IMG_3272.jpg', caption: 'Marin County', date: '4th June', link: 'http://picasaweb.google.com/steve.a.block/MarinCounty', portrait: true },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Z1pvj1FDI/AAAAAAAACsY/YMdzkWu-Sig/s800/IMG_3225.jpg', caption: 'West Coast', date: '28th May', link: 'http://picasaweb.google.com/steve.a.block/PacificNorthWest' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Z2oPj1FPI/AAAAAAAACt0/Ij-lGkhy_BI/s800/IMG_3183.jpg', caption: 'Kingdom Trails', date: '21st May' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Z3CPj1FRI/AAAAAAAACuA/yTlqMQbwHhQ/s800/IMG_3161.jpg', caption: 'Wompatuck', date: '8th May' },
+        {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R5Z3a_j1FTI/AAAAAAAACuM/ocxz1SurBQE/s800/IMG_3145.jpg', caption: 'Trail Of Tears', date: '1st May' },
+        {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R5Z3d_j1FVI/AAAAAAAACuY/i2p59JZL5cA/s800/intervale.jpg', caption: 'Intervale', date: '23rd April' },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Z6Fvj1FuI/AAAAAAAACxk/W7E29Ggmc20/s800/IMG_3135.jpg', caption: 'Marathon', date: '18th April' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z7Ifj1F2I/AAAAAAAACys/q8kiOYkdygM/s800/IMG_3133.jpg', caption: 'Gullies', date: '14th April', link: 'http://picasaweb.google.com/steve.a.block/Gullies', portrait: true },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Z7NPj1F4I/AAAAAAAACy4/QRtPFDu97KY/s800/IMG_3124.jpg', caption: 'Flume in the Rain', date: '2nd April', portrait: true },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z7Vfj1F6I/AAAAAAAACzE/ce3UyPzBFG4/s800/IMG_3092.jpg', caption: 'Tripyramids', date: '27th March' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z7vfj1F8I/AAAAAAAACzQ/jHruq5y8Awc/s800/IMG_3053.jpg', caption: 'Transmission', date: '17th March' },
+        {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R5Z7x_j1F-I/AAAAAAAACzc/nQbrp6dJZyQ/s800/IMG_3050.jpg', caption: 'Sledding', date: '12th March' },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Z9OPj1GdI/AAAAAAAAC3Y/UauUc5yyLLw/s800/IMG_3039.jpg', caption: 'Cruftwagon', date: '7th March', link: 'http://picasaweb.google.com/steve.a.block/Cruftwagon' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z-efj1H0I/AAAAAAAADCg/xuQ_jJz45Nw/s800/IMG_3000.jpg', caption: 'Vegas', date: '28th February', link: 'http://picasaweb.google.com/steve.a.block/Vegas' },
+        {year: 2005, photo: 'http://lh3.google.com/steve.a.block/R7N0vRlOZlI/AAAAAAAAFI8/-1B5Bt43GZk/s800/IMG_2928.jpg', caption: 'Franconia Ridge', date: '21st February' },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Z-fvj1H2I/AAAAAAAADCs/pbGITpfZdW4/s800/IMG_2925.jpg', caption: 'Flume with Greddy', date: '19th February', portrait: true },
+        {year: 2005, photo: 'http://lh4.google.com/steve.a.block/R5Z-hPj1H4I/AAAAAAAADC4/loW-iWaGBBI/s800/IMG_2921.jpg', caption: 'Flume Slide', date: '12th February' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z-wfj1III/AAAAAAAADFA/4GISRQgrX2I/s800/P2050033.jpg', caption: 'Winter Presidentials Traverse', date: '5th February', link: 'http://picasaweb.google.com/steve.a.block/WinterPesidentialTraverse' },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Z_Lvj1IWI/AAAAAAAADGs/AwJQRXQd6KQ/s800/IMG_2900.jpg', caption: 'North East Ice 2', date: '27th January', link: 'http://picasaweb.google.com/steve.a.block/NorthEastIceII' },
+        {year: 2005, photo: 'http://lh6.google.com/steve.a.block/R5Z_nvj1IeI/AAAAAAAADHo/iKLIiFnvJdg/s800/IMG_3033.jpg', caption: 'Rumney', date: '9th January', link: 'http://picasaweb.google.com/steve.a.block/Rumney' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z_3fj1IiI/AAAAAAAADIA/MX27vQP3mlM/s800/IMG_2876.jpg', caption: 'Father and Shed', date: '3rd January' },
+        {year: 2005, photo: 'http://lh5.google.com/steve.a.block/R5Z_yfj1IgI/AAAAAAAADH0/2QTezQO9H90/s800/IMG_2871.jpg', caption: 'The Great Narrowboat', date: '3rd January' },
+
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kLwhTidIE/AAAAAAAAEtE/KGDAVcuqJo8/s800/NewYear05.jpg", caption: 'New Year 2005', date: '31st December', link: "http://picasaweb.google.com/steve.a.block/NewYear05" },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kMBhTidTE/AAAAAAAADTw/8i-cqMB-CHc/s800/TalybontReservoir.jpg", caption: 'Talybont Reservoir', date: '30th December' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kMOhTidVE/AAAAAAAAEtI/qaYt5mZT60w/s800/Berwyns.jpg", caption: 'Berwyns', date: '27th December', link: "http://picasaweb.google.com/steve.a.block/Berwyns" },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kMXhTidcE/AAAAAAAAEtM/uV1CMhqZ0PM/s800/RailwayCarols04.jpg", caption: 'Railway Carols', date: '24th December', link: "http://picasaweb.google.com/steve.a.block/RailwayCarols04", AR: 674/1024 },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kMgRTidmE/AAAAAAAAEtQ/HQTvIj7D_Y0/s800/Ffridd04.jpg", caption: 'Ffridd', date: '19th December', link: "http://picasaweb.google.com/steve.a.block/Ffridd04", portrait: true },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kMsxTiduE/AAAAAAAADW4/htOPvHHFZ6Q/s800/BirthdayHiking.jpg", caption: 'Birthday Hiking', date: '12th December', portrait: true },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kM2xTidwE/AAAAAAAADXE/xsa5Q00ZJH8/s800/NYCaving.jpg", caption: 'NY Caving', date: '5th December' },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5fKDRTic1E/AAAAAAAADN4/K0pR_WVEMoQ/s800/Waterfalls.jpg", caption: 'NY Waterfalls', date: '28th November', portrait: true },
+        {year: 2004, photo: "http://lh3.google.com/steve.a.block/R5kNOBTidyE/AAAAAAAADXQ/hnWm46DQL-Y/s800/Wunderbus.jpg", caption: 'The Wunderbus departs', date: '22nd November' },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kNVxTid0E/AAAAAAAADXc/aINYMXtfxZU/s800/CruftlabsParty.jpg", caption: 'Cruftlabs Party', date: '7th November' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kNvhTid2E/AAAAAAAADXo/6gQ9wUozW6Y/s800/Nationals.jpg", caption: 'Nationals', date: '30th October' },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kODRTid4E/AAAAAAAADX0/BkW22g0T6bk/s800/Sox.jpg", caption: 'Sox', date: '28th October' },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kOVRTid6E/AAAAAAAADYE/VVLI6zAUmz8/s800/Easterns.jpg", caption: 'Easterns', date: '16th October' },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kKDxTidEE/AAAAAAAADSE/6HsikOT6teM/s800/RoomAtCruftlabs.jpg", caption: 'Room At Cruftlabs', date: '12th October', portrait: true },
+        {year: 2004, photo: "http://lh3.google.com/steve.a.block/R5kPFBTid8E/AAAAAAAAEtU/GNU9xIIOFyA/s800/PemiLoop.jpg", caption: 'Pemi Loop', date: '6th October', link: 'http://picasaweb.google.com/steve.a.block/PemiLoop' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kPlhTieXE/AAAAAAAADbk/sBAAT9Xyk70/s800/CapeCodBiking.jpg", caption: 'Cape Cod Biking', date: '3rd October' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kKahTidGE/AAAAAAAADSQ/mQ0LhxNMFtM/s800/UMassRace.jpg", caption: 'UMass Race', date: '2nd October', AR: 685/1024 },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kPrhTieZE/AAAAAAAADbw/MyI7bOzX148/s800/IslandCamping.jpg", caption: 'Island Camping', date: '26th September' },
+        {year: 2004, photo: "http://lh3.google.com/steve.a.block/R5kP0BTiebE/AAAAAAAADb8/y1BRA2brPOM/s800/UNHRace.jpg", caption: 'UNH Race', date: '18th September', portrait: true },
+        {year: 2004, photo: "http://lh3.google.com/steve.a.block/R5kQSBTiedE/AAAAAAAADcI/Lbu4TtQrk3I/s800/Plattekill.jpg", caption: 'Plattekill', date: '11th September' },
+        {year: 2004, photo: 'http://lh6.google.com/steve.a.block/R7NipBlOZVI/AAAAAAAAFHA/8zVUbwQ8q1I/s800/IMG_2628.jpg', caption: 'Biking at the Fells', date: '26th August', portrait: true },
+        {year: 2004, photo: "http://lh3.google.com/steve.a.block/R5kQnBTiefE/AAAAAAAAEtY/IuHYVnsQbmU/s800/Paragliding02.jpg", caption: 'Paragliding', date: '21st August', link: "http://picasaweb.google.com/steve.a.block/Paragliding02" },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kQ8RTiexE/AAAAAAAADek/beU5SK0Gyxo/s800/CherryMountain.jpg", caption: 'Cherry Mountain Loop', date: '14th August' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kQ-hTiezE/AAAAAAAADew/cgIPP9xge9o/s800/Walden.jpg", caption: 'Walden', date: '11th August' },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kRARTie1E/AAAAAAAADe8/V3a89wIZ6Gw/s800/ErectionParty.jpg", caption: 'Erection Party', date: '7th August' },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kRCxTie3E/AAAAAAAADfI/dInHqaEQ2RQ/s800/Malverns.jpg", caption: 'Malverns', date: '26th July' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kRNhTie5E/AAAAAAAADfU/A7WLMK3v2Qo/s800/BenSLandrover.jpg", caption: 'Ben\'s Landrover', date: '23rd July' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kSlhTie7E/AAAAAAAADfo/YdcuLBjBLJ8/s800/HarrisFamily.jpg", caption: 'Football at the Harris\'', date: '17th July' },
+        {year: 2004, photo: 'http://lh5.google.com/steve.a.block/R5fKxxTic6I/AAAAAAAADOQ/YvjhUN-c9VY/s800/IMG_2558.jpg', caption: 'Cruftamaran', date: '4th July', link: '../Projects/cruftamaran.html' },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kS1hTie9E/AAAAAAAAEtc/uHs9QAPMrTg/s800/PresidentiaLTraverse.jpg", caption: 'Presidential Traverse', date: '26th June', link: "http://picasaweb.google.com/steve.a.block/PresidentiaLTraverse" },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5fJsRTiczE/AAAAAAAADNs/6nc_1URSiRY/s800/CapeCod.jpg", caption: 'Cape Cod', date: '9th June' },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kTSxTifQE/AAAAAAAADiU/_cx8V9Qs0yE/s800/Marathon04.jpg", caption: 'Marathon', date: '19th April' },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kTqxTifSE/AAAAAAAAEtg/6YwXGe_w3nE/s800/Gullies02.jpg", caption: 'Gullies', date: '23rd March', link: "http://picasaweb.google.com/steve.a.block/Gullies02", portrait: true },
+        {year: 2004, photo: "http://lh6.google.com/steve.a.block/R5kUBxTifnE/AAAAAAAAEto/YS4SKmBvazk/s800/Lafeyette.jpg", caption: 'Mt. Lafeyette', date: '20th March', link: "http://picasaweb.google.com/steve.a.block/Lafeyette" },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kUJRTifxE/AAAAAAAADmk/wFwdyr0UcrI/s800/Presidentials.jpg", caption: 'Presidentials Solo', date: '14th March' },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kUQRTifzE/AAAAAAAADm0/6v5yg7caYG4/s800/Flume.jpg", caption: 'Flume', date: '28th February', portrait: true },
+        {year: 2004, photo: "http://lh5.google.com/steve.a.block/R5kUXhTif1E/AAAAAAAADnA/PgRo3JvWMuA/s800/Sunapee.jpg", caption: 'Sunapee', date: '8th February' },
+        {year: 2004, photo: 'http://lh5.google.com/steve.a.block/R5fEpxTictI/AAAAAAAADMs/P87a7wa0tHA/s800/IMG_2045.jpg', caption: 'North East Ice', date: '29th January', link: '../Special/NorthEastIce/index.html', portrait: true },
+        {year: 2004, photo: "http://lh4.google.com/steve.a.block/R5kUrRTif3E/AAAAAAAADnU/Kyqa8mSh7yY/s800/Chocorua.jpg", caption: 'Mt. Chocorua', date: '11th January' },
+        {year: 2004, photo: "http://lh3.google.com/steve.a.block/R5kUvBTif5E/AAAAAAAADng/Y8U3cvz68O0/s800/LockwoodSChimney.jpg", caption: 'Lockwood\'s Chimney', date: '1st January', portrait: true },
+
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kZGhTif7E/AAAAAAAADok/1ljdKfji_eY/s800/NewYear04.jpg", caption: 'New Year 2004', date: '31st December' },
+        {year: 2003, photo: "http://lh4.google.com/steve.a.block/R5kZZRTif9E/AAAAAAAADow/5GdyvQow-34/s800/Montreal.jpg", caption: 'Montreal', date: '20th December', portrait: true },
+        {year: 2003, photo: "http://lh6.google.com/steve.a.block/R5kZ6xTif_E/AAAAAAAAEtw/RPkpyKOpzKs/s800/Washington.jpg", caption: 'Mt. Washington', date: '13th December', link: "http://picasaweb.google.com/steve.a.block/Washington" },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kaNhTigPE/AAAAAAAADrA/3Oqf_jTqxOQ/s800/Snow.jpg", caption: 'Snow', date: '6th December' },
+        {year: 2003, photo: "http://lh3.google.com/steve.a.block/R5kajBTigRE/AAAAAAAADrQ/QSMtZWZMFZo/s800/BertAndErnie.jpg", caption: 'Bert And Ernie', date: '30th October' },
+        {year: 2003, photo: "http://lh3.google.com/steve.a.block/R5ka6BTigTE/AAAAAAAADrc/G2LUzWIV7lo/s800/HeadOfTheCharles.jpg", caption: 'Head Of The Charles', date: '18th October' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kbMhTigVE/AAAAAAAADrw/8Dy_-EVix80/s800/Monadnock.jpg", caption: 'Mt. Monadnock', date: '12th October' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kbShTigXE/AAAAAAAAEuE/PTFxNlZ8N6U/s800/Painting.jpg", caption: 'Painting', date: '4th October', portrait: true },
+        {year: 2003, photo: "http://lh6.google.com/steve.a.block/R5kbZxTigZE/AAAAAAAADsQ/kVOpo2KFWmw/s800/Madison.jpg", caption: 'Mt. Madison', date: '22nd September' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kbnhTigbE/AAAAAAAADsg/_HNFE-Bc_6U/s800/WhaleWatching.jpg", caption: 'Whale Watching', date: '7th September' },
+        {year: 2003, photo: "http://lh4.google.com/steve.a.block/R5kcARTigdE/AAAAAAAADsw/X_Yj-0CUHNY/s800/SodiumDrop.jpg", caption: 'Sodium Drop', date: '29th August', portrait: true },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kcXhTigfE/AAAAAAAADtA/Dbmyipv2t44/s800/RoadTripII.jpg", caption: 'Road Trip 2', date: '26th August' },
+        {year: 2003, photo: "http://lh6.google.com/steve.a.block/R5kckxTighE/AAAAAAAADtM/0fuVmIFODn8/s800/SleeplessInTheSaddle.jpg", caption: 'Sleepless In The Saddle', date: '9th August', AR: 3/2 },
+        {year: 2003, photo: "http://lh6.google.com/steve.a.block/R5kcqxTigjE/AAAAAAAADtY/6n-l44-9zOo/s800/SouthWestClimbing.jpg", caption: 'South West', date: '2nd August', portrait: true },
+        {year: 2003, photo: "http://lh6.google.com/steve.a.block/R5fIfRTicxE/AAAAAAAADP8/K3Ct0aGMhKk/s800/Dublin.jpg", caption: 'Dublin', date: '26th July' },
+        {year: 2003, photo: "http://lh4.google.com/steve.a.block/R5kduRTiglE/AAAAAAAAEuU/w3SPJIFo07g/s800/EuropeBiking.jpg", caption: 'Europe', date: '16th July', link: "http://picasaweb.google.com/steve.a.block/EuropeBiking" },
+        {year: 2003, photo: "http://lh4.google.com/steve.a.block/R5ky_RTih4E/AAAAAAAAD5A/QXLHBIOvSM4/s800/Henley.jpg", caption: 'Henley', date: '3rd July' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5kzOhTih6E/AAAAAAAAD5M/DOhy_YnfZJk/s800/MountainMayhem.jpg", caption: 'Mountain Mayhem', date: '21st June', AR: 3/2 },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5o32RTih8E/AAAAAAAAD5w/wAi4gTpDxZ8/s800/MayBall.jpg", caption: 'May Ball', date: '19th June' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5o5LRTih-E/AAAAAAAAEuY/eE_vvy0gY_Q/s800/MayBumps.jpg", caption: 'May Bumps', date: '14th June', link: "http://picasaweb.google.com/steve.a.block/MayBumps", AR: 640/401 },
+        {year: 2003, photo: "http://lh6.google.com/steve.a.block/R5o7fhTiiaE/AAAAAAAAD9g/yz5TapAKF0s/s800/Peterborough.jpg", caption: 'Peterborough', date: '31st May', AR: 563/458 },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5o8GRTiicE/AAAAAAAAD9s/m86sL0wSDJE/s800/Blimp.jpg", caption: 'Blimp', date: '16th May' },
+        {year: 2003, photo: "http://lh4.google.com/steve.a.block/R5o8TBTiieE/AAAAAAAAD94/jislcln1vZs/s800/BUSA.jpg", caption: 'BUSA', date: '30th March' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5o8dRTiigE/AAAAAAAAD-E/41H_zvW6yGg/s800/Protests.jpg", caption: 'Protests', date: '20th March' },
+        {year: 2003, photo: "http://lh5.google.com/steve.a.block/R5o8mRTiiiE/AAAAAAAAD-Q/EqKZ8nJVKcM/s800/Helmsley.jpg", caption: 'Helmsley', date: '15th March' },
+        {year: 2003, photo: "http://lh3.google.com/steve.a.block/R5o9JhTiilI/AAAAAAAAD-Y/3KthvuPsp90/s800/elen1.jpg", caption: 'Lent Bumps', date: '2nd March' },
+
+        {year: 2002, photo: "http://lh5.google.com/steve.a.block/R5o9rRTiimE/AAAAAAAAD-o/PXyq4ifyQus/s800/NewYear03.jpg", caption: 'New Year 2003', date: '1st January' },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R5o_yxTiioE/AAAAAAAAEuk/-gmyRtJmppg/s800/Tryfan.jpg", caption: 'Tryfan', date: '28th December', link: "http://picasaweb.google.com/steve.a.block/Tryfan" },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R5pALxTijEE/AAAAAAAAECU/3emb8J1KwSY/s800/CwnCneifon.jpg", caption: 'Cwm Cneifon', date: '17th December', portrait: true },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R5pAdxTijGE/AAAAAAAAEus/bn3EPVakaNs/s800/Ffridd.jpg", caption: 'Ffridd', date: '7th December', link: "http://picasaweb.google.com/steve.a.block/Ffridd" },
+        {year: 2002, photo: "http://lh6.google.com/steve.a.block/R5pAnhTijME/AAAAAAAAEDQ/vw6V3JBgsSw/s800/Edale.jpg", caption: 'Edale', date: '1st December' },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R5pBNxTijOE/AAAAAAAAEDc/1xtpdy36O7Y/s800/Sheffield.jpg", caption: "Off-roading", date: '30th November', AR: 1024/699 },
+        {year: 2002, photo: "http://lh4.google.com/steve.a.block/R5pBeBTijQE/AAAAAAAAEDo/YNfL2Rr7OY0/s800/Dales.jpg", caption: 'Dales', date: '10th November' },
+        {year: 2002, photo: "http://lh6.google.com/steve.a.block/R5pB0hTijSE/AAAAAAAAED4/bb4FFgo33OM/s800/LandRoverNote.jpg", caption: 'Note on my LandRover', date: '8th November', AR: 565/480 },
+        {year: 2002, photo: "http://lh4.google.com/steve.a.block/R55UGBTimnE/AAAAAAAAEhU/GyQ0zMceMsE/s800/Fens.jpg", caption: 'Sunset on the Fens', date: '10th October' },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R5pB_xTijUE/AAAAAAAAEuw/EObvnkpZGaQ/s800/ClarksvilleCave.jpg", caption: 'Clarksville Cave', date: '23rd September', link: "http://picasaweb.google.com/steve.a.block/ClarksvilleCave" },
+        {year: 2002, photo: "http://lh5.google.com/steve.a.block/R55MWRTikiE/AAAAAAAAEu8/SKoRNz15dPY/s800/RoadTrip.jpg", caption: 'Road Trip', date: '21st August', link: "http://picasaweb.google.com/steve.a.block/RoadTrip" },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R55S0xTimOE/AAAAAAAAEvE/NJGwrxOsVNc/s800/RhysWedding.jpg", caption: 'Rhys\'Wedding', date: '20th July', link: "http://picasaweb.google.com/steve.a.block/RhysWedding", portrait: true },
+        {year: 2002, photo: "http://lh4.google.com/steve.a.block/R55TjBTimYE/AAAAAAAAEvI/IeWOMHe4_zs/s800/Newquay.jpg", caption: 'Newquay', date: '2nd July', link: "http://picasaweb.google.com/steve.a.block/Newquay" },
+        {year: 2002, photo: 'http://lh3.google.com/steve.a.block/R7OMjRlOZpI/AAAAAAAAFKA/HIrmqBtcwgo/s800/101-0185_IMG.JPG', caption: 'Jess Does the UK', date: '19th June' },
+        {year: 2002, photo: "http://lh4.google.com/steve.a.block/R55UpBTimpE/AAAAAAAAEhg/wyieUyBC_ec/s800/CapeCod02.jpg", caption: 'Cape Cod', date: '20th May', AR: 1024/720 },
+        {year: 2002, photo: "http://lh6.google.com/steve.a.block/R55U0hTimrE/AAAAAAAAEhs/ihMnQvFz0HY/s800/SundayRiver.jpg", caption: 'Sunday River', date: '1st February', portrait: true },
+        {year: 2002, photo: "http://lh4.google.com/steve.a.block/R55VCBTimtE/AAAAAAAAEh4/k1jQYcNkXVI/s800/Flume02.jpg", caption: 'Flume', date: '26th January', AR: 596/896 },
+        {year: 2002, photo: "http://lh3.google.com/steve.a.block/R55VjxTimvE/AAAAAAAAEiE/Px37MCPawc0/s800/NYC.jpg", caption: 'NYC', date: '4th January' },
+
+        {year: 2001, photo: "http://lh6.google.com/steve.a.block/R55aKhTimxE/AAAAAAAAEvY/ENHtltjqTIE/s800/NewYear02.jpg", caption: 'New Year \'02', date: '31st December', link: "http://picasaweb.google.com/steve.a.block/NewYear02" },
+        {year: 2001, photo: "http://lh6.google.com/steve.a.block/R55ahhTinHE/AAAAAAAAEn4/Nglcos98GRE/s800/Brecons.jpg", caption: 'Brecons', date: '29th December', link: "http://picasaweb.google.com/steve.a.block/Brecons" },
+        {year: 2001, photo: "http://lh4.google.com/steve.a.block/R55a7BTinfE/AAAAAAAAEoE/i_Wy09rShdY/s800/Railway.jpg", caption: 'Railway Carols', date: '24th December' },
+        {year: 2001, photo: "http://lh6.google.com/steve.a.block/R55bNhTinhE/AAAAAAAAEoU/Vqc_PohL_pE/s800/Waterville.jpg", caption: 'Waterville Valley', date: '20th December' },
+        {year: 2001, photo: 'http://lh3.google.com/steve.a.block/R7OPARlOZtI/AAAAAAAAFKc/9MuW3d8vxUE/s800/108-0848_IMG.JPG', caption: 'Scuba Diving', date: '8th December' },
+        {year: 2001, photo: "http://lh5.google.com/steve.a.block/R55bcRTinjE/AAAAAAAAEok/5NyCmPex3JU/s800/Leonids.jpg", caption: 'Leonids', date: '18th November' },
+        {year: 2001, photo: "http://lh5.google.com/steve.a.block/R55buRTinlE/AAAAAAAAEow/eX1U2Dia34I/s800/FootOfTheCharles.jpg", caption: 'Foot Of The Charles', date: '17th November', AR: 3/2 },
+        {year: 2001, photo: "http://lh4.google.com/steve.a.block/R55b6BTinnE/AAAAAAAAEpA/lQMvApqrQqE/s800/MorrisCave.jpg", caption: 'Morris Cave', date: '23rd September' },
+        {year: 2001, photo: "http://lh5.google.com/steve.a.block/R55c5RTinpE/AAAAAAAAEpc/LgMhAOJqX2c/s800/JamieS21st.jpg", caption: 'Jamie\'s 21st', date: '26th August' },
+        {year: 2001, photo: "http://lh3.google.com/steve.a.block/R55dKxTinrE/AAAAAAAAEpo/FCIpIFKvPSk/s800/Llanrhaeder.jpg", caption: 'Llanrhaeder', date: '20th August' },
+        {year: 2001, photo: "http://lh6.google.com/steve.a.block/R55dVhTintE/AAAAAAAAEp0/eW3_28pEdq0/s800/UntitledBoulder.jpg", caption: 'Untitled Boulder', date: '20th July' },
+        {year: 2001, photo: "http://lh6.google.com/steve.a.block/R55dfhTinvE/AAAAAAAAEqA/qQJz9uye2zk/s800/Mexican.jpg", caption: 'Mexican', date: '10th July' },
+        {year: 2001, photo: 'http://lh4.google.com/steve.a.block/R7NuihlOZhI/AAAAAAAAFIc/Xy5ljtB3jBU/s800/101-0150_IMG.JPG', caption: 'Punting', date: '17th June', portrait: true },
+        {year: 2001, photo: "http://lh5.google.com/steve.a.block/R55d2RTinxE/AAAAAAAAEqM/WqDilPGvejA/s800/MayBumps02.jpg", caption: 'May Bumps', date: '16th June' },
+        {year: 2001, photo: 'http://lh3.google.com/steve.a.block/R7NmCRlOZbI/AAAAAAAAFHk/c34XV-1Ve-A/s800/100-0076_IMG.JPG', caption: 'Gliding', date: '31st March' },
+        {year: 2001, photo: 'http://lh5.google.com/steve.a.block/R7NuWxlOZfI/AAAAAAAAFIQ/I56xsrfYqfw/s800/100-0028_IMG.JPG', caption: 'Kepplewray', date: '20th March', portrait: true },
+        {year: 2001, photo: 'http://lh5.google.com/steve.a.block/R7OM7xlOZrI/AAAAAAAAFKM/FV5RlDVECcA/s800/intro10.jpg', caption: 'Intro 10', date: '13th March', AR: 269/397 },
+
+        {year: 2000, photo: "http://lh4.google.com/steve.a.block/R55elxTin0I/AAAAAAAAEv8/1vQmuHdvnRw/s800/100-0063_AUT.JPG", caption: 'Froggat', date: '26th August', AR: 1 },
+        {year: 2000, photo: "http://lh5.google.com/steve.a.block/R55eqRTin1E/AAAAAAAAEqk/lsfZxE6h1cQ/s800/TheRoaches.jpg", caption: 'Roaches', date: '19th August' },
+        {year: 2000, photo: 'http://lh4.google.com/steve.a.block/R7NlqhlOZZI/AAAAAAAAFHY/Fjfk5sQywwA/s800/100-0051_AUT.JPG', caption: 'Cottesford Air Show', date: '18th June' },
+
+        {year: 1990, photo: "http://lh6.google.com/steve.a.block/R55ethTin3E/AAAAAAAAEqw/i_XLPUU--lQ/s800/Aviemore.jpg", caption: 'Aviemore', date: '15th August 1990', AR: 1024/717 }
+      ];
+
+      var maxImageDimension = 600;
+
+      function WriteEntry(entry) {
+        
+        var AR = 4/3;
+        if (entry.AR) {
+          AR = entry.AR;
+        } else if (entry.portrait == true) {
+          AR = 3/4;
+        }
+        var imageSize = FitToBoundingBox(new Size(maxImageDimension, maxImageDimension), AR);
+        var html = '<div class="photoJournal" style="width: ' + imageSize.width + 'px;">';
+        if (entry.photo) {
+          // Link should be an array of objects.
+          // For backwards compatibility - link used to be a string.
+          if (typeof entry.link == 'string') {
+            entry.link = [{url: entry.link}];
+          }
+          var hasLink = typeof entry.link == 'object' && entry.link.length > 0;
+          if (hasLink) {
+            if (typeof entry.link[0] != 'object') { alert('Error in entry "' + entry.caption + '"'); return; }
+            html += '<a href="' + entry.link[0].url + '">';
+          }
+          html += '<img class="photoJournal" src="' + entry.photo + '" alt="' + entry.caption + '" style="height: ' + imageSize.height + 'px;">';
+          if (hasLink) {
+            html += '</a>';
+          }
+          html += '<p class="photoJournal">' + entry.caption + ', ' + entry.date + '.';
+          if (hasLink) {
+            for (var i = 0; i < entry.link.length; i++) {
+              html += ' <a href="' + entry.link[i].url + '">More';
+              if (entry.link[i].owner) {
+                html += ' by ' + entry.link[i].owner;
+              }
+              html += '</a>';
+              if (i < entry.link.length - 1) {
+                html += ',';
+              }
+            }
+          }
+          html += '</p>';
+        } else {
+          html += '<p class="photoJournal">' + entry.caption + ', ' + entry.date + '. &nbsp Coming soon...</p>';
+        }
+        html += '</div>';
+        return html;
+      }
+
+      function ShowYear(year) {
+        var yearsDiv = document.getElementById('years');
+        yearsDiv.innerHTML = '';
+        for (i=0; i<years.length; ++i) {
+          if (years[i] == year) {
+            yearsDiv.innerHTML += '<span class="activeLink">' + years[i] + '</span>';
+          } else {
+            yearsDiv.innerHTML += '<a href="#' + years[i] + '" onclick="SwitchYear(' + years[i] + ')">' + years[i] + '</a>';
+          }
+          if (i < years.length-1) {
+            yearsDiv.innerHTML += ' | ';
+          }
+        }
+        var entriesDiv = document.getElementById('theEntries');
+        entriesDiv.innerHTML = '';
+        for (i=0; i<theData.length; ++i) {
+          if (theData[i].year == year) {
+            entriesDiv.innerHTML += WriteEntry(theData[i]);
+          }
+        }
+      }
+      
+      function UpdateView() {
+        var year = parseInt(window.location.hash.slice(1));
+        if (isNaN(year)) {
+          // Use latest year by default
+          year = years[years.length-1];
+        }
+        ShowYear(year);
+      }
+
+      function SwitchYear(year) {
+        window.location = '#' + year;
+        UpdateView();
+      }
+    </script>
+
+  </head>
+
+  <body onload="UpdateView();">
+
+    <div class="main">
+
+      <div class="header">
+        <div class="floatRight steveblock"><a href="../index.html">steveblock.co.uk</a></div>
+        <img class="header" src="../camera.gif">
+        <a href="../Projects/index.html">Projects</a> |
+        <span class="activeLink">Photo Journal</span>
+      </div>
+
+      <div style="text-align: center; margin: 30px;" id="years"></div>
+
+      <div id="theEntries"></div>
+
+    </div>
+
+  </body>
+  
+</html>
