@@ -289,8 +289,8 @@ function helmetTransform(cartesianPositionRepresentation, t, r, s) {
   return new CartesianPositionRepresentation(x, y, z);
 }
 
-// Converts from LatLng to Transverse Mercator? grid eastings and northings
-// Where is this from?
+// Converts from LatLng to Transverse Mercator grid eastings and northings
+// See http://www.movable-type.co.uk/scripts/latlong-gridref.html
 function convertLatLngToTransverseMercatorGrid(latLngPositionRepresentation, N_0, E_0, F_0, phi_0, lambda_0) {
   var sinPhi = Math.sin(degToRad(latLngPositionRepresentation.latitude()));
   var cosPhi = Math.cos(degToRad(latLngPositionRepresentation.latitude()));
@@ -337,6 +337,15 @@ function convertLatLngToTransverseMercatorGrid(latLngPositionRepresentation, N_0
   var E = E_0 + IV * lambdaDiff + V * Math.pow(lambdaDiff, 3) + VI * Math.pow(lambdaDiff, 5);
 
   return new GridCoordinates(E, N);
+}
+
+function gpsLatLngToUtmGrid(gpsLatitude, gpsLongitude, gpsAltitude) {
+  return convertLatLngToTransverseMercatorGrid(new LatLngPositionRepresentation(gpsLatitude, gpsLongitude, gpsAltitude, DATUMS.WGS84.a, DATUMS.WGS84.b),
+                                               GRID_PARAMETERS.UTM.N_0,
+                                               GRID_PARAMETERS.UTM.E_0,
+                                               GRID_PARAMETERS.UTM.F_0,
+                                               GRID_PARAMETERS.UTM.phi_0,
+                                               GRID_PARAMETERS.UTM.lambda_0);
 }
 
 function gpsLatLngToOsGrid(gpsLatitude, gpsLongitude, gpsAltitude) {
