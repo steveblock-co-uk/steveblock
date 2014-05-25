@@ -1,120 +1,22 @@
-function CartesianPosition(x, y, z) {
-  this.x_ = x;
-  this.y_ = y;
-  this.z_ = z;
+Number.prototype.printInt = function(width) {
+  var str = Math.floor(this).toString();
+  var res = '';
+  for (var i = 0; i < width - str.length; i++)
+    res += '0';
+  res += str;
+  return res;
+};
+
+function getCharacterByIndex(offset) {
+  return String.fromCharCode('A'.charCodeAt(0) + offset);
 }
 
-CartesianPosition.prototype.toString = function() {
-  return '(' + this.x_ + ', ' + this.y_ + ', ' + this.z_ + ')';
-};
-
-CartesianPosition.prototype.x = function() {
-  return this.x_;
-};
-
-CartesianPosition.prototype.y = function() {
-  return this.y_;
-};
-
-CartesianPosition.prototype.z = function() {
-  return this.z_;
-};
-
-////
-
-function LatLngPosition() {
-  this.a_ = null;
-  this.b_ = null;
-  this.latitude_ = null;
-  this.longitude_ = null;
-  this.altitude_ = null;
-  this.cartesian_ = null;
-
-  if (arguments.length == 3) {
-    this.initFromCartesian(arguments[0], arguments[1], arguments[2]);
-  } else if (arguments.length == 5) {
-    this.initFromLatLng(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
-  } else {
-    throw new Error('oops!');
+function addSignSuffix(valueString, positiveSuffix, negativeSuffix) {
+  if (valueString[0] == '-') {
+    return valueString.substr(1) + negativeSuffix;
   }
+  return valueString[0] == '+' ? valueString.substr(1) + positiveSuffix : valueString + positiveSuffix;
 }
-
-LatLngPosition.prototype.initFromCartesian = function(cartesian, a, b) {
-  this.a_ = a;
-  this.b_ = b;
-  this.cartesian_ = cartesian;
-}
-
-LatLngPosition.prototype.initFromLatLng = function(latitude, longitude, altitude, a, b) {
-  this.latitude_ = latitude;
-  this.longitude_ = longitude;
-  this.altitude_ = altitude;
-  this.a_ = a;
-  this.b_ = b;
-}
-
-LatLngPosition.prototype.toString = function() {
-  this.maybeCalculateLatLngAlt_();
-  return '(' + decimalToDegMinSec(this.latitude_) + ', ' + decimalToDegMinSec(this.longitude_) + ', ' + this.altitude_ + ', ' + this.a_ + ', ' + this.b_ + ')';
-};
-
-LatLngPosition.prototype.a = function() {
-  return this.a_;
-};
-
-LatLngPosition.prototype.b = function() {
-  return this.b_;
-};
-
-LatLngPosition.prototype.latitude = function() {
-  this.maybeCalculateLatLngAlt_();
-  return this.latitude_;
-};
-
-LatLngPosition.prototype.longitude = function() {
-  this.maybeCalculateLatLngAlt_();
-  return this.longitude_;
-};
-
-LatLngPosition.prototype.altitude = function() {
-  this.maybeCalculateLatLngAlt_();
-  return this.altitude_;
-};
-
-LatLngPosition.prototype.cartesian = function() {
-  this.maybeCalculateCartesian_();
-  return this.cartesian_;
-};
-
-LatLngPosition.prototype.maybeCalculateLatLngAlt_ = function() {
-  if (this.latitude_ && this.longitude_ && this.altitude) {
-    return;
-  }
-
-  var longitude = Math.atan2(this.cartesian_.y_, this.cartesian_.x_);
-  this.longitude_ = radToDeg(longitude);
-
-  var eSquared = 1 - Math.pow(this.b_ / this.a_, 2);
-//console.log('e2 = ' + eSquared);
-  var p = Math.sqrt(Math.pow(this.cartesian_.x_, 2) + Math.pow(this.cartesian_.y_, 2));
-
-  var oldLatitude = 1000;
-  var latitude = Math.atan(this.cartesian_.z_ / (p * (1 - eSquared)));
-//console.log('lat = ' + this.latitude_);
-  var precision = 0.000000001;
-  while (Math.abs(latitude - oldLatitude) > precision) {
-    var sinLatitude = Math.sin(latitude);
-    var v = this.a_ / Math.sqrt(1 - eSquared * Math.pow(sinLatitude, 2));
-//console.log('v = ' + v);
-    oldLatitude = latitude;
-    latitude = Math.atan2(this.cartesian_.z_ + eSquared * v * sinLatitude, p);
-//console.log('lat = ' + latitude);
-  }
-  this.latitude_ = radToDeg(latitude);
-
-  var cosLatitude = Math.cos(latitude);
-  this.altitude_ = p / cosLatitude - v;
-};
 
 function secToRad(seconds) {
   return degToRad(seconds / 60.0 / 60.0);
@@ -168,87 +70,167 @@ function decimalToDegMinSec(decimal, decimalPlaces) {
   return (decimal < 0 ? '-' : '') + degrees + '&deg;' + minutes + '\'' + seconds + '"';
 }
 
-function addSignSuffix(valueString, positiveSuffix, negativeSuffix) {
-  if (valueString[0] == '-') {
-    return valueString.substr(1) + negativeSuffix;
-  }
-  return valueString[0] == '+' ? valueString.substr(1) + positiveSuffix : valueString + positiveSuffix;
+////
+
+function CartesianPositionRepresentation(x, y, z) {
+  this.x_ = x;
+  this.y_ = y;
+  this.z_ = z;
 }
 
-LatLngPosition.prototype.maybeCalculateCartesian_ = function() {
-  if (this.cartesian_) {
-    return;
-  }
+CartesianPositionRepresentation.prototype.toString = function() {
+  return '(' + this.x_ + ', ' + this.y_ + ', ' + this.z_ + ')';
+};
 
-  var eSquared = 1 - Math.pow(this.b_ / this.a_, 2);
-  var sinLatitude = Math.sin(degToRad(this.latitude_));
-  var cosLatitude = Math.cos(degToRad(this.latitude_));
-  var sinLongitude = Math.sin(degToRad(this.longitude_));
-  var cosLongitude = Math.cos(degToRad(this.longitude_));
+CartesianPositionRepresentation.prototype.x = function() {
+  return this.x_;
+};
 
-  var v = this.a_ / Math.sqrt(1 - eSquared * Math.pow(sinLatitude, 2));
+CartesianPositionRepresentation.prototype.y = function() {
+  return this.y_;
+};
 
-  var x = (v + this.altitude_) * cosLatitude * cosLongitude;
-  var y = (v + this.altitude_) * cosLatitude * sinLongitude;
-  var z = ((1 - eSquared) * v + this.altitude_) * sinLatitude;
-
-  this.cartesian_ = new CartesianPosition(x, y, z);
+CartesianPositionRepresentation.prototype.z = function() {
+  return this.z_;
 };
 
 ////
 
-function GridCoordinate(easting, northing) {
-  this.initFromEastingNorthing(easting, northing);
+function LatLngPositionRepresentation(latitude, longitude, altitude, a, b) {
+  this.latitude_ = latitude;
+  this.longitude_ = longitude;
+  this.altitude_ = altitude;
+  this.a_ = a;
+  this.b_ = b;
 }
 
-GridCoordinate.prototype.initFromEastingNorthing = function(easting, northing) {
+LatLngPositionRepresentation.prototype.toString = function() {
+  return '(' + decimalToDegMinSec(this.latitude_) + ', ' + decimalToDegMinSec(this.longitude_) + ', ' + this.altitude_ + ', ' + this.a_ + ', ' + this.b_ + ')';
+};
+
+LatLngPositionRepresentation.prototype.latitude = function() {
+  return this.latitude_;
+};
+
+LatLngPositionRepresentation.prototype.longitude = function() {
+  return this.longitude_;
+};
+
+LatLngPositionRepresentation.prototype.altitude = function() {
+  return this.altitude_;
+};
+
+LatLngPositionRepresentation.prototype.a = function() {
+  return this.a_;
+};
+
+LatLngPositionRepresentation.prototype.b = function() {
+  return this.b_;
+};
+
+////
+
+function Position(positionRepresentation) {
+  if (positionRepresentation instanceof CartesianPositionRepresentation)
+    this.cartesianRepresentation_ = positionRepresentation;
+  else if (positionRepresentation instanceof LatLngPositionRepresentation)
+    this.latLngRepresentation_ = positionRepresentation;
+  else
+    throw new Error('oops!');
+}
+
+Position.prototype.latLngRepresentation = function(a, b) {
+  this.maybeCalculateLatLngRepresentation_(a, b);
+  return this.latLngRepresentation_;
+};
+
+Position.prototype.maybeCalculateLatLngRepresentation_ = function(a, b) {
+  if (this.latLngRepresentation_ && this.latLngRepresentation_.a() === a && this.latLngRepresentation_.b() === b)
+    return;
+
+  var longitude = Math.atan2(this.cartesianRepresentation_.y(), this.cartesianRepresentation_.x());
+
+  var eSquared = 1 - Math.pow(b / a, 2);
+  var p = Math.sqrt(Math.pow(this.cartesianRepresentation_.x(), 2) + Math.pow(this.cartesianRepresentation_.y(), 2));
+
+  var oldLatitude = 1000;
+  var latitude = Math.atan(this.cartesianRepresentation_.z() / (p * (1 - eSquared)));
+  var precision = 0.000000001;
+  while (Math.abs(latitude - oldLatitude) > precision) {
+    var sinLatitude = Math.sin(latitude);
+    var v = a / Math.sqrt(1 - eSquared * Math.pow(sinLatitude, 2));
+    oldLatitude = latitude;
+    latitude = Math.atan2(this.cartesianRepresentation_.z() + eSquared * v * sinLatitude, p);
+  }
+
+  var cosLatitude = Math.cos(latitude);
+  var altitude = p / cosLatitude - v;
+
+  this.latLngRepresentation_ = new LatLngPositionRepresentation(radToDeg(latitude), radToDeg(longitude), altitude, a, b);
+};
+
+Position.prototype.cartesianRepresentation = function() {
+  this.maybeCalculateCartesianRepresentation_();
+  return this.cartesianRepresentation_;
+};
+
+Position.prototype.maybeCalculateCartesianRepresentation_ = function() {
+  if (this.cartesianRepresentation_)
+    return;
+
+  var eSquared = 1 - Math.pow(this.latLngRepresentation_.b() / this.latLngRepresentation_.a(), 2);
+  var sinLatitude = Math.sin(degToRad(this.latLngRepresentation_.latitude()));
+  var cosLatitude = Math.cos(degToRad(this.latLngRepresentation_.latitude()));
+  var sinLongitude = Math.sin(degToRad(this.latLngRepresentation_.longitude()));
+  var cosLongitude = Math.cos(degToRad(this.latLngRepresentation_.longitude()));
+
+  var v = this.latLngRepresentation_.a() / Math.sqrt(1 - eSquared * Math.pow(sinLatitude, 2));
+
+  var x = (v + this.latLngRepresentation_.altitude()) * cosLatitude * cosLongitude;
+  var y = (v + this.latLngRepresentation_.altitude()) * cosLatitude * sinLongitude;
+  var z = ((1 - eSquared) * v + this.latLngRepresentation_.altitude()) * sinLatitude;
+
+  this.cartesianRepresentation_ = new CartesianPositionRepresentation(x, y, z);
+};
+
+////
+
+function GridCoordinates(easting, northing) {
   this.easting_ = easting;
   this.northing_ = northing;
 }
 
-GridCoordinate.prototype.easting = function() {
+GridCoordinates.prototype.easting = function() {
   return this.easting_;
 };
 
-GridCoordinate.prototype.northing = function() {
+GridCoordinates.prototype.northing = function() {
   return this.northing_;
 };
 
-GridCoordinate.prototype.toString = function() {
+GridCoordinates.prototype.toString = function() {
   return '(' + this.easting_ + ', ' + this.northing_ + ')';
 };
 
 ////
 
-function OSGridCoordinate() {
-  if (arguments.length == 1) {
-    var gridCoordinate = arguments[0];
-    this.initFromEastingNorthing(gridCoordinate.easting(), gridCoordinate.northing());
-  } else if (arguments.length == 2) {
-    this.initFromEastingNorthing(arguments[0], arguments[1]);
-  } else {
-    throw new Error('oops!');
+function OsGridReference(gridCoordinates, digits, useSquareCode) {
+  if (false /* gridCoordinates.easting() < TODO */) {
+    this.string_ = 'Invalid grid coordinates ' + gridCoordinates;
+    return;
   }
-}
 
-OSGridCoordinate.prototype = new GridCoordinate;
-
-function getCharacterByIndex(offset) {
-  return String.fromCharCode('A'.charCodeAt(0) + offset);
-}
-
-OSGridCoordinate.prototype.toGridRefString = function(digits, useSquareCode) {
   var squareCode = '';
   
   if (useSquareCode) {
     // Get indices into 100km grid squares.
     // Numerical origin is at square (10, 19), with y axis flipped.
-    var xSquare = 10 + Math.floor(this.easting_ / 1e5);
-    var ySquare = 19 - Math.floor(this.northing_ / 1e5);
+    var xSquare = 10 + Math.floor(gridCoordinates.easting() / 1e5);
+    var ySquare = 19 - Math.floor(gridCoordinates.northing() / 1e5);
 
     // Apply pattern of square lettering.
     var letterOffset1 = Math.floor(ySquare / 5) * 5 + Math.floor(xSquare / 5);
-    var letterOffset2 = (ySquare % 5) * 5 + xSquare%5;
+    var letterOffset2 = (ySquare % 5) * 5 + xSquare % 5;
 
     // Account for the fact that 'I' is skipped.
     if (letterOffset1 > 7) letterOffset1++;
@@ -260,33 +242,27 @@ OSGridCoordinate.prototype.toGridRefString = function(digits, useSquareCode) {
   }
 
   // Get coordinate into 100km grid square.
-  var x = this.easting_ % 1e5;
-  var y = this.northing_ % 1e5;
+  var x = gridCoordinates.easting() % 1e5;
+  var y = gridCoordinates.northing() % 1e5;
 
   // Trim to required number of digits
-  return squareCode
+  this.string_ = squareCode
       + ' ' + (x / Math.pow(10, 5 - digits / 2)).printInt(digits / 2) 
       + ' ' + (y / Math.pow(10, 5 - digits / 2)).printInt(digits / 2);
 };
 
-Number.prototype.printInt = function(width) {
-  var str = Math.floor(this).toString();
-  var res = '';
-  for (var i = 0; i < width - str.length; i++)
-    res += '0';
-  res += str;
-  return res;
-};
+OsGridReference.prototype.toString = function() {
+  return this.string_;
+}
 
 ////
 
-
 var DATUMS = {
-  AIRY1830: {a:	6377563.396, b:	6356256.910},
-  GRS80: {a: 6378137.000, b: 6356752.3141}
+  OSGB36: {a:	6377563.396, b:	6356256.910},
+  WGS84: {a: 6378137.000, b: 6356752.3142}
 };
-DATUMS.WGS84 = DATUMS.GRS80;
 
+// From http://en.wikipedia.org/wiki/Helmert_transformation#Standard_parameters
 var TRANSFORMATIONS = {
   WGS84_TO_OSGB36: {
     t: {x: -446.448, y: 125.157, z: -542.060},
@@ -295,7 +271,7 @@ var TRANSFORMATIONS = {
   }
 };
 
-var UTM_PARAMETERS = {
+var GRID_PARAMETERS = {
   OS: {
     N_0: -100000,       // northing of true origin, m
     E_0: 400000,        // easting of true origin, m
@@ -306,17 +282,18 @@ var UTM_PARAMETERS = {
 };
 
 // Transforms from one datum to another, in cartesian coordinates
-function helmetTransform(cartesianPosition, t, r, s) {
-  var x = t.x + (1 + s) * cartesianPosition.x() -     r.z * cartesianPosition.y() +     r.y * cartesianPosition.z();
-  var y = t.y +     r.z * cartesianPosition.x() + (1 + s) * cartesianPosition.y() -     r.x * cartesianPosition.z();
-  var z = t.z -     r.y * cartesianPosition.x() +     r.x * cartesianPosition.y() + (1 + s) * cartesianPosition.z();
-  return new CartesianPosition(x, y, z);
+function helmetTransform(cartesianPositionRepresentation, t, r, s) {
+  var x = t.x + (1 + s) * cartesianPositionRepresentation.x() -     r.z * cartesianPositionRepresentation.y() +     r.y * cartesianPositionRepresentation.z();
+  var y = t.y +     r.z * cartesianPositionRepresentation.x() + (1 + s) * cartesianPositionRepresentation.y() -     r.x * cartesianPositionRepresentation.z();
+  var z = t.z -     r.y * cartesianPositionRepresentation.x() +     r.x * cartesianPositionRepresentation.y() + (1 + s) * cartesianPositionRepresentation.z();
+  return new CartesianPositionRepresentation(x, y, z);
 }
 
-// Converts from LatLng to UTM grid eastings and northings
-function convertLatLngToUTMGrid(latLngPosition, N_0, E_0, F_0, phi_0, lambda_0) {
-  var sinPhi = Math.sin(degToRad(latLngPosition.latitude()));
-  var cosPhi = Math.cos(degToRad(latLngPosition.latitude()));
+// Converts from LatLng to Transverse Mercator? grid eastings and northings
+// Where is this from?
+function convertLatLngToTransverseMercatorGrid(latLngPositionRepresentation, N_0, E_0, F_0, phi_0, lambda_0) {
+  var sinPhi = Math.sin(degToRad(latLngPositionRepresentation.latitude()));
+  var cosPhi = Math.cos(degToRad(latLngPositionRepresentation.latitude()));
   var tanPhi = sinPhi / cosPhi;
 
   var sinSquaredPhi = Math.pow(sinPhi, 2);
@@ -325,65 +302,53 @@ function convertLatLngToUTMGrid(latLngPosition, N_0, E_0, F_0, phi_0, lambda_0) 
   var tanSquaredPhi = Math.pow(tanPhi, 2);
   var tanFourthPhi = Math.pow(tanPhi, 4);
 
-  var eSquared = 1 - Math.pow(latLngPosition.b() / latLngPosition.a(), 2);
+  var eSquared = 1 - Math.pow(latLngPositionRepresentation.b() / latLngPositionRepresentation.a(), 2);
   var x = 1 - eSquared * sinSquaredPhi;
 
-  var n = (latLngPosition.a() - latLngPosition.b()) / (latLngPosition.a() + latLngPosition.b());
-  var nu = latLngPosition.a() * F_0 / Math.sqrt(x);
-//console.log('nu = ' + nu);
-  var rho = latLngPosition.a() * F_0 * (1 - eSquared) / Math.pow(x, 1.5);
-//console.log('rho = ' + rho);
+  var n = (latLngPositionRepresentation.a() - latLngPositionRepresentation.b()) /
+          (latLngPositionRepresentation.a() + latLngPositionRepresentation.b());
+  var nu = latLngPositionRepresentation.a() * F_0 / Math.sqrt(x);
+  var rho = latLngPositionRepresentation.a() * F_0 * (1 - eSquared) / Math.pow(x, 1.5);
   var etaSquared = nu / rho - 1;
-//console.log('etaSquared = ' + etaSquared);
 
   var nSquared = Math.pow(n, 2);
   var nCubed = Math.pow(n, 3);
 
-  var phiDiff = degToRad(latLngPosition.latitude() - phi_0);
-  var phiSum = degToRad(latLngPosition.latitude() + phi_0);
+  var phiDiff = degToRad(latLngPositionRepresentation.latitude() - phi_0);
+  var phiSum = degToRad(latLngPositionRepresentation.latitude() + phi_0);
 
-  var M = latLngPosition.b() * F_0 *
+  var M = latLngPositionRepresentation.b() * F_0 *
       ((1 + n + 5/4 * nSquared + 5/4 * nCubed) * phiDiff -
        (3 * n + 3 * nSquared + 21/8 * nCubed) * Math.sin(phiDiff) * Math.cos(phiSum) +
        15/8 * (nSquared + nCubed) * Math.sin(2 * phiDiff) * Math.cos(2 * phiSum) -
        35/24 * nCubed * Math.sin(3 * phiDiff) * Math.cos(3 * phiDiff));
-//console.log('M = ' + M);
 
   var I = M + N_0;
-//console.log('I = ' + I);
   var II = nu / 2 * sinPhi * cosPhi;
-//console.log('II = ' + II);
   var III = nu / 24 * sinPhi * cosCubedPhi * (5 - tanSquaredPhi + 9 * etaSquared);
-//console.log('III = ' + III);
   var IIIA = nu / 720 * sinPhi * cosFifthPhi * (61 - 58 * tanSquaredPhi + tanFourthPhi);
-//console.log('IIIA = ' + IIIA);
   var IV = nu * cosPhi;
-//console.log('IV = ' + IV);
   var V = nu / 6 * cosCubedPhi * (nu / rho - tanSquaredPhi);
-//console.log('V = ' + V);
   var VI = nu / 120 * cosFifthPhi * (5 - 18 * tanSquaredPhi + tanFourthPhi + 14 * etaSquared - 58 * tanSquaredPhi * etaSquared);
-//console.log('VI = ' + VI);
 
-  var lambdaDiff = degToRad(latLngPosition.longitude() - lambda_0);
+  var lambdaDiff = degToRad(latLngPositionRepresentation.longitude() - lambda_0);
 
   var N = I + II * Math.pow(lambdaDiff, 2) + III * Math.pow(lambdaDiff, 4) + IIIA * Math.pow(lambdaDiff, 6);
   var E = E_0 + IV * lambdaDiff + V * Math.pow(lambdaDiff, 3) + VI * Math.pow(lambdaDiff, 5);
 
-  return new GridCoordinate(E, N);
+  return new GridCoordinates(E, N);
 }
 
-function gpsLatLngToOSGrid(gpsLatitude, gpsLongitude, gpsAltitude) {
-  var wgs84LatLngPosition = new LatLngPosition(gpsLatitude, gpsLongitude, gpsAltitude, DATUMS.WGS84.a, DATUMS.WGS84.b);
-  var airy1830CartesianPosition = helmetTransform(wgs84LatLngPosition.cartesian(),
-                                                  TRANSFORMATIONS.WGS84_TO_OSGB36.t,
-                                                  TRANSFORMATIONS.WGS84_TO_OSGB36.r,
-                                                  TRANSFORMATIONS.WGS84_TO_OSGB36.s);
-  var airy1830LatLngPosition = new LatLngPosition(airy1830CartesianPosition, DATUMS.AIRY1830.a, DATUMS.AIRY1830.b);
-  var grid = convertLatLngToUTMGrid(airy1830LatLngPosition,
-                                    UTM_PARAMETERS.OS.N_0,
-                                    UTM_PARAMETERS.OS.E_0,
-                                    UTM_PARAMETERS.OS.F_0,
-                                    UTM_PARAMETERS.OS.phi_0,
-                                    UTM_PARAMETERS.OS.lambda_0);
-  return new OSGridCoordinate(grid);
+function gpsLatLngToOsGrid(gpsLatitude, gpsLongitude, gpsAltitude) {
+  var wgs84Position = new Position(new LatLngPositionRepresentation(gpsLatitude, gpsLongitude, gpsAltitude, DATUMS.WGS84.a, DATUMS.WGS84.b));
+  var osgb36Position = new Position(helmetTransform(wgs84Position.cartesianRepresentation(),
+                                                    TRANSFORMATIONS.WGS84_TO_OSGB36.t,
+                                                    TRANSFORMATIONS.WGS84_TO_OSGB36.r,
+                                                    TRANSFORMATIONS.WGS84_TO_OSGB36.s));
+  return convertLatLngToTransverseMercatorGrid(osgb36Position.latLngRepresentation(DATUMS.OSGB36.a, DATUMS.OSGB36.b),
+                                               GRID_PARAMETERS.OS.N_0,
+                                               GRID_PARAMETERS.OS.E_0,
+                                               GRID_PARAMETERS.OS.F_0,
+                                               GRID_PARAMETERS.OS.phi_0,
+                                               GRID_PARAMETERS.OS.lambda_0);
 }
