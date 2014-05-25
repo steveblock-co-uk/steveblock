@@ -7,10 +7,10 @@
       function runTests() {
         // Snowdon
         // http://www.nearby.org.uk/coord.cgi?p=53.068497%2C+-4.076231&f=full
-        var gridCoordinates = gpsLatLngToOSGrid(53.068497, -4.076231, 1085);
+        var gridCoordinates = gpsLatLngToOsGrid(53.068497, -4.076231, 1085);
         check(Math.floor(gridCoordinates.easting()), 260985, 'Snowdon OS easting');
         check(Math.floor(gridCoordinates.northing()), 354377, 'Snowdon OS northing');
-        check(gridCoordinates.toGridRefString(10, true), 'SH 60985 54377', 'Snowdon OS grid reference');
+        check(new OsGridReference(gridCoordinates, 10, true).toString(), 'SH 60985 54377', 'Snowdon OS grid reference');
       }
     </script>
     <style type="text/css">

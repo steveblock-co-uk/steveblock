@@ -76,7 +76,7 @@
         //return;
 
         navigator.geolocation.watchPosition(onNewPosition, null, {enableHighAccuracy: true});
-        //onNewPosition({coords: {latitude: 54.2, longitude: -1.4, altitude: 0, accuracy: 100}});
+
         window.setInterval(updateAge, 1000);
 
         registerForAppcacheEvents();
@@ -120,11 +120,11 @@
       }
 
       function onNewPosition(position) {
-        var coords = gpsLatLngToOSGrid(position.coords.latitude, position.coords.longitude, position.coords.altitude);
+        var gridCoords = gpsLatLngToOsGrid(position.coords.latitude, position.coords.longitude, position.coords.altitude);
         document.getElementById('latLng').innerHTML =
             addSignSuffix(decimalToDegMinSec(position.coords.latitude, 1), ' N', ' S') +
             ', ' + addSignSuffix(decimalToDegMinSec(position.coords.longitude, 1), ' E', ' W');
-        document.getElementById('coords').innerHTML = 'OS grid ref : ' + coords.toGridRefString(10, true);
+        document.getElementById('coords').innerHTML = 'OS grid ref : ' + new OsGridReference(gridCoords, 10, true);
         document.getElementById('accuracy').innerHTML = 'Accuracy : ' + position.coords.accuracy + ' m';
         document.getElementById('altitude').innerHTML = 'Altitude : ' + 
             (position.coords.altitude ? position.coords.altitude + ' m' : 'unknown');
