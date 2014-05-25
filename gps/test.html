@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="gps.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript">
+      function runTests() {
+        // Snowdon
+        // http://www.nearby.org.uk/coord.cgi?p=53.068497%2C+-4.076231&f=full
+        var gridCoordinates = gpsLatLngToOSGrid(53.068497, -4.076231, 1085);
+        check(Math.floor(gridCoordinates.easting()), 260985, 'Snowdon OS easting');
+        check(Math.floor(gridCoordinates.northing()), 354377, 'Snowdon OS northing');
+        check(gridCoordinates.toGridRefString(10, true), 'SH 60985 54377', 'Snowdon OS grid reference');
+      }
+    </script>
+    <style type="text/css">
+      body {
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: small;
+      }
+      body > div {
+        background-color: lime;
+        margin: 2px;
+        border: 1px solid grey;
+        padding: 1px;
+      }
+      body > div.fail {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body onload="runTests();">
+  <body>
+</html>
