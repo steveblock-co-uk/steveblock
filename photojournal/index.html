@@ -5468,7 +5468,7 @@
       // Generates HTML for an entry
       function writeEntry(entry) {
         var size = typeof entry.size === 'undefined' ? new Size(800, 600) : new Size(entry.size.x, entry.size.y);
-        var imageSize = FitToBoundingBox(new Size(maxImageDimension, maxImageDimension), size);
+        var imageSize = SizeForArea(maxImageDimension * maxImageDimension * 0.75, size);
         var date = entry.day + getOrdinalSuffix(entry.day) + ' ' + entry.month;
 
         var wrapper = document.createElement('div');

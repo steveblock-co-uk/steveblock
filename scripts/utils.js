@@ -16,3 +16,9 @@ function FitToBoundingBox(boxSize, objectSize) {
     return new Size(boxSize.width, boxSize.width / objectAR);
   return new Size(boxSize.height * objectAR, boxSize.height);
 }
+
+function SizeForArea(area, objectSize) {
+  var AR = objectSize.AspectRatio();
+  var height = Math.sqrt(area / AR);
+  return new Size(height * AR, height);
+}
