@@ -5576,6 +5576,7 @@
         } else {
           caption.appendChild(document.createTextNode(' Coming soon...'));
         }
+        caption.appendChild(permalink(entry));
         wrapper.appendChild(caption);
 
         if (entry.more) {
@@ -5588,9 +5589,20 @@
         return wrapper;
       }
 
+      function idString(entry) {
+        return entry.year + entry.month + entry.day + "_";
+      }
+
+      function permalink(entry) {
+        var link = document.createElement('a');
+        link.href = "#" + idString(entry);
+        link.innerText = '[permalink]';
+        return link;
+      }
+
       function writeId(entry) {
         var id = document.createElement('a');
-        id.name = entry.year + entry.month + entry.day + "_";
+        id.name = idString(entry);
         id.className = 'tag';
         return id;
       }
