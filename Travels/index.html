@@ -12,15 +12,15 @@
     <title> Steve Block : Travels </title>
 
     <script src="../main.js" type="text/javascript"></script>
-    <script src="../Scripts/utils.js" type="text/javascript"></script>
-    <script src="../Scripts/googleMaps.js" type="text/javascript"></script>
+    <script src="../../Scripts/utils.js" type="text/javascript"></script>
+    <script src="../../Scripts/googleMaps.js" type="text/javascript"></script>
 
     <!-- this key is good for web.mit.edu/snw/www -->
     <script src="http://www.google.com/jsapi?key=ABQIAAAA_Xocq18Wh01DYjhDo3vEbxQww4B36n1MWJcqWT3ccjTYRRSVWRQWr3G6zUsMyWbZ8HtxYPIlTK9GSg" type="text/javascript"></script>
 
     <script type="text/javascript">
       LoadGoogleMaps();
-      var pathToScripts = '../'; // To locate map icons
+      var pathToScripts = '../../'; // To locate map icons
       window.onresize = ResizeMap;
       // This is a map containing all of the ClickHandler methods referenced in the XML file
       googleMapsClickHandler[ 'ShowPopUp' ] = function( marker, point, args ){ 
