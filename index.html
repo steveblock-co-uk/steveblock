@@ -1,79 +1,63 @@
-<HTML>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
+<HTML>
+ 
   <HEAD>
 
-    <TITLE>Welcome to steveblock.co.uk</TITLE>
-
-    <META NAME="description" content="Steve Block's photos and rants">
-    <META NAME="keywords" content="Steve, Steve Block, Stephen, Stephen Block, steveblock, sblock, sab63, Cambridge, MIT, knowle">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html;charset=utf-8">
+    <META NAME="description" content="Steve Block : photos and adventures">
+    <META NAME="keywords" content="Steve, Steve Block, Stephen, Stephen Block, steveblock, sblock, sab63, Cambridge, MIT, knowle, cruftlabs">
 
     <LINK TYPE="text/css" REL="stylesheet" HREF="main.css">
+
+    <SCRIPT TYPE="text/javascript">
+      function MouseOver( description ) {
+        document.theForm.info.value = description;
+      }
+      function MouseOut() {
+        document.theForm.info.value = "";
+      }
+    </SCRIPT>
+
+    <STYLE TYPE="text/css">
+      IMG.mainPage {
+        width: 100px;
+        height: 100px;
+      }
+      SPAN.mainPage {
+        margin: 0px 10px;
+      }
+    </STYLE>
+
+    <TITLE>steveblock.co.uk</TITLE>
 
   </HEAD>
 
   <BODY>
 
-    <CENTER><H2>
-      steveblock.co.uk
-    </H2></CENTER>
+    <H1> steveblock.co.uk </H1>
 
-    <P> &nbsp </P>
+    <DIV STYLE="margin-top: 70px; margin-bottom: 70px; text-align: center;">
+      <SPAN CLASS="mainPage">
+        <A HREF="Engineering/Masters.html"><IMG CLASS="mainPage" SRC="Engineering.gif" ALT="Engineering" onmouseover="MouseOver('Engineering');" onmouseout="MouseOut();"></A>
+      </SPAN>
+      <SPAN CLASS="mainPage">
+        <A HREF="gallery2embedded.php"><IMG CLASS="mainPage" SRC="Mountains.gif" ALT="Mountains" onmouseover="MouseOver('Mountains');" onmouseout="MouseOut();"></A>
+      </SPAN>
+      <SPAN CLASS="mainPage">
+        <A HREF="Photos/Albums/Trips/"><IMG CLASS="mainPage" SRC="Travels.gif" ALT="Travels" onmouseover="MouseOver('Travels');" onmouseout="MouseOut();"></A>
+      </SPAN>
+      <SPAN CLASS="mainPage">
+        <A HREF="Photos/Albums/PhotoJournal"><IMG CLASS="mainPage" SRC="PhotoJournal.gif" ALT="Photo Journal" onmouseover="MouseOver('Photo Journal');" onmouseout="MouseOut();"></A>
+      </SPAN>
+    </DIV>
 
-    <P> As you may have guessed, this site is run by me, Steve Block.
-        Hope you enjoy the show.
-    </P>
+    <FORM NAME="theForm" ACTION="">
+      <DIV STYLE="text-align: center;">
+        <INPUT CLASS="hidden" TYPE="text" NAME="info" READONLY VALUE="" STYLE="text-align: center;">
+      </DIV>
+    </FORM>
 
-    <P> &nbsp </P>
-
-    <h3>
-      Photos
-    </h3>
-
-    <P>
-      This site is mostly a collection of
-      <A HREF="gallery2embedded.php">photos</A>,
-      including a
-      <A HREF="POTD/index.html">photo journal</A>
-      of what I've been up to lately.
-    </P>
-
-    <P> &nbsp </P>
-
-
-    <h3>
-      Lastest News
-    </h3>
-
-    <h4>
-      23rd August 2006 : Canada By Tandem
-    </h4>
-    <P>
-      The big news is that on 9th September I'm leaving for Vancouver to cycle across Canada.
-      You can follow our progress at
-      <A HREF="http://www.canadabytandem.com">www.canadabytandem.com</A>.
-      Of course there's the small matter of
-      <A HREF="thesis.jpg">completing my thesis</A>
-      by Friday, but I still don't believe that it'll ever happen.
-    </P>
-
-    <P> &nbsp </P>
-
-    <P>
-      Everything else is
-      <A HREF="news.html">old news</A>.
-    </P>
-  
-    <P> &nbsp </P>
-  
-    <h3>
-      Contact
-    </h3>
-  
-    <P>
-      You can email me at
-      <A HREF=mailto:website@steveblock.co.uk>website@steveblock.co.uk</A>.
-    </P>
-  
   </BODY>
 
 </HTML>
